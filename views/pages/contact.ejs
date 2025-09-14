@@ -1,0 +1,361 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <img src="/public/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-6">
+                <h1 class="text-4xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'تواصل معنا' : 'Contact Us' %>
+                </h1>
+                <p class="text-xl text-gold/70 max-w-2xl mx-auto">
+                    <%= language === 'ar' ?
+                        'نحن هنا لمساعدتك. تواصل معنا في أي وقت وسنكون سعداء بخدمتك وحل جميع استفساراتك' :
+                        'We are here to help you. Contact us anytime and we will be happy to serve you and answer all your questions'
+                    %>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                    <h2 class="text-2xl font-bold text-gold mb-6">
+                        <%= language === 'ar' ? 'أرسل لنا رسالة' : 'Send us a message' %>
+                    </h2>
+
+                    <form action="/api/contact" method="POST" class="space-y-6">
+                        <!-- Name & Email -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gold mb-2">
+                                    <%= language === 'ar' ? 'الاسم الكامل' : 'Full Name' %> *
+                                </label>
+                                <input type="text" name="name" required
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                       placeholder="<%= language === 'ar' ? 'أدخل اسمك الكامل' : 'Enter your full name' %>">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gold mb-2">
+                                    <%= language === 'ar' ? 'البريد الإلكتروني' : 'Email Address' %> *
+                                </label>
+                                <input type="email" name="email" required
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                       placeholder="<%= language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email address' %>">
+                            </div>
+                        </div>
+
+                        <!-- Phone & Company -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gold mb-2">
+                                    <%= language === 'ar' ? 'رقم الهاتف' : 'Phone Number' %>
+                                </label>
+                                <div class="flex">
+                                    <select name="countryCode" class="px-3 py-3 bg-gray-800/50 border border-gold/30 border-r-0 rounded-l-lg text-gold focus:outline-none focus:border-gold">
+                                        <option value="+966">🇸🇦 +966</option>
+                                        <option value="+1">🇺🇸 +1</option>
+                                        <option value="+44">🇬🇧 +44</option>
+                                        <option value="+971">🇦🇪 +971</option>
+                                    </select>
+                                    <input type="tel" name="phone"
+                                           class="flex-1 px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-r-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                           placeholder="<%= language === 'ar' ? '5xxxxxxxx' : 'Phone number' %>">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gold mb-2">
+                                    <%= language === 'ar' ? 'الشركة/المؤسسة' : 'Company/Organization' %>
+                                </label>
+                                <input type="text" name="company"
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                       placeholder="<%= language === 'ar' ? 'اسم الشركة (اختياري)' : 'Company name (optional)' %>">
+                            </div>
+                        </div>
+
+                        <!-- Subject -->
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'الموضوع' : 'Subject' %> *
+                            </label>
+                            <select name="subject" required
+                                    class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold">
+                                <option value=""><%= language === 'ar' ? 'اختر الموضوع' : 'Select subject' %></option>
+                                <option value="general"><%= language === 'ar' ? 'استفسار عام' : 'General Inquiry' %></option>
+                                <option value="technical"><%= language === 'ar' ? 'دعم تقني' : 'Technical Support' %></option>
+                                <option value="billing"><%= language === 'ar' ? 'الفواتير والدفع' : 'Billing & Payment' %></option>
+                                <option value="feature"><%= language === 'ar' ? 'طلب ميزة جديدة' : 'Feature Request' %></option>
+                                <option value="partnership"><%= language === 'ar' ? 'شراكة تجارية' : 'Business Partnership' %></option>
+                                <option value="bug"><%= language === 'ar' ? 'الإبلاغ عن مشكلة' : 'Bug Report' %></option>
+                                <option value="other"><%= language === 'ar' ? 'أخرى' : 'Other' %></option>
+                            </select>
+                        </div>
+
+                        <!-- Priority -->
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'الأولوية' : 'Priority' %>
+                            </label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="priority" value="low" class="text-gold focus:ring-gold" checked>
+                                    <span class="ml-2 text-gold/80"><%= language === 'ar' ? 'منخفضة' : 'Low' %></span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="priority" value="medium" class="text-gold focus:ring-gold">
+                                    <span class="ml-2 text-gold/80"><%= language === 'ar' ? 'متوسطة' : 'Medium' %></span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="priority" value="high" class="text-gold focus:ring-gold">
+                                    <span class="ml-2 text-gold/80"><%= language === 'ar' ? 'عالية' : 'High' %></span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="priority" value="urgent" class="text-gold focus:ring-gold">
+                                    <span class="ml-2 text-gold/80"><%= language === 'ar' ? 'عاجلة' : 'Urgent' %></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'الرسالة' : 'Message' %> *
+                            </label>
+                            <textarea name="message" rows="6" required
+                                      class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold resize-vertical"
+                                      placeholder="<%= language === 'ar' ? 'اكتب رسالتك هنا... (500 حرف على الأقل)' : 'Write your message here... (minimum 500 characters)' %>"></textarea>
+                            <p class="text-sm text-gold/60 mt-1">
+                                <span id="messageCount">0</span> / 2000 <%= language === 'ar' ? 'حرف' : 'characters' %>
+                            </p>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'مرفقات (اختياري)' : 'Attachments (optional)' %>
+                            </label>
+                            <div class="border-2 border-dashed border-gold/30 rounded-lg p-6 text-center">
+                                <input type="file" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.png,.xlsx,.xls" class="hidden" id="fileUpload">
+                                <label for="fileUpload" class="cursor-pointer">
+                                    <i class="fas fa-cloud-upload-alt text-3xl text-gold/60 mb-2"></i>
+                                    <p class="text-gold/80">
+                                        <%= language === 'ar' ? 'اضغط لرفع الملفات أو اسحبها هنا' : 'Click to upload files or drag them here' %>
+                                    </p>
+                                    <p class="text-sm text-gold/60 mt-1">
+                                        <%= language === 'ar' ? 'الأنواع المدعومة: PDF, Word, Excel, الصور (حد أقصى 10 ميجا لكل ملف)' : 'Supported: PDF, Word, Excel, Images (max 10MB per file)' %>
+                                    </p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-gold to-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 glow-effect">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <%= language === 'ar' ? 'إرسال الرسالة' : 'Send Message' %>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <!-- Contact Cards -->
+                    <div class="grid grid-cols-1 gap-6">
+                        <!-- Main Office -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-gold text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gold mb-2">
+                                        <%= language === 'ar' ? 'المكتب الرئيسي' : 'Main Office' %>
+                                    </h3>
+                                    <p class="text-gold/80">
+                                        <%= language === 'ar' ?
+                                            'المملكة العربية السعودية<br>جدة - حي الأندلس<br>مجمع الأعمال التجاري' :
+                                            'Kingdom of Saudi Arabia<br>Jeddah - Al Andalus District<br>Business Commercial Complex'
+                                        %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-gold text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gold mb-2">
+                                        <%= language === 'ar' ? 'الهاتف والواتساب' : 'Phone & WhatsApp' %>
+                                    </h3>
+                                    <p class="text-gold/80">
+                                        <a href="tel:+966544827213" class="hover:text-gold">+966 544 827 213</a><br>
+                                        <a href="https://wa.me/966544827213" class="hover:text-gold text-green-400" target="_blank">
+                                            <i class="fab fa-whatsapp mr-1"></i>
+                                            <%= language === 'ar' ? 'راسلنا على الواتساب' : 'Message us on WhatsApp' %>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-gold text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gold mb-2">
+                                        <%= language === 'ar' ? 'البريد الإلكتروني' : 'Email Addresses' %>
+                                    </h3>
+                                    <div class="space-y-2 text-gold/80">
+                                        <p><strong><%= language === 'ar' ? 'عام:' : 'General:' %></strong> <a href="mailto:info@finclick.ai" class="hover:text-gold">info@finclick.ai</a></p>
+                                        <p><strong><%= language === 'ar' ? 'دعم:' : 'Support:' %></strong> <a href="mailto:support@finclick.ai" class="hover:text-gold">support@finclick.ai</a></p>
+                                        <p><strong><%= language === 'ar' ? 'مبيعات:' : 'Sales:' %></strong> <a href="mailto:sales@finclick.ai" class="hover:text-gold">sales@finclick.ai</a></p>
+                                        <p><strong><%= language === 'ar' ? 'شراكات:' : 'Partnerships:' %></strong> <a href="mailto:partnerships@finclick.ai" class="hover:text-gold">partnerships@finclick.ai</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-share-alt text-gold text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gold mb-4">
+                                        <%= language === 'ar' ? 'تابعنا على' : 'Follow us on' %>
+                                    </h3>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <a href="https://twitter.com/finclickai" target="_blank" class="flex items-center justify-center p-3 bg-blue-500/20 rounded-lg text-blue-400 hover:bg-blue-500/30">
+                                            <i class="fab fa-twitter text-xl"></i>
+                                        </a>
+                                        <a href="https://linkedin.com/company/finclickai" target="_blank" class="flex items-center justify-center p-3 bg-blue-600/20 rounded-lg text-blue-500 hover:bg-blue-600/30">
+                                            <i class="fab fa-linkedin text-xl"></i>
+                                        </a>
+                                        <a href="https://instagram.com/finclickai" target="_blank" class="flex items-center justify-center p-3 bg-pink-500/20 rounded-lg text-pink-400 hover:bg-pink-500/30">
+                                            <i class="fab fa-instagram text-xl"></i>
+                                        </a>
+                                        <a href="https://t.me/finclickai" target="_blank" class="flex items-center justify-center p-3 bg-blue-400/20 rounded-lg text-blue-300 hover:bg-blue-400/30">
+                                            <i class="fab fa-telegram text-xl"></i>
+                                        </a>
+                                        <a href="https://snapchat.com/add/finclickai" target="_blank" class="flex items-center justify-center p-3 bg-yellow-400/20 rounded-lg text-yellow-300 hover:bg-yellow-400/30">
+                                            <i class="fab fa-snapchat text-xl"></i>
+                                        </a>
+                                        <a href="https://tiktok.com/@finclickai" target="_blank" class="flex items-center justify-center p-3 bg-black/40 rounded-lg text-white hover:bg-black/60">
+                                            <i class="fab fa-tiktok text-xl"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Time -->
+                    <div class="bg-gradient-to-r from-gold/10 to-yellow-400/10 border border-gold/30 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'أوقات الاستجابة' : 'Response Times' %>
+                        </h3>
+                        <div class="space-y-2 text-gold/80">
+                            <p><strong><%= language === 'ar' ? 'عاجل:' : 'Urgent:' %></strong> <%= language === 'ar' ? 'خلال ساعة' : 'Within 1 hour' %></p>
+                            <p><strong><%= language === 'ar' ? 'عالية:' : 'High:' %></strong> <%= language === 'ar' ? 'خلال 4 ساعات' : 'Within 4 hours' %></p>
+                            <p><strong><%= language === 'ar' ? 'متوسطة:' : 'Medium:' %></strong> <%= language === 'ar' ? 'خلال 24 ساعة' : 'Within 24 hours' %></p>
+                            <p><strong><%= language === 'ar' ? 'منخفضة:' : 'Low:' %></strong> <%= language === 'ar' ? 'خلال 48 ساعة' : 'Within 48 hours' %></p>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="bg-gray-900/30 border border-gold/10 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'ساعات العمل' : 'Business Hours' %>
+                        </h3>
+                        <div class="space-y-2 text-gold/80 text-sm">
+                            <p><%= language === 'ar' ? 'الأحد - الخميس: 9:00 صباحاً - 6:00 مساءً (ت.س)' : 'Sunday - Thursday: 9:00 AM - 6:00 PM (AST)' %></p>
+                            <p><%= language === 'ar' ? 'الجمعة: 2:00 مساءً - 6:00 مساءً (ت.س)' : 'Friday: 2:00 PM - 6:00 PM (AST)' %></p>
+                            <p><%= language === 'ar' ? 'السبت: مغلق' : 'Saturday: Closed' %></p>
+                            <p class="text-gold"><%= language === 'ar' ? 'الدعم التقني متاح 24/7' : '24/7 Technical Support Available' %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Message character counter
+    const messageTextarea = document.querySelector('textarea[name="message"]');
+    const messageCount = document.getElementById('messageCount');
+
+    messageTextarea.addEventListener('input', function() {
+        const count = this.value.length;
+        messageCount.textContent = count;
+
+        if (count < 500) {
+            messageCount.className = 'text-red-400';
+        } else if (count < 1000) {
+            messageCount.className = 'text-yellow-400';
+        } else {
+            messageCount.className = 'text-green-400';
+        }
+    });
+
+    // File upload handling
+    const fileUpload = document.getElementById('fileUpload');
+    const uploadLabel = fileUpload.nextElementSibling;
+
+    fileUpload.addEventListener('change', function() {
+        const files = Array.from(this.files);
+        if (files.length > 0) {
+            const fileNames = files.map(file => file.name).join(', ');
+            uploadLabel.innerHTML = `
+                <i class="fas fa-check-circle text-2xl text-green-400 mb-2"></i>
+                <p class="text-green-400">${files.length} <%= language === 'ar' ? 'ملف محدد' : 'file(s) selected' %></p>
+                <p class="text-sm text-gold/60 mt-1">${fileNames.length > 50 ? fileNames.substring(0, 50) + '...' : fileNames}</p>
+            `;
+        }
+    });
+
+    // Form submission
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const messageLength = messageTextarea.value.length;
+        if (messageLength < 500) {
+            alert('<%= language === "ar" ? "يرجى كتابة رسالة من 500 حرف على الأقل" : "Please write a message of at least 500 characters" %>');
+            return;
+        }
+
+        // Show loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i><%= language === "ar" ? "جاري الإرسال..." : "Sending..." %>';
+        submitButton.disabled = true;
+
+        // Simulate form submission (replace with actual submission)
+        setTimeout(() => {
+            alert('<%= language === "ar" ? "تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت." : "Your message has been sent successfully! We will get back to you soon." %>');
+            form.reset();
+            messageCount.textContent = '0';
+            messageCount.className = '';
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+
+            // Reset file upload display
+            uploadLabel.innerHTML = `
+                <i class="fas fa-cloud-upload-alt text-3xl text-gold/60 mb-2"></i>
+                <p class="text-gold/80"><%= language === 'ar' ? 'اضغط لرفع الملفات أو اسحبها هنا' : 'Click to upload files or drag them here' %></p>
+                <p class="text-sm text-gold/60 mt-1"><%= language === 'ar' ? 'الأنواع المدعومة: PDF, Word, Excel, الصور (حد أقصى 10 ميجا لكل ملف)' : 'Supported: PDF, Word, Excel, Images (max 10MB per file)' %></p>
+            `;
+        }, 2000);
+    });
+});
+</script>

@@ -1,0 +1,393 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <img src="/public/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-6">
+            <h1 class="text-4xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'الأسعار والاشتراكات' : 'Pricing & Subscriptions' %>
+            </h1>
+            <p class="text-xl text-gold/70 max-w-3xl mx-auto mb-8">
+                <%= language === 'ar' ?
+                    'اختر الخطة المناسبة لك واحصل على أقوى منصة تحليل مالي في العالم بأفضل الأسعار' :
+                    'Choose the plan that suits you and get the world\'s most powerful financial analysis platform at the best prices'
+                %>
+            </p>
+
+            <!-- Toggle Annual/Monthly -->
+            <div class="flex items-center justify-center space-x-4 mb-8">
+                <span class="text-gold/80"><%= language === 'ar' ? 'شهري' : 'Monthly' %></span>
+                <button id="pricingToggle" class="relative w-16 h-8 bg-gold rounded-full transition-colors duration-300">
+                    <div class="absolute w-6 h-6 bg-black rounded-full top-1 left-1 transition-transform duration-300"></div>
+                </button>
+                <span class="text-gold"><%= language === 'ar' ? 'سنوي' : 'Annual' %></span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full">
+                    <%= language === 'ar' ? 'وفر 33%' : 'Save 33%' %>
+                </span>
+            </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <!-- Free Plan -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8 relative">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gold mb-2">
+                        <%= language === 'ar' ? 'مجاني' : 'Free' %>
+                    </h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold text-gold">0</span>
+                        <span class="text-gold/60 text-lg"><%= language === 'ar' ? 'ر.س' : 'SAR' %></span>
+                    </div>
+                    <p class="text-gold/70 text-sm">
+                        <%= language === 'ar' ? 'مدى الحياة' : 'Forever' %>
+                    </p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '5 تحليلات شهرياً' : '5 analyses per month' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '2 تقرير PDF شهرياً' : '2 PDF reports per month' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'التحليل الأساسي' : 'Basic analysis' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'دعم عبر البريد' : 'Email support' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-times text-red-400 mr-3"></i>
+                        <span class="text-gold/50"><%= language === 'ar' ? 'تحليل بالذكاء الاصطناعي' : 'AI-powered analysis' %></span>
+                    </li>
+                </ul>
+
+                <button class="w-full px-6 py-3 border-2 border-gold text-gold rounded-lg hover:bg-gold hover:text-black transition-all duration-300">
+                    <%= language === 'ar' ? 'ابدأ مجاناً' : 'Start Free' %>
+                </button>
+            </div>
+
+            <!-- Basic Plan -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-blue-500/50 rounded-xl p-8 relative">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <%= language === 'ar' ? 'أساسي' : 'Basic' %>
+                    </h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold text-blue-400 monthly-price">99</span>
+                        <span class="text-4xl font-bold text-blue-400 annual-price hidden">67</span>
+                        <span class="text-blue-400/60 text-lg"><%= language === 'ar' ? 'ر.س' : 'SAR' %></span>
+                        <span class="text-blue-400/60 text-sm block">
+                            <span class="monthly-text"><%= language === 'ar' ? '/شهرياً' : '/month' %></span>
+                            <span class="annual-text hidden"><%= language === 'ar' ? '/شهرياً (مدفوع سنوياً)' : '/month (billed annually)' %></span>
+                        </span>
+                    </div>
+                    <p class="text-blue-400/70 text-sm">
+                        <%= language === 'ar' ? 'للأفراد والشركات الصغيرة' : 'For individuals & small businesses' %>
+                    </p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '20 تحليل شهرياً' : '20 analyses per month' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '10 تقارير PDF شهرياً' : '10 PDF reports per month' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '5 تقارير Excel شهرياً' : '5 Excel reports per month' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'تحليل بالذكاء الاصطناعي' : 'AI-powered analysis' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'دعم ذو أولوية' : 'Priority support' %></span>
+                    </li>
+                </ul>
+
+                <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300">
+                    <%= language === 'ar' ? 'اختر الأساسي' : 'Choose Basic' %>
+                </button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="bg-gradient-to-b from-purple-900/20 to-purple-800/20 backdrop-blur-sm border-2 border-purple-500 rounded-xl p-8 relative">
+                <!-- Popular Badge -->
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span class="px-4 py-1 bg-purple-500 text-white text-sm font-bold rounded-full">
+                        <%= language === 'ar' ? 'الأكثر شعبية' : 'Most Popular' %>
+                    </span>
+                </div>
+
+                <div class="text-center mb-6 pt-4">
+                    <h3 class="text-2xl font-bold text-purple-400 mb-2">
+                        <%= language === 'ar' ? 'متقدم' : 'Premium' %>
+                    </h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold text-purple-400 monthly-price">299</span>
+                        <span class="text-4xl font-bold text-purple-400 annual-price hidden">199</span>
+                        <span class="text-purple-400/60 text-lg"><%= language === 'ar' ? 'ر.س' : 'SAR' %></span>
+                        <span class="text-purple-400/60 text-sm block">
+                            <span class="monthly-text"><%= language === 'ar' ? '/شهرياً' : '/month' %></span>
+                            <span class="annual-text hidden"><%= language === 'ar' ? '/شهرياً (مدفوع سنوياً)' : '/month (billed annually)' %></span>
+                        </span>
+                    </div>
+                    <p class="text-purple-400/70 text-sm">
+                        <%= language === 'ar' ? 'للشركات المتوسطة والمحللين' : 'For medium businesses & analysts' %>
+                    </p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '100 تحليل شهرياً' : '100 analyses per month' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? '50 تقرير من كل نوع' : '50 reports of each type' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'جميع أنواع التقارير' : 'All report formats' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'تحليل متقدم بالذكاء الاصطناعي' : 'Advanced AI analysis' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'دعم هاتفي مخصص' : 'Dedicated phone support' %></span>
+                    </li>
+                </ul>
+
+                <button class="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-300 glow-effect">
+                    <%= language === 'ar' ? 'اختر المتقدم' : 'Choose Premium' %>
+                </button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="bg-gradient-to-b from-gold/10 to-yellow-800/20 backdrop-blur-sm border-2 border-gold rounded-xl p-8 relative">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gold mb-2">
+                        <%= language === 'ar' ? 'المؤسسة' : 'Enterprise' %>
+                    </h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold text-gold monthly-price">5000</span>
+                        <span class="text-4xl font-bold text-gold annual-price hidden">4500</span>
+                        <span class="text-gold/60 text-lg"><%= language === 'ar' ? 'ر.س' : 'SAR' %></span>
+                        <span class="text-gold/60 text-sm block">
+                            <span class="monthly-text"><%= language === 'ar' ? '/شهرياً' : '/month' %></span>
+                            <span class="annual-text hidden"><%= language === 'ar' ? '/شهرياً (مدفوع سنوياً)' : '/month (billed annually)' %></span>
+                        </span>
+                    </div>
+                    <p class="text-gold/70 text-sm">
+                        <%= language === 'ar' ? 'للمؤسسات الكبيرة والبنوك' : 'For large enterprises & banks' %>
+                    </p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-infinity text-gold mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'تحليلات غير محدودة' : 'Unlimited analyses' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-infinity text-gold mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'تقارير غير محدودة' : 'Unlimited reports' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'جميع المميزات المتقدمة' : 'All premium features' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'مدير حساب مخصص' : 'Dedicated account manager' %></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-3"></i>
+                        <span class="text-gold/80"><%= language === 'ar' ? 'تكامل API مخصص' : 'Custom API integration' %></span>
+                    </li>
+                </ul>
+
+                <button class="w-full px-6 py-3 bg-gradient-to-r from-gold to-yellow-400 text-black font-bold rounded-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 glow-effect">
+                    <%= language === 'ar' ? 'اختر المؤسسة' : 'Choose Enterprise' %>
+                </button>
+            </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="text-center mb-12">
+            <h3 class="text-2xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'طرق الدفع المدعومة' : 'Supported Payment Methods' %>
+            </h3>
+            <div class="flex justify-center items-center space-x-8 flex-wrap gap-4">
+                <div class="flex items-center space-x-2 px-4 py-2 bg-gray-900/50 border border-gold/20 rounded-lg">
+                    <img src="/images/payments/mada.png" alt="MADA" class="h-8 w-auto">
+                    <span class="text-gold">MADA</span>
+                </div>
+                <div class="flex items-center space-x-2 px-4 py-2 bg-gray-900/50 border border-gold/20 rounded-lg">
+                    <img src="/images/payments/visa.png" alt="Visa" class="h-8 w-auto">
+                    <span class="text-gold">Visa</span>
+                </div>
+                <div class="flex items-center space-x-2 px-4 py-2 bg-gray-900/50 border border-gold/20 rounded-lg">
+                    <img src="/images/payments/mastercard.png" alt="Mastercard" class="h-8 w-auto">
+                    <span class="text-gold">Mastercard</span>
+                </div>
+                <div class="flex items-center space-x-2 px-4 py-2 bg-gray-900/50 border border-gold/20 rounded-lg">
+                    <img src="/images/payments/applepay.png" alt="Apple Pay" class="h-8 w-auto">
+                    <span class="text-gold">Apple Pay</span>
+                </div>
+                <div class="flex items-center space-x-2 px-4 py-2 bg-gray-900/50 border border-gold/20 rounded-lg">
+                    <img src="/images/payments/paypal.png" alt="PayPal" class="h-8 w-auto">
+                    <span class="text-gold">PayPal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-gold text-center mb-8">
+                <%= language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions' %>
+            </h3>
+
+            <div class="space-y-4">
+                <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center text-gold hover:bg-gold/10" onclick="toggleFAQ(this)">
+                        <span class="font-semibold">
+                            <%= language === 'ar' ? 'هل يمكنني تغيير خطتي في أي وقت؟' : 'Can I change my plan at any time?' %>
+                        </span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 pb-4 text-gold/80 hidden">
+                        <%= language === 'ar' ?
+                            'نعم، يمكنك ترقية أو تقليل خطتك في أي وقت. التغييرات ستظهر في دورة الفوترة التالية.' :
+                            'Yes, you can upgrade or downgrade your plan at any time. Changes will take effect in the next billing cycle.'
+                        %>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center text-gold hover:bg-gold/10" onclick="toggleFAQ(this)">
+                        <span class="font-semibold">
+                            <%= language === 'ar' ? 'هل هناك ضمان استرداد الأموال؟' : 'Is there a money-back guarantee?' %>
+                        </span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 pb-4 text-gold/80 hidden">
+                        <%= language === 'ar' ?
+                            'نعم، نوفر ضمان استرداد الأموال لمدة 7 أيام من تاريخ الاشتراك الأول.' :
+                            'Yes, we offer a 7-day money-back guarantee from your first subscription date.'
+                        %>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center text-gold hover:bg-gold/10" onclick="toggleFAQ(this)">
+                        <span class="font-semibold">
+                            <%= language === 'ar' ? 'ما الفرق بين الخطة الشهرية والسنوية؟' : 'What\'s the difference between monthly and annual plans?' %>
+                        </span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 pb-4 text-gold/80 hidden">
+                        <%= language === 'ar' ?
+                            'الخطة السنوية توفر عليك 33% من التكلفة مقارنة بالخطة الشهرية، بالإضافة لمميزات إضافية.' :
+                            'Annual plans save you 33% compared to monthly plans, plus include additional features.'
+                        %>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center text-gold hover:bg-gold/10" onclick="toggleFAQ(this)">
+                        <span class="font-semibold">
+                            <%= language === 'ar' ? 'هل الأسعار شاملة ضريبة القيمة المضافة؟' : 'Are prices inclusive of VAT?' %>
+                        </span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 pb-4 text-gold/80 hidden">
+                        <%= language === 'ar' ?
+                            'نعم، جميع الأسعار المعروضة شاملة ضريبة القيمة المضافة 15% حسب اللوائح السعودية.' :
+                            'Yes, all displayed prices include 15% VAT as per Saudi regulations.'
+                        %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center mt-16">
+            <div class="bg-gradient-to-r from-gold/10 to-yellow-400/10 border border-gold/30 rounded-xl p-8 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'جاهز لتحويل عملك؟' : 'Ready to transform your business?' %>
+                </h3>
+                <p class="text-gold/80 mb-6">
+                    <%= language === 'ar' ?
+                        'ابدأ رحلتك مع أقوى منصة تحليل مالي في العالم واكتشف الفرق' :
+                        'Start your journey with the world\'s most powerful financial analysis platform and discover the difference'
+                    %>
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="/register" class="px-8 py-3 bg-gradient-to-r from-gold to-yellow-400 text-black font-bold rounded-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 glow-effect">
+                        <%= language === 'ar' ? 'ابدأ مجاناً الآن' : 'Start Free Now' %>
+                    </a>
+                    <a href="/contact" class="px-8 py-3 border border-gold text-gold rounded-lg hover:bg-gold hover:text-black transition-all duration-300">
+                        <%= language === 'ar' ? 'تحدث مع المبيعات' : 'Talk to Sales' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('pricingToggle');
+    const monthlyPrices = document.querySelectorAll('.monthly-price');
+    const annualPrices = document.querySelectorAll('.annual-price');
+    const monthlyTexts = document.querySelectorAll('.monthly-text');
+    const annualTexts = document.querySelectorAll('.annual-text');
+
+    toggle.addEventListener('click', function() {
+        const slider = this.querySelector('div');
+        const isAnnual = slider.style.transform === 'translateX(2.5rem)';
+
+        if (!isAnnual) {
+            // Switch to annual
+            slider.style.transform = 'translateX(2.5rem)';
+            monthlyPrices.forEach(price => price.classList.add('hidden'));
+            annualPrices.forEach(price => price.classList.remove('hidden'));
+            monthlyTexts.forEach(text => text.classList.add('hidden'));
+            annualTexts.forEach(text => text.classList.remove('hidden'));
+        } else {
+            // Switch to monthly
+            slider.style.transform = 'translateX(0)';
+            monthlyPrices.forEach(price => price.classList.remove('hidden'));
+            annualPrices.forEach(price => price.classList.add('hidden'));
+            monthlyTexts.forEach(text => text.classList.remove('hidden'));
+            annualTexts.forEach(text => text.classList.add('hidden'));
+        }
+    });
+});
+
+function toggleFAQ(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('i');
+
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
+</script>

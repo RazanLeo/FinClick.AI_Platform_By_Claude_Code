@@ -1,0 +1,561 @@
+<%- include('../layouts/main') %>
+
+<!-- Admin Dashboard -->
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+    <!-- Admin Header -->
+    <header class="sticky top-0 z-40 bg-black/95 backdrop-blur-sm border-b border-red-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo & Admin Badge -->
+                <div class="flex items-center space-x-4">
+                    <img src="/public/images/logo.png" alt="FinClick.AI" class="h-10 w-auto">
+                    <div class="flex items-center space-x-2">
+                        <h1 class="text-xl font-bold text-gold">FinClick.AI</h1>
+                        <span class="px-3 py-1 bg-red-500 text-white text-sm font-bold rounded-full">
+                            <%= language === 'ar' ? 'مدير' : 'ADMIN' %>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Admin Controls -->
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-gold/80">
+                        <%= language === 'ar' ? 'مرحباً' : 'Welcome' %>, <strong>Razan Ahmed</strong>
+                    </div>
+                    <a href="/dashboard" class="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-400">
+                        <%= language === 'ar' ? 'العودة للمستخدم' : 'Switch to User' %>
+                    </a>
+                    <a href="/logout" class="px-4 py-2 border border-red-500 text-red-500 rounded-lg hover:bg-red-500 hover:text-white">
+                        <%= language === 'ar' ? 'خروج' : 'Logout' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Admin Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6 sticky top-24">
+                    <h3 class="text-lg font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'لوحة التحكم الإدارية' : 'Admin Control Panel' %>
+                    </h3>
+
+                    <nav class="space-y-2">
+                        <a href="#overview" class="admin-nav-item active" data-section="overview">
+                            <i class="fas fa-chart-pie mr-3"></i>
+                            <%= language === 'ar' ? 'نظرة عامة' : 'Overview' %>
+                        </a>
+                        <a href="#users" class="admin-nav-item" data-section="users">
+                            <i class="fas fa-users mr-3"></i>
+                            <%= language === 'ar' ? 'المستخدمون' : 'Users' %>
+                        </a>
+                        <a href="#subscriptions" class="admin-nav-item" data-section="subscriptions">
+                            <i class="fas fa-credit-card mr-3"></i>
+                            <%= language === 'ar' ? 'الاشتراكات' : 'Subscriptions' %>
+                        </a>
+                        <a href="#analyses" class="admin-nav-item" data-section="analyses">
+                            <i class="fas fa-chart-line mr-3"></i>
+                            <%= language === 'ar' ? 'التحليلات' : 'Analyses' %>
+                        </a>
+                        <a href="#reports" class="admin-nav-item" data-section="reports">
+                            <i class="fas fa-file-pdf mr-3"></i>
+                            <%= language === 'ar' ? 'التقارير' : 'Reports' %>
+                        </a>
+                        <a href="#payments" class="admin-nav-item" data-section="payments">
+                            <i class="fas fa-money-bill-wave mr-3"></i>
+                            <%= language === 'ar' ? 'المدفوعات' : 'Payments' %>
+                        </a>
+                        <a href="#settings" class="admin-nav-item" data-section="settings">
+                            <i class="fas fa-cog mr-3"></i>
+                            <%= language === 'ar' ? 'الإعدادات' : 'Settings' %>
+                        </a>
+                        <a href="#system" class="admin-nav-item" data-section="system">
+                            <i class="fas fa-server mr-3"></i>
+                            <%= language === 'ar' ? 'النظام' : 'System' %>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Admin Content -->
+            <div class="lg:col-span-3">
+
+                <!-- Overview Section -->
+                <div id="overview-section" class="admin-section active">
+                    <h2 class="text-2xl font-bold text-gold mb-6">
+                        <%= language === 'ar' ? 'نظرة عامة على النظام' : 'System Overview' %>
+                    </h2>
+
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 p-6 rounded-xl border border-blue-500/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-300/80 text-sm"><%= language === 'ar' ? 'إجمالي المستخدمين' : 'Total Users' %></p>
+                                    <p class="text-2xl font-bold text-white" id="totalUsers">1,247</p>
+                                </div>
+                                <i class="fas fa-users text-3xl text-blue-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-green-900/50 to-green-800/50 p-6 rounded-xl border border-green-500/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-300/80 text-sm"><%= language === 'ar' ? 'الاشتراكات النشطة' : 'Active Subscriptions' %></p>
+                                    <p class="text-2xl font-bold text-white" id="activeSubscriptions">342</p>
+                                </div>
+                                <i class="fas fa-credit-card text-3xl text-green-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 p-6 rounded-xl border border-purple-500/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-300/80 text-sm"><%= language === 'ar' ? 'التحليلات الشهر' : 'Monthly Analyses' %></p>
+                                    <p class="text-2xl font-bold text-white" id="monthlyAnalyses">5,683</p>
+                                </div>
+                                <i class="fas fa-chart-line text-3xl text-purple-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gold/20 to-yellow-800/50 p-6 rounded-xl border border-gold/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gold/80 text-sm"><%= language === 'ar' ? 'الإيرادات الشهرية' : 'Monthly Revenue' %></p>
+                                    <p class="text-2xl font-bold text-gold" id="monthlyRevenue">127,456 ر.س</p>
+                                </div>
+                                <i class="fas fa-money-bill-wave text-3xl text-gold"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <!-- Usage Chart -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-gold mb-4">
+                                <%= language === 'ar' ? 'استخدام المنصة (30 يوم)' : 'Platform Usage (30 days)' %>
+                            </h3>
+                            <canvas id="usageChart" width="400" height="200"></canvas>
+                        </div>
+
+                        <!-- Revenue Chart -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-gold mb-4">
+                                <%= language === 'ar' ? 'الإيرادات الشهرية' : 'Monthly Revenue' %>
+                            </h3>
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gold mb-4">
+                            <%= language === 'ar' ? 'النشاط الأخير' : 'Recent Activity' %>
+                        </h3>
+                        <div class="space-y-4" id="recentActivity">
+                            <!-- Activity items will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Section -->
+                <div id="users-section" class="admin-section hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gold">
+                            <%= language === 'ar' ? 'إدارة المستخدمين' : 'User Management' %>
+                        </h2>
+                        <button class="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-400">
+                            <i class="fas fa-plus mr-2"></i>
+                            <%= language === 'ar' ? 'إضافة مستخدم' : 'Add User' %>
+                        </button>
+                    </div>
+
+                    <!-- Users Table -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl overflow-hidden">
+                        <table class="w-full">
+                            <thead class="bg-gold/10">
+                                <tr>
+                                    <th class="text-left text-gold px-6 py-4"><%= language === 'ar' ? 'المستخدم' : 'User' %></th>
+                                    <th class="text-left text-gold px-6 py-4"><%= language === 'ar' ? 'الاشتراك' : 'Subscription' %></th>
+                                    <th class="text-left text-gold px-6 py-4"><%= language === 'ar' ? 'التحليلات' : 'Analyses' %></th>
+                                    <th class="text-left text-gold px-6 py-4"><%= language === 'ar' ? 'تاريخ الانضمام' : 'Join Date' %></th>
+                                    <th class="text-left text-gold px-6 py-4"><%= language === 'ar' ? 'الإجراءات' : 'Actions' %></th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTable">
+                                <!-- User rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subscriptions Section -->
+                <div id="subscriptions-section" class="admin-section hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gold">
+                            <%= language === 'ar' ? 'إدارة الاشتراكات' : 'Subscription Management' %>
+                        </h2>
+                        <button class="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-400">
+                            <i class="fas fa-plus mr-2"></i>
+                            <%= language === 'ar' ? 'إضافة خطة' : 'Add Plan' %>
+                        </button>
+                    </div>
+
+                    <!-- Subscription Plans -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-gray-900/50 border border-gold/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-gold mb-2"><%= language === 'ar' ? 'مجاني' : 'Free' %></h3>
+                            <p class="text-2xl font-bold text-white mb-4">0 ر.س</p>
+                            <div class="space-y-2 text-sm text-gold/80">
+                                <p>847 <%= language === 'ar' ? 'مستخدم' : 'users' %></p>
+                                <p>2,156 <%= language === 'ar' ? 'تحليل' : 'analyses' %></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-blue-500/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-blue-400 mb-2"><%= language === 'ar' ? 'أساسي' : 'Basic' %></h3>
+                            <p class="text-2xl font-bold text-white mb-4">99 <%= language === 'ar' ? 'ر.س' : 'SAR' %></p>
+                            <div class="space-y-2 text-sm text-blue-400/80">
+                                <p>234 <%= language === 'ar' ? 'مستخدم' : 'users' %></p>
+                                <p>1,890 <%= language === 'ar' ? 'تحليل' : 'analyses' %></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-purple-500/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-purple-400 mb-2"><%= language === 'ar' ? 'متقدم' : 'Premium' %></h3>
+                            <p class="text-2xl font-bold text-white mb-4">299 <%= language === 'ar' ? 'ر.س' : 'SAR' %></p>
+                            <div class="space-y-2 text-sm text-purple-400/80">
+                                <p>89 <%= language === 'ar' ? 'مستخدم' : 'users' %></p>
+                                <p>1,234 <%= language === 'ar' ? 'تحليل' : 'analyses' %></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-gold/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-gold mb-2"><%= language === 'ar' ? 'المؤسسة' : 'Enterprise' %></h3>
+                            <p class="text-2xl font-bold text-white mb-4">999 <%= language === 'ar' ? 'ر.س' : 'SAR' %></p>
+                            <div class="space-y-2 text-sm text-gold/80">
+                                <p>19 <%= language === 'ar' ? 'مستخدم' : 'users' %></p>
+                                <p>403 <%= language === 'ar' ? 'تحليل' : 'analyses' %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Settings Section -->
+                <div id="settings-section" class="admin-section hidden">
+                    <h2 class="text-2xl font-bold text-gold mb-6">
+                        <%= language === 'ar' ? 'إعدادات النظام' : 'System Settings' %>
+                    </h2>
+
+                    <div class="space-y-6">
+                        <!-- General Settings -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-gold mb-4">
+                                <%= language === 'ar' ? 'الإعدادات العامة' : 'General Settings' %>
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gold mb-2">
+                                        <%= language === 'ar' ? 'اسم المنصة' : 'Platform Name' %>
+                                    </label>
+                                    <input type="text" value="FinClick.AI" class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gold mb-2">
+                                        <%= language === 'ar' ? 'اللغة الافتراضية' : 'Default Language' %>
+                                    </label>
+                                    <select class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold">
+                                        <option value="ar" selected>العربية</option>
+                                        <option value="en">English</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Toggles -->
+                        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-gold mb-4">
+                                <%= language === 'ar' ? 'التحكم في المميزات' : 'Feature Controls' %>
+                            </h3>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gold"><%= language === 'ar' ? 'التحليل بالذكاء الاصطناعي' : 'AI Analysis' %></span>
+                                    <button class="toggle-switch active" data-feature="ai-analysis">
+                                        <div class="toggle-slider"></div>
+                                    </button>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gold"><%= language === 'ar' ? 'معالجة المدفوعات' : 'Payment Processing' %></span>
+                                    <button class="toggle-switch active" data-feature="payments">
+                                        <div class="toggle-slider"></div>
+                                    </button>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gold"><%= language === 'ar' ? 'إشعارات البريد الإلكتروني' : 'Email Notifications' %></span>
+                                    <button class="toggle-switch active" data-feature="email-notifications">
+                                        <div class="toggle-slider"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Health Section -->
+                <div id="system-section" class="admin-section hidden">
+                    <h2 class="text-2xl font-bold text-gold mb-6">
+                        <%= language === 'ar' ? 'حالة النظام' : 'System Health' %>
+                    </h2>
+
+                    <!-- System Status Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-green-900/20 border border-green-500/20 rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-400 font-semibold"><%= language === 'ar' ? 'قاعدة البيانات' : 'Database' %></p>
+                                    <p class="text-green-300 text-sm">Supabase PostgreSQL</p>
+                                </div>
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-900/20 border border-green-500/20 rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-400 font-semibold"><%= language === 'ar' ? 'الخوادم' : 'API Services' %></p>
+                                    <p class="text-green-300 text-sm">All endpoints operational</p>
+                                </div>
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-yellow-400 font-semibold"><%= language === 'ar' ? 'النسخ الاحتياطية' : 'Backups' %></p>
+                                    <p class="text-yellow-300 text-sm">Last: 2 hours ago</p>
+                                </div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Actions -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gold mb-4">
+                            <%= language === 'ar' ? 'إجراءات النظام' : 'System Actions' %>
+                        </h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <button class="px-4 py-3 bg-blue-900/50 border border-blue-500/50 text-blue-400 rounded-lg hover:bg-blue-900/70">
+                                <i class="fas fa-database mr-2"></i>
+                                <%= language === 'ar' ? 'نسخ احتياطي' : 'Backup DB' %>
+                            </button>
+
+                            <button class="px-4 py-3 bg-green-900/50 border border-green-500/50 text-green-400 rounded-lg hover:bg-green-900/70">
+                                <i class="fas fa-sync mr-2"></i>
+                                <%= language === 'ar' ? 'مزامنة البيانات' : 'Sync Data' %>
+                            </button>
+
+                            <button class="px-4 py-3 bg-orange-900/50 border border-orange-500/50 text-orange-400 rounded-lg hover:bg-orange-900/70">
+                                <i class="fas fa-broom mr-2"></i>
+                                <%= language === 'ar' ? 'تنظيف الملفات' : 'Clean Files' %>
+                            </button>
+
+                            <button class="px-4 py-3 bg-red-900/50 border border-red-500/50 text-red-400 rounded-lg hover:bg-red-900/70">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                <%= language === 'ar' ? 'الصيانة' : 'Maintenance' %>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.admin-nav-item {
+    @apply flex items-center px-4 py-3 text-gold/70 hover:text-gold hover:bg-gold/10 rounded-lg transition-all duration-200;
+}
+
+.admin-nav-item.active {
+    @apply text-gold bg-gold/10 border-l-4 border-gold;
+}
+
+.admin-section {
+    @apply hidden;
+}
+
+.admin-section.active {
+    @apply block;
+}
+
+.toggle-switch {
+    @apply w-12 h-6 bg-gray-600 rounded-full relative cursor-pointer transition-colors duration-200;
+}
+
+.toggle-switch.active {
+    @apply bg-gold;
+}
+
+.toggle-slider {
+    @apply w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform duration-200;
+}
+
+.toggle-switch.active .toggle-slider {
+    @apply transform translate-x-6;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Navigation
+    const navItems = document.querySelectorAll('.admin-nav-item');
+    const sections = document.querySelectorAll('.admin-section');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionId = this.dataset.section;
+
+            // Update navigation
+            navItems.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show section
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId + '-section').classList.add('active');
+        });
+    });
+
+    // Toggle switches
+    const toggleSwitches = document.querySelectorAll('.toggle-switch');
+    toggleSwitches.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const feature = this.dataset.feature;
+            console.log('Toggling feature:', feature, this.classList.contains('active'));
+        });
+    });
+
+    // Load data
+    loadDashboardData();
+    loadUsers();
+    loadRecentActivity();
+});
+
+function loadDashboardData() {
+    // Simulate loading dashboard stats
+    // In real implementation, this would fetch from API
+}
+
+function loadUsers() {
+    const usersTable = document.getElementById('usersTable');
+    // Simulate user data
+    const users = [
+        { name: 'أحمد محمد', email: 'ahmed@company.com', subscription: 'Premium', analyses: 45, joinDate: '2024-01-15' },
+        { name: 'Sara Ali', email: 'sara@business.com', subscription: 'Basic', analyses: 23, joinDate: '2024-02-10' },
+        { name: 'محمد الأحمد', email: 'mohamed@corp.sa', subscription: 'Enterprise', analyses: 89, joinDate: '2023-12-05' }
+    ];
+
+    usersTable.innerHTML = users.map(user => `
+        <tr class="border-b border-gold/10 hover:bg-gold/5">
+            <td class="px-6 py-4">
+                <div>
+                    <div class="font-semibold text-gold">${user.name}</div>
+                    <div class="text-sm text-gold/60">${user.email}</div>
+                </div>
+            </td>
+            <td class="px-6 py-4">
+                <span class="px-2 py-1 text-xs font-semibold rounded-full ${getSubscriptionColor(user.subscription)}">${user.subscription}</span>
+            </td>
+            <td class="px-6 py-4 text-gold">${user.analyses}</td>
+            <td class="px-6 py-4 text-gold/80">${user.joinDate}</td>
+            <td class="px-6 py-4">
+                <div class="flex space-x-2">
+                    <button class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-red-400 hover:text-red-300">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function getSubscriptionColor(subscription) {
+    const colors = {
+        'Free': 'bg-gray-600 text-gray-200',
+        'Basic': 'bg-blue-600 text-blue-200',
+        'Premium': 'bg-purple-600 text-purple-200',
+        'Enterprise': 'bg-gold text-black'
+    };
+    return colors[subscription] || 'bg-gray-600 text-gray-200';
+}
+
+function loadRecentActivity() {
+    const activityContainer = document.getElementById('recentActivity');
+    const activities = [
+        { type: 'user_registered', user: 'أحمد محمد', time: '5 دقائق' },
+        { type: 'subscription_upgraded', user: 'Sara Ali', time: '15 دقيقة' },
+        { type: 'analysis_completed', user: 'محمد الأحمد', time: '30 دقيقة' },
+        { type: 'payment_received', amount: '299 ر.س', time: '1 ساعة' }
+    ];
+
+    activityContainer.innerHTML = activities.map(activity => `
+        <div class="flex items-center justify-between p-4 bg-gray-800/30 rounded-lg">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full ${getActivityColor(activity.type)} flex items-center justify-center">
+                    <i class="fas ${getActivityIcon(activity.type)} text-sm"></i>
+                </div>
+                <div>
+                    <p class="text-gold font-medium">${getActivityText(activity)}</p>
+                    <p class="text-gold/60 text-sm">${activity.time} <%= language === 'ar' ? 'مضت' : 'ago' %></p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function getActivityColor(type) {
+    const colors = {
+        'user_registered': 'bg-green-500',
+        'subscription_upgraded': 'bg-blue-500',
+        'analysis_completed': 'bg-purple-500',
+        'payment_received': 'bg-gold'
+    };
+    return colors[type] || 'bg-gray-500';
+}
+
+function getActivityIcon(type) {
+    const icons = {
+        'user_registered': 'fa-user-plus',
+        'subscription_upgraded': 'fa-arrow-up',
+        'analysis_completed': 'fa-chart-line',
+        'payment_received': 'fa-money-bill-wave'
+    };
+    return icons[type] || 'fa-info';
+}
+
+function getActivityText(activity) {
+    const texts = {
+        'user_registered': `مستخدم جديد: ${activity.user}`,
+        'subscription_upgraded': `ترقية اشتراك: ${activity.user}`,
+        'analysis_completed': `تحليل مكتمل: ${activity.user}`,
+        'payment_received': `دفعة مستلمة: ${activity.amount}`
+    };
+    return texts[activity.type] || 'نشاط جديد';
+}
+</script>

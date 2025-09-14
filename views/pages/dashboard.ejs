@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="<%= language %>" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= t('dashboard.title') %> - FinClick.AI</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="/public/images/logo.png" alt="FinClick.AI" class="nav-logo">
+                <span class="nav-brand-text">FinClick.AI</span>
+            </div>
+
+            <div class="nav-menu">
+                <a href="/dashboard" class="nav-item active">
+                    <i class="icon-dashboard"></i>
+                    <%= t('navigation.dashboard') %>
+                </a>
+                <a href="/analysis/new" class="nav-item">
+                    <i class="icon-analysis"></i>
+                    <%= t('navigation.new_analysis') %>
+                </a>
+                <a href="/analyses" class="nav-item">
+                    <i class="icon-history"></i>
+                    <%= t('navigation.my_analyses') %>
+                </a>
+                <a href="/reports" class="nav-item">
+                    <i class="icon-reports"></i>
+                    <%= t('navigation.reports') %>
+                </a>
+                <a href="/subscription" class="nav-item">
+                    <i class="icon-subscription"></i>
+                    <%= t('navigation.subscription') %>
+                </a>
+            </div>
+
+            <div class="nav-user">
+                <div class="language-switcher">
+                    <a href="?lang=en" class="<%= language === 'en' ? 'active' : '' %>">EN</a>
+                    <a href="?lang=ar" class="<%= language === 'ar' ? 'active' : '' %>">عربي</a>
+                </div>
+
+                <div class="user-menu">
+                    <img src="/images/default-avatar.png" alt="<%= user.first_name %>" class="user-avatar">
+                    <span class="user-name"><%= user.first_name %> <%= user.last_name %></span>
+                    <div class="user-dropdown">
+                        <a href="/profile"><%= t('navigation.profile') %></a>
+                        <a href="/settings"><%= t('navigation.settings') %></a>
+                        <a href="/logout"><%= t('navigation.logout') %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="header-content">
+                <h1 class="dashboard-title">
+                    <%= t('dashboard.welcome') %>, <%= user.first_name %>!
+                </h1>
+                <p class="dashboard-subtitle">
+                    <%= t('dashboard.subtitle') %>
+                </p>
+            </div>
+
+            <div class="header-actions">
+                <a href="/analysis/new" class="btn btn-primary">
+                    <i class="icon-plus"></i>
+                    <%= t('dashboard.new_analysis') %>
+                </a>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-primary">
+                    <i class="icon-chart"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="totalAnalyses">-</h3>
+                    <p class="stat-label"><%= t('dashboard.total_analyses') %></p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-success">
+                    <i class="icon-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="completedAnalyses">-</h3>
+                    <p class="stat-label"><%= t('dashboard.completed_analyses') %></p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-warning">
+                    <i class="icon-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="processingAnalyses">-</h3>
+                    <p class="stat-label"><%= t('dashboard.processing_analyses') %></p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-info">
+                    <i class="icon-file"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="totalReports">-</h3>
+                    <p class="stat-label"><%= t('dashboard.total_reports') %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2 class="section-title"><%= t('dashboard.quick_actions') %></h2>
+
+            <div class="action-grid">
+                <div class="action-card" onclick="window.location.href='/analysis/new'">
+                    <div class="action-icon">
+                        <i class="icon-upload"></i>
+                    </div>
+                    <h3 class="action-title"><%= t('dashboard.upload_document') %></h3>
+                    <p class="action-description"><%= t('dashboard.upload_description') %></p>
+                </div>
+
+                <div class="action-card" onclick="showAnalysisTemplates()">
+                    <div class="action-icon">
+                        <i class="icon-template"></i>
+                    </div>
+                    <h3 class="action-title"><%= t('dashboard.use_template') %></h3>
+                    <p class="action-description"><%= t('dashboard.template_description') %></p>
+                </div>
+
+                <div class="action-card" onclick="window.location.href='/analyses'">
+                    <div class="action-icon">
+                        <i class="icon-history"></i>
+                    </div>
+                    <h3 class="action-title"><%= t('dashboard.view_history') %></h3>
+                    <p class="action-description"><%= t('dashboard.history_description') %></p>
+                </div>
+
+                <div class="action-card" onclick="window.location.href='/subscription'">
+                    <div class="action-icon">
+                        <i class="icon-upgrade"></i>
+                    </div>
+                    <h3 class="action-title"><%= t('dashboard.upgrade_plan') %></h3>
+                    <p class="action-description"><%= t('dashboard.upgrade_description') %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Analyses -->
+        <div class="recent-analyses">
+            <div class="section-header">
+                <h2 class="section-title"><%= t('dashboard.recent_analyses') %></h2>
+                <a href="/analyses" class="view-all-link">
+                    <%= t('dashboard.view_all') %>
+                    <i class="icon-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="analyses-table" id="recentAnalysesContainer">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p><%= t('common.loading') %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Charts -->
+        <div class="analytics-section">
+            <h2 class="section-title"><%= t('dashboard.analytics') %></h2>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title"><%= t('dashboard.analyses_over_time') %></h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="analysesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title"><%= t('dashboard.analysis_types') %></h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="typesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscription Status -->
+        <div class="subscription-status">
+            <div class="status-card" id="subscriptionCard">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Templates Modal -->
+    <div id="templatesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><%= t('dashboard.analysis_templates') %></h3>
+                <button class="modal-close" onclick="closeModal('templatesModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="templates-grid">
+                    <div class="template-card" onclick="useTemplate('financial_health')">
+                        <div class="template-icon">
+                            <i class="icon-heart-pulse"></i>
+                        </div>
+                        <h4 class="template-title"><%= t('templates.financial_health') %></h4>
+                        <p class="template-description"><%= t('templates.financial_health_desc') %></p>
+                    </div>
+
+                    <div class="template-card" onclick="useTemplate('liquidity_analysis')">
+                        <div class="template-icon">
+                            <i class="icon-droplet"></i>
+                        </div>
+                        <h4 class="template-title"><%= t('templates.liquidity_analysis') %></h4>
+                        <p class="template-description"><%= t('templates.liquidity_analysis_desc') %></p>
+                    </div>
+
+                    <div class="template-card" onclick="useTemplate('profitability_analysis')">
+                        <div class="template-icon">
+                            <i class="icon-trending-up"></i>
+                        </div>
+                        <h4 class="template-title"><%= t('templates.profitability_analysis') %></h4>
+                        <p class="template-description"><%= t('templates.profitability_analysis_desc') %></p>
+                    </div>
+
+                    <div class="template-card" onclick="useTemplate('comprehensive_analysis')">
+                        <div class="template-icon">
+                            <i class="icon-layers"></i>
+                        </div>
+                        <h4 class="template-title"><%= t('templates.comprehensive_analysis') %></h4>
+                        <p class="template-description"><%= t('templates.comprehensive_analysis_desc') %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications" class="notifications-container"></div>
+
+    <script>
+        // Dashboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+            setupEventListeners();
+        });
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            try {
+                // Load statistics
+                const statsResponse = await fetch('/api/analysis/stats/summary');
+                const statsData = await statsResponse.json();
+
+                if (statsData.success) {
+                    updateStatistics(statsData.data);
+                }
+
+                // Load recent analyses
+                const analysesResponse = await fetch('/api/analysis?limit=5');
+                const analysesData = await analysesResponse.json();
+
+                if (analysesData.success) {
+                    renderRecentAnalyses(analysesData.data);
+                }
+
+                // Load subscription status
+                const subResponse = await fetch('/api/payment/subscription');
+                const subData = await subResponse.json();
+
+                if (subData.success) {
+                    renderSubscriptionStatus(subData.data);
+                }
+
+                // Load charts data
+                loadCharts();
+
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                showNotification('<%= t("errors.loading_error") %>', 'error');
+            }
+        }
+
+        // Update statistics
+        function updateStatistics(stats) {
+            document.getElementById('totalAnalyses').textContent = stats.total_analyses || 0;
+            document.getElementById('completedAnalyses').textContent = stats.completed_analyses || 0;
+            document.getElementById('processingAnalyses').textContent = stats.processing_analyses || 0;
+            document.getElementById('totalReports').textContent = stats.total_reports || 0;
+        }
+
+        // Render recent analyses
+        function renderRecentAnalyses(analyses) {
+            const container = document.getElementById('recentAnalysesContainer');
+
+            if (!analyses || analyses.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="icon-inbox"></i>
+                        <h3><%= t('dashboard.no_analyses') %></h3>
+                        <p><%= t('dashboard.no_analyses_desc') %></p>
+                        <a href="/analysis/new" class="btn btn-primary">
+                            <%= t('dashboard.create_first_analysis') %>
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            const tableHTML = `
+                <table class="analyses-table">
+                    <thead>
+                        <tr>
+                            <th><%= t('table.analysis_name') %></th>
+                            <th><%= t('table.company') %></th>
+                            <th><%= t('table.status') %></th>
+                            <th><%= t('table.created') %></th>
+                            <th><%= t('table.actions') %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${analyses.map(analysis => `
+                            <tr>
+                                <td>
+                                    <div class="analysis-name">
+                                        <strong>${analysis.analysis_name}</strong>
+                                        <small>${analysis.analysis_period || ''}</small>
+                                    </div>
+                                </td>
+                                <td>${analysis.company_name}</td>
+                                <td>
+                                    <span class="status status-${analysis.status}">
+                                        ${getStatusText(analysis.status)}
+                                    </span>
+                                </td>
+                                <td>
+                                    <time datetime="${analysis.created_at}">
+                                        ${formatDate(analysis.created_at)}
+                                    </time>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="/analysis/${analysis.id}" class="btn btn-sm btn-outline">
+                                            <%= t('actions.view') %>
+                                        </a>
+                                        ${analysis.status === 'completed' ? `
+                                            <button onclick="generateReport('${analysis.id}')" class="btn btn-sm btn-primary">
+                                                <%= t('actions.report') %>
+                                            </button>
+                                        ` : ''}
+                                    </div>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = tableHTML;
+        }
+
+        // Render subscription status
+        function renderSubscriptionStatus(subscription) {
+            const card = document.getElementById('subscriptionCard');
+
+            const isActive = subscription.status === 'active';
+            const daysRemaining = subscription.days_remaining || 0;
+
+            let statusClass = 'status-inactive';
+            let statusText = '<%= t("subscription.inactive") %>';
+
+            if (isActive) {
+                if (daysRemaining > 30) {
+                    statusClass = 'status-active';
+                    statusText = '<%= t("subscription.active") %>';
+                } else if (daysRemaining > 0) {
+                    statusClass = 'status-expiring';
+                    statusText = '<%= t("subscription.expiring") %>';
+                } else {
+                    statusClass = 'status-expired';
+                    statusText = '<%= t("subscription.expired") %>';
+                }
+            }
+
+            card.innerHTML = `
+                <div class="subscription-info">
+                    <div class="subscription-header">
+                        <h3><%= t('dashboard.subscription_status') %></h3>
+                        <span class="subscription-status ${statusClass}">
+                            ${statusText}
+                        </span>
+                    </div>
+
+                    <div class="subscription-details">
+                        <div class="detail-item">
+                            <span class="detail-label"><%= t('subscription.current_plan') %></span>
+                            <span class="detail-value">${subscription.current_plan || '<%= t("subscription.none") %>'}</span>
+                        </div>
+
+                        ${isActive ? `
+                            <div class="detail-item">
+                                <span class="detail-label"><%= t('subscription.days_remaining') %></span>
+                                <span class="detail-value">${daysRemaining} <%= t('common.days') %></span>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-label"><%= t('subscription.expires_on') %></span>
+                                <span class="detail-value">${formatDate(subscription.end_date)}</span>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="subscription-actions">
+                        ${!isActive || daysRemaining < 30 ? `
+                            <a href="/subscription" class="btn btn-primary">
+                                <%= t('subscription.upgrade_now') %>
+                            </a>
+                        ` : `
+                            <a href="/subscription" class="btn btn-outline">
+                                <%= t('subscription.manage') %>
+                            </a>
+                        `}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Load charts
+        function loadCharts() {
+            // Analyses over time chart
+            const analysesCtx = document.getElementById('analysesChart').getContext('2d');
+            new Chart(analysesCtx, {
+                type: 'line',
+                data: {
+                    labels: getLast7Days(),
+                    datasets: [{
+                        label: '<%= t("dashboard.analyses") %>',
+                        data: generateMockData(7, 0, 10),
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Analysis types pie chart
+            const typesCtx = document.getElementById('typesChart').getContext('2d');
+            new Chart(typesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '<%= t("categories.liquidity") %>',
+                        '<%= t("categories.profitability") %>',
+                        '<%= t("categories.leverage") %>',
+                        '<%= t("categories.activity") %>'
+                    ],
+                    datasets: [{
+                        data: [30, 25, 25, 20],
+                        backgroundColor: [
+                            '#007bff',
+                            '#28a745',
+                            '#ffc107',
+                            '#dc3545'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        // Helper functions
+        function getStatusText(status) {
+            const statusTexts = {
+                'pending': '<%= t("status.pending") %>',
+                'processing': '<%= t("status.processing") %>',
+                'completed': '<%= t("status.completed") %>',
+                'error': '<%= t("status.error") %>',
+                'cancelled': '<%= t("status.cancelled") %>'
+            };
+            return statusTexts[status] || status;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('<%= language %>', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function getLast7Days() {
+            const days = [];
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                days.push(date.toLocaleDateString('<%= language %>', { month: 'short', day: 'numeric' }));
+            }
+            return days;
+        }
+
+        function generateMockData(length, min, max) {
+            return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+        }
+
+        // Event handlers
+        function setupEventListeners() {
+            // Auto-refresh dashboard data every 30 seconds
+            setInterval(() => {
+                loadDashboardData();
+            }, 30000);
+        }
+
+        function showAnalysisTemplates() {
+            document.getElementById('templatesModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function useTemplate(templateType) {
+            window.location.href = `/analysis/new?template=${templateType}`;
+        }
+
+        async function generateReport(analysisId) {
+            try {
+                const response = await fetch(`/api/analysis/${analysisId}/reports`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        format: 'pdf',
+                        language: '<%= language %>'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showNotification('<%= t("notifications.report_generated") %>', 'success');
+                    // Optionally redirect to reports page or download
+                    window.location.href = '/reports';
+                } else {
+                    throw new Error(data.message);
+                }
+            } catch (error) {
+                console.error('Error generating report:', error);
+                showNotification('<%= t("errors.report_generation_error") %>', 'error');
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                </div>
+            `;
+
+            document.getElementById('notifications').appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Handle offline/online states
+        window.addEventListener('online', () => {
+            showNotification('<%= t("notifications.back_online") %>', 'success');
+            loadDashboardData();
+        });
+
+        window.addEventListener('offline', () => {
+            showNotification('<%= t("notifications.offline") %>', 'warning');
+        });
+    </script>
+</body>
+</html>

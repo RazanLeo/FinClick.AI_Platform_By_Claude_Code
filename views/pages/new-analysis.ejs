@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="<%= language %>" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= t('analysis.new_analysis') %> - FinClick.AI</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/analysis.css">
+    <link rel="icon" href="/public/images/logo.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="/public/images/logo.png" alt="FinClick.AI" class="nav-logo">
+                <span class="nav-brand-text">FinClick.AI</span>
+            </div>
+
+            <div class="nav-menu">
+                <a href="/dashboard" class="nav-item">
+                    <i class="icon-dashboard"></i>
+                    <%= t('navigation.dashboard') %>
+                </a>
+                <a href="/analysis/new" class="nav-item active">
+                    <i class="icon-analysis"></i>
+                    <%= t('navigation.new_analysis') %>
+                </a>
+                <a href="/analyses" class="nav-item">
+                    <i class="icon-history"></i>
+                    <%= t('navigation.my_analyses') %>
+                </a>
+            </div>
+
+            <div class="nav-user">
+                <div class="language-switcher">
+                    <a href="?lang=en" class="<%= language === 'en' ? 'active' : '' %>">EN</a>
+                    <a href="?lang=ar" class="<%= language === 'ar' ? 'active' : '' %>">عربي</a>
+                </div>
+
+                <div class="user-menu">
+                    <span class="user-name"><%= user.first_name %> <%= user.last_name %></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="analysis-main">
+        <div class="analysis-container">
+            <!-- Header -->
+            <div class="analysis-header">
+                <h1 class="analysis-title"><%= t('analysis.create_new_analysis') %></h1>
+                <p class="analysis-subtitle"><%= t('analysis.subtitle') %></p>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label"><%= t('analysis.steps.upload') %></div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label"><%= t('analysis.steps.configure') %></div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label"><%= t('analysis.steps.select') %></div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label"><%= t('analysis.steps.review') %></div>
+                </div>
+            </div>
+
+            <!-- Step 1: Document Upload -->
+            <div class="step-content active" id="step1">
+                <div class="step-card">
+                    <div class="step-header">
+                        <h2><%= t('analysis.upload_document') %></h2>
+                        <p><%= t('analysis.upload_description') %></p>
+                    </div>
+
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <i class="upload-icon icon-upload"></i>
+                            <h3><%= t('analysis.drag_drop') %></h3>
+                            <p><%= t('analysis.or_click_browse') %></p>
+                            <input type="file" id="documentFile" accept=".pdf,.xlsx,.xls,.docx,.doc,.csv,.jpg,.jpeg,.png" style="display: none;">
+                            <button type="button" class="btn btn-outline" onclick="document.getElementById('documentFile').click()">
+                                <%= t('analysis.browse_files') %>
+                            </button>
+                        </div>
+
+                        <div class="upload-info">
+                            <h4><%= t('analysis.supported_formats') %></h4>
+                            <div class="format-list">
+                                <span class="format-tag">PDF</span>
+                                <span class="format-tag">Excel</span>
+                                <span class="format-tag">Word</span>
+                                <span class="format-tag">CSV</span>
+                                <span class="format-tag">Images</span>
+                            </div>
+                            <p class="size-limit"><%= t('analysis.max_file_size') %></p>
+                        </div>
+                    </div>
+
+                    <div class="uploaded-file" id="uploadedFile" style="display: none;">
+                        <div class="file-info">
+                            <i class="file-icon"></i>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                                <div class="file-size"></div>
+                            </div>
+                        </div>
+                        <div class="file-actions">
+                            <button type="button" class="btn btn-sm btn-danger" onclick="removeFile()">
+                                <%= t('actions.remove') %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="progressPercent">0%</span>
+                            <span id="progressStatus"><%= t('analysis.uploading') %></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-primary" id="nextStep1" onclick="nextStep(2)" disabled>
+                        <%= t('actions.next') %>
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Company Configuration -->
+            <div class="step-content" id="step2">
+                <div class="step-card">
+                    <div class="step-header">
+                        <h2><%= t('analysis.company_information') %></h2>
+                        <p><%= t('analysis.company_description') %></p>
+                    </div>
+
+                    <form class="company-form" id="companyForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="analysisName"><%= t('form.analysis_name') %> *</label>
+                                <input type="text" id="analysisName" name="analysis_name" required
+                                       placeholder="<%= t('form.analysis_name_placeholder') %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="analysisPeriod"><%= t('form.analysis_period') %></label>
+                                <select id="analysisPeriod" name="analysis_period">
+                                    <option value="Q1 2024">Q1 2024</option>
+                                    <option value="Q2 2024">Q2 2024</option>
+                                    <option value="Q3 2024">Q3 2024</option>
+                                    <option value="Q4 2024" selected>Q4 2024</option>
+                                    <option value="FY 2024">FY 2024</option>
+                                    <option value="custom"><%= t('form.custom_period') %></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="companyName"><%= t('form.company_name') %> *</label>
+                                <input type="text" id="companyName" name="company_name" required
+                                       placeholder="<%= t('form.company_name_placeholder') %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="sector"><%= t('form.sector') %> *</label>
+                                <select id="sector" name="sector_id" required>
+                                    <option value=""><%= t('form.select_sector') %></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="activity"><%= t('form.activity') %></label>
+                                <select id="activity" name="activity_id">
+                                    <option value=""><%= t('form.select_activity') %></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="legalEntity"><%= t('form.legal_entity') %></label>
+                                <select id="legalEntity" name="legal_entity_id">
+                                    <option value=""><%= t('form.select_legal_entity') %></option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-outline" onclick="previousStep(1)">
+                        <i class="icon-arrow-left"></i>
+                        <%= t('actions.previous') %>
+                    </button>
+                    <button type="button" class="btn btn-primary" id="nextStep2" onclick="nextStep(3)">
+                        <%= t('actions.next') %>
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Analysis Selection -->
+            <div class="step-content" id="step3">
+                <div class="step-card">
+                    <div class="step-header">
+                        <h2><%= t('analysis.select_analysis_types') %></h2>
+                        <p><%= t('analysis.analysis_types_description') %></p>
+                    </div>
+
+                    <div class="analysis-selection">
+                        <!-- Quick Templates -->
+                        <div class="quick-templates">
+                            <h3><%= t('analysis.quick_templates') %></h3>
+                            <div class="template-buttons">
+                                <button type="button" class="template-btn" onclick="selectTemplate('comprehensive')">
+                                    <i class="icon-layers"></i>
+                                    <%= t('templates.comprehensive') %>
+                                </button>
+                                <button type="button" class="template-btn" onclick="selectTemplate('basic')">
+                                    <i class="icon-file"></i>
+                                    <%= t('templates.basic') %>
+                                </button>
+                                <button type="button" class="template-btn" onclick="selectTemplate('liquidity')">
+                                    <i class="icon-droplet"></i>
+                                    <%= t('templates.liquidity') %>
+                                </button>
+                                <button type="button" class="template-btn" onclick="selectTemplate('profitability')">
+                                    <i class="icon-trending-up"></i>
+                                    <%= t('templates.profitability') %>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Analysis Categories -->
+                        <div class="analysis-categories">
+                            <div class="category-tabs">
+                                <button type="button" class="tab active" onclick="showCategory('all')">
+                                    <%= t('categories.all') %>
+                                </button>
+                                <button type="button" class="tab" onclick="showCategory('Liquidity')">
+                                    <%= t('categories.liquidity') %>
+                                </button>
+                                <button type="button" class="tab" onclick="showCategory('Profitability')">
+                                    <%= t('categories.profitability') %>
+                                </button>
+                                <button type="button" class="tab" onclick="showCategory('Leverage')">
+                                    <%= t('categories.leverage') %>
+                                </button>
+                                <button type="button" class="tab" onclick="showCategory('Activity')">
+                                    <%= t('categories.activity') %>
+                                </button>
+                                <button type="button" class="tab" onclick="showCategory('Market')">
+                                    <%= t('categories.market') %>
+                                </button>
+                            </div>
+
+                            <div class="search-bar">
+                                <input type="text" id="analysisSearch" placeholder="<%= t('analysis.search_placeholder') %>">
+                                <i class="icon-search"></i>
+                            </div>
+
+                            <div class="selection-summary">
+                                <span id="selectedCount">0</span> <%= t('analysis.selected_of') %> <span id="totalCount">0</span>
+                                <button type="button" class="btn btn-sm btn-outline" onclick="clearSelection()">
+                                    <%= t('actions.clear_all') %>
+                                </button>
+                            </div>
+
+                            <div class="analysis-list" id="analysisList">
+                                <div class="loading-spinner">
+                                    <div class="spinner"></div>
+                                    <p><%= t('common.loading') %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-outline" onclick="previousStep(2)">
+                        <i class="icon-arrow-left"></i>
+                        <%= t('actions.previous') %>
+                    </button>
+                    <button type="button" class="btn btn-primary" id="nextStep3" onclick="nextStep(4)" disabled>
+                        <%= t('actions.next') %>
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Review and Submit -->
+            <div class="step-content" id="step4">
+                <div class="step-card">
+                    <div class="step-header">
+                        <h2><%= t('analysis.review_submit') %></h2>
+                        <p><%= t('analysis.review_description') %></p>
+                    </div>
+
+                    <div class="review-sections">
+                        <div class="review-section">
+                            <h3><%= t('review.document_information') %></h3>
+                            <div class="review-item" id="reviewDocument">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h3><%= t('review.company_information') %></h3>
+                            <div class="review-grid" id="reviewCompany">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h3><%= t('review.selected_analyses') %></h3>
+                            <div class="selected-analyses-review" id="reviewAnalyses">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h3><%= t('review.processing_estimate') %></h3>
+                            <div class="estimate-info">
+                                <div class="estimate-item">
+                                    <i class="icon-clock"></i>
+                                    <span><%= t('review.estimated_time') %>: <span id="estimatedTime">5-10 <%= t('common.minutes') %></span></span>
+                                </div>
+                                <div class="estimate-item">
+                                    <i class="icon-cpu"></i>
+                                    <span><%= t('review.analysis_count') %>: <span id="analysisCount">0</span></span>
+                                </div>
+                                <div class="estimate-item">
+                                    <i class="icon-brain"></i>
+                                    <span><%= t('review.ai_processing') %>: <%= t('common.enabled') %></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="terms-agreement">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            <%= t('analysis.agree_terms') %>
+                            <a href="/terms" target="_blank"><%= t('navigation.terms') %></a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-outline" onclick="previousStep(3)">
+                        <i class="icon-arrow-left"></i>
+                        <%= t('actions.previous') %>
+                    </button>
+                    <button type="button" class="btn btn-primary" id="submitAnalysis" onclick="submitAnalysis()" disabled>
+                        <i class="icon-play"></i>
+                        <%= t('actions.start_analysis') %>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Processing Modal -->
+    <div id="processingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><%= t('analysis.processing_started') %></h3>
+            </div>
+            <div class="modal-body">
+                <div class="processing-animation">
+                    <div class="spinner-large"></div>
+                </div>
+                <h4><%= t('analysis.analysis_in_progress') %></h4>
+                <p><%= t('analysis.processing_message') %></p>
+
+                <div class="processing-steps">
+                    <div class="processing-step active">
+                        <i class="icon-upload"></i>
+                        <span><%= t('processing.document_upload') %></span>
+                    </div>
+                    <div class="processing-step">
+                        <i class="icon-scan"></i>
+                        <span><%= t('processing.document_analysis') %></span>
+                    </div>
+                    <div class="processing-step">
+                        <i class="icon-calculate"></i>
+                        <span><%= t('processing.calculations') %></span>
+                    </div>
+                    <div class="processing-step">
+                        <i class="icon-brain"></i>
+                        <span><%= t('processing.ai_insights') %></span>
+                    </div>
+                    <div class="processing-step">
+                        <i class="icon-check"></i>
+                        <span><%= t('processing.completion') %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-outline" onclick="goToDashboard()">
+                    <%= t('actions.view_dashboard') %>
+                </button>
+                <button type="button" class="btn btn-primary" onclick="viewAnalysis()" id="viewAnalysisBtn" style="display: none;">
+                    <%= t('actions.view_analysis') %>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications" class="notifications-container"></div>
+
+    <script>
+        let currentStep = 1;
+        let uploadedDocument = null;
+        let selectedAnalyses = [];
+        let analysisTypes = {};
+        let currentAnalysisId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeForm();
+            setupEventListeners();
+            loadFormData();
+        });
+
+        // Initialize form
+        function initializeForm() {
+            // Check for template parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const template = urlParams.get('template');
+
+            if (template) {
+                // Pre-configure based on template
+                setTimeout(() => {
+                    selectTemplate(template);
+                }, 1000);
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // File upload
+            const fileInput = document.getElementById('documentFile');
+            const uploadArea = document.getElementById('uploadArea');
+
+            fileInput.addEventListener('change', handleFileSelect);
+
+            // Drag and drop
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+
+            uploadArea.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFile(files[0]);
+                }
+            });
+
+            // Sector change
+            document.getElementById('sector').addEventListener('change', loadActivities);
+
+            // Analysis search
+            document.getElementById('analysisSearch').addEventListener('input', filterAnalyses);
+
+            // Terms agreement
+            document.getElementById('agreeTerms').addEventListener('change', function() {
+                document.getElementById('submitAnalysis').disabled = !this.checked;
+            });
+
+            // Form validation
+            document.getElementById('companyForm').addEventListener('input', validateStep2);
+        }
+
+        // Load form data
+        async function loadFormData() {
+            try {
+                // Load sectors
+                const sectorsResponse = await fetch('/api/analysis/sectors');
+                const sectorsData = await sectorsResponse.json();
+
+                if (sectorsData.success) {
+                    populateSelect('sector', sectorsData.data, '<%= language %>');
+                }
+
+                // Load legal entities
+                const entitiesResponse = await fetch('/api/analysis/legal-entities');
+                const entitiesData = await entitiesResponse.json();
+
+                if (entitiesData.success) {
+                    populateSelect('legalEntity', entitiesData.data, '<%= language %>');
+                }
+
+                // Load analysis types
+                const typesResponse = await fetch('/api/analysis/types');
+                const typesData = await typesResponse.json();
+
+                if (typesData.success) {
+                    analysisTypes = typesData.data;
+                    renderAnalysisTypes();
+                }
+
+            } catch (error) {
+                console.error('Error loading form data:', error);
+                showNotification('<%= t("errors.loading_error") %>', 'error');
+            }
+        }
+
+        // Handle file selection
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        // Handle file upload
+        async function handleFile(file) {
+            if (!validateFile(file)) {
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('document', file);
+
+            try {
+                showUploadProgress();
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.upload.addEventListener('progress', (e) => {
+                    if (e.lengthComputable) {
+                        const percentComplete = (e.loaded / e.total) * 100;
+                        updateUploadProgress(percentComplete);
+                    }
+                });
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            uploadedDocument = response.data;
+                            showUploadedFile(file, response.data);
+                            document.getElementById('nextStep1').disabled = false;
+                        } else {
+                            throw new Error(response.message);
+                        }
+                    } else {
+                        throw new Error('Upload failed');
+                    }
+                    hideUploadProgress();
+                };
+
+                xhr.onerror = function() {
+                    hideUploadProgress();
+                    showNotification('<%= t("errors.upload_error") %>', 'error');
+                };
+
+                xhr.open('POST', '/api/analysis/upload');
+                xhr.send(formData);
+
+            } catch (error) {
+                hideUploadProgress();
+                console.error('Upload error:', error);
+                showNotification('<%= t("errors.upload_error") %>', 'error');
+            }
+        }
+
+        // Validate file
+        function validateFile(file) {
+            const allowedTypes = [
+                'application/pdf',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'application/vnd.ms-excel',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'image/jpeg',
+                'image/png',
+                'text/csv'
+            ];
+
+            if (!allowedTypes.includes(file.type)) {
+                showNotification('<%= t("errors.unsupported_file_type") %>', 'error');
+                return false;
+            }
+
+            if (file.size > 50 * 1024 * 1024) { // 50MB limit
+                showNotification('<%= t("errors.file_too_large") %>', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Show upload progress
+        function showUploadProgress() {
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('uploadProgress').style.display = 'block';
+        }
+
+        // Update upload progress
+        function updateUploadProgress(percent) {
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressPercent').textContent = Math.round(percent) + '%';
+        }
+
+        // Hide upload progress
+        function hideUploadProgress() {
+            document.getElementById('uploadProgress').style.display = 'none';
+        }
+
+        // Show uploaded file
+        function showUploadedFile(file, documentData) {
+            const uploadedFileDiv = document.getElementById('uploadedFile');
+            const fileIcon = uploadedFileDiv.querySelector('.file-icon');
+            const fileName = uploadedFileDiv.querySelector('.file-name');
+            const fileSize = uploadedFileDiv.querySelector('.file-size');
+
+            // Set file icon based on type
+            const iconClass = getFileIconClass(file.type);
+            fileIcon.className = `file-icon ${iconClass}`;
+
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+
+            uploadedFileDiv.style.display = 'flex';
+        }
+
+        // Remove uploaded file
+        function removeFile() {
+            uploadedDocument = null;
+            document.getElementById('uploadedFile').style.display = 'none';
+            document.getElementById('uploadArea').style.display = 'block';
+            document.getElementById('documentFile').value = '';
+            document.getElementById('nextStep1').disabled = true;
+        }
+
+        // Load activities based on selected sector
+        async function loadActivities() {
+            const sectorId = document.getElementById('sector').value;
+            const activitySelect = document.getElementById('activity');
+
+            activitySelect.innerHTML = `<option value=""><%= t('form.select_activity') %></option>`;
+
+            if (!sectorId) return;
+
+            try {
+                const response = await fetch(`/api/analysis/activities/${sectorId}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    populateSelect('activity', data.data, '<%= language %>');
+                }
+            } catch (error) {
+                console.error('Error loading activities:', error);
+            }
+        }
+
+        // Render analysis types
+        function renderAnalysisTypes() {
+            const container = document.getElementById('analysisList');
+            const allTypes = Object.values(analysisTypes).flat();
+
+            document.getElementById('totalCount').textContent = allTypes.length;
+
+            let html = '';
+            for (const [category, types] of Object.entries(analysisTypes)) {
+                html += `
+                    <div class="analysis-category" data-category="${category}">
+                        <h4 class="category-title">${getCategoryTitle(category)}</h4>
+                        <div class="analysis-items">
+                `;
+
+                types.forEach(type => {
+                    html += `
+                        <div class="analysis-item" data-id="${type.id}" data-category="${category}">
+                            <label class="analysis-checkbox">
+                                <input type="checkbox" value="${type.id}" onchange="toggleAnalysis('${type.id}')">
+                                <span class="checkmark"></span>
+                                <div class="analysis-content">
+                                    <h5 class="analysis-name">${'<%= language %>' === 'ar' ? type.name_ar : type.name_en}</h5>
+                                    <p class="analysis-description">${'<%= language %>' === 'ar' ? type.description_ar : type.description_en}</p>
+                                </div>
+                            </label>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Navigation functions
+        function nextStep(step) {
+            if (step === 2 && !validateStep1()) return;
+            if (step === 3 && !validateStep2()) return;
+            if (step === 4 && !validateStep3()) return;
+
+            if (step === 4) {
+                populateReview();
+            }
+
+            showStep(step);
+        }
+
+        function previousStep(step) {
+            showStep(step);
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            document.querySelectorAll('.step').forEach(stepEl => {
+                stepEl.classList.remove('active', 'completed');
+            });
+
+            // Show current step
+            document.getElementById(`step${step}`).classList.add('active');
+
+            // Update progress
+            for (let i = 1; i <= step; i++) {
+                const stepEl = document.querySelector(`.step[data-step="${i}"]`);
+                if (i < step) {
+                    stepEl.classList.add('completed');
+                } else if (i === step) {
+                    stepEl.classList.add('active');
+                }
+            }
+
+            currentStep = step;
+        }
+
+        // Validation functions
+        function validateStep1() {
+            return uploadedDocument !== null;
+        }
+
+        function validateStep2() {
+            const form = document.getElementById('companyForm');
+            const analysisName = form.analysis_name.value.trim();
+            const companyName = form.company_name.value.trim();
+            const sectorId = form.sector_id.value;
+
+            const isValid = analysisName && companyName && sectorId;
+            document.getElementById('nextStep2').disabled = !isValid;
+
+            return isValid;
+        }
+
+        function validateStep3() {
+            const isValid = selectedAnalyses.length > 0;
+            document.getElementById('nextStep3').disabled = !isValid;
+
+            return isValid;
+        }
+
+        // Template selection
+        function selectTemplate(templateType) {
+            const templates = {
+                comprehensive: ['Current Ratio', 'Quick Ratio', 'Debt-to-Equity Ratio', 'Return on Assets (ROA)', 'Return on Equity (ROE)', 'Gross Profit Margin', 'Net Profit Margin', 'Asset Turnover'],
+                basic: ['Current Ratio', 'Debt-to-Equity Ratio', 'Return on Assets (ROA)', 'Gross Profit Margin'],
+                liquidity: ['Current Ratio', 'Quick Ratio', 'Cash Ratio', 'Working Capital', 'Operating Cash Flow Ratio'],
+                profitability: ['Gross Profit Margin', 'Operating Profit Margin', 'Net Profit Margin', 'Return on Assets (ROA)', 'Return on Equity (ROE)', 'EBITDA Margin']
+            };
+
+            const templateAnalyses = templates[templateType] || [];
+
+            // Clear current selection
+            clearSelection();
+
+            // Select template analyses
+            templateAnalyses.forEach(analysisName => {
+                const allTypes = Object.values(analysisTypes).flat();
+                const analysis = allTypes.find(type => type.name_en === analysisName);
+                if (analysis) {
+                    toggleAnalysis(analysis.id, true);
+                }
+            });
+
+            showNotification(`<%= t("notifications.template_applied") %> ${templateType}`, 'success');
+        }
+
+        // Toggle analysis selection
+        function toggleAnalysis(analysisId, forceSelect = false) {
+            const checkbox = document.querySelector(`input[value="${analysisId}"]`);
+            const isChecked = forceSelect || checkbox.checked;
+
+            if (isChecked && !selectedAnalyses.includes(analysisId)) {
+                selectedAnalyses.push(analysisId);
+            } else if (!isChecked) {
+                selectedAnalyses = selectedAnalyses.filter(id => id !== analysisId);
+            }
+
+            if (forceSelect) {
+                checkbox.checked = true;
+            }
+
+            updateSelectionCount();
+            validateStep3();
+        }
+
+        // Update selection count
+        function updateSelectionCount() {
+            document.getElementById('selectedCount').textContent = selectedAnalyses.length;
+        }
+
+        // Clear all selections
+        function clearSelection() {
+            selectedAnalyses = [];
+            document.querySelectorAll('.analysis-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateSelectionCount();
+            validateStep3();
+        }
+
+        // Filter analyses
+        function filterAnalyses() {
+            const searchTerm = document.getElementById('analysisSearch').value.toLowerCase();
+            const items = document.querySelectorAll('.analysis-item');
+
+            items.forEach(item => {
+                const name = item.querySelector('.analysis-name').textContent.toLowerCase();
+                const description = item.querySelector('.analysis-description').textContent.toLowerCase();
+
+                if (name.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Show category
+        function showCategory(category) {
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide categories
+            const categories = document.querySelectorAll('.analysis-category');
+
+            categories.forEach(cat => {
+                if (category === 'all' || cat.dataset.category === category) {
+                    cat.style.display = 'block';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+        }
+
+        // Populate review section
+        function populateReview() {
+            // Document info
+            if (uploadedDocument) {
+                document.getElementById('reviewDocument').innerHTML = `
+                    <div class="review-file">
+                        <i class="${getFileIconClass(uploadedDocument.mime_type)}"></i>
+                        <div class="file-details">
+                            <div class="file-name">${uploadedDocument.original_filename}</div>
+                            <div class="file-size">${formatFileSize(uploadedDocument.file_size)}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Company info
+            const form = document.getElementById('companyForm');
+            document.getElementById('reviewCompany').innerHTML = `
+                <div class="review-item">
+                    <label><%= t('form.analysis_name') %></label>
+                    <value>${form.analysis_name.value}</value>
+                </div>
+                <div class="review-item">
+                    <label><%= t('form.company_name') %></label>
+                    <value>${form.company_name.value}</value>
+                </div>
+                <div class="review-item">
+                    <label><%= t('form.analysis_period') %></label>
+                    <value>${form.analysis_period.value}</value>
+                </div>
+                <div class="review-item">
+                    <label><%= t('form.sector') %></label>
+                    <value>${form.sector_id.selectedOptions[0].text}</value>
+                </div>
+                ${form.activity_id.value ? `
+                    <div class="review-item">
+                        <label><%= t('form.activity') %></label>
+                        <value>${form.activity_id.selectedOptions[0].text}</value>
+                    </div>
+                ` : ''}
+                ${form.legal_entity_id.value ? `
+                    <div class="review-item">
+                        <label><%= t('form.legal_entity') %></label>
+                        <value>${form.legal_entity_id.selectedOptions[0].text}</value>
+                    </div>
+                ` : ''}
+            `;
+
+            // Selected analyses
+            const allTypes = Object.values(analysisTypes).flat();
+            const selectedTypes = allTypes.filter(type => selectedAnalyses.includes(type.id));
+
+            const groupedSelected = selectedTypes.reduce((acc, type) => {
+                if (!acc[type.category]) acc[type.category] = [];
+                acc[type.category].push(type);
+                return acc;
+            }, {});
+
+            let analysesHtml = '';
+            for (const [category, types] of Object.entries(groupedSelected)) {
+                analysesHtml += `
+                    <div class="review-category">
+                        <h5>${getCategoryTitle(category)} (${types.length})</h5>
+                        <div class="review-analyses">
+                            ${types.map(type => `
+                                <span class="analysis-tag">
+                                    ${'<%= language %>' === 'ar' ? type.name_ar : type.name_en}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('reviewAnalyses').innerHTML = analysesHtml;
+            document.getElementById('analysisCount').textContent = selectedAnalyses.length;
+
+            // Estimate processing time based on number of analyses
+            const estimatedMinutes = Math.max(5, Math.ceil(selectedAnalyses.length * 0.5));
+            document.getElementById('estimatedTime').textContent = `${estimatedMinutes}-${estimatedMinutes + 5} <%= t('common.minutes') %>`;
+        }
+
+        // Submit analysis
+        async function submitAnalysis() {
+            if (!document.getElementById('agreeTerms').checked) {
+                showNotification('<%= t("errors.agree_terms") %>', 'error');
+                return;
+            }
+
+            try {
+                const formData = new FormData(document.getElementById('companyForm'));
+
+                const analysisData = {
+                    analysis_name: formData.get('analysis_name'),
+                    company_name: formData.get('company_name'),
+                    sector_id: formData.get('sector_id'),
+                    activity_id: formData.get('activity_id') || null,
+                    legal_entity_id: formData.get('legal_entity_id') || null,
+                    analysis_period: formData.get('analysis_period'),
+                    selected_analysis_types: selectedAnalyses,
+                    document_id: uploadedDocument?.id || null
+                };
+
+                const response = await fetch('/api/analysis', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(analysisData)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentAnalysisId = data.data.id;
+                    showProcessingModal();
+                    monitorAnalysisProgress(data.data.id);
+                } else {
+                    throw new Error(data.message);
+                }
+
+            } catch (error) {
+                console.error('Error submitting analysis:', error);
+                showNotification('<%= t("errors.submission_error") %>', 'error');
+            }
+        }
+
+        // Show processing modal
+        function showProcessingModal() {
+            document.getElementById('processingModal').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        // Monitor analysis progress
+        async function monitorAnalysisProgress(analysisId) {
+            const checkStatus = async () => {
+                try {
+                    const response = await fetch(`/api/analysis/${analysisId}/status`);
+                    const data = await response.json();
+
+                    if (data.success) {
+                        updateProcessingSteps(data.data.status);
+
+                        if (data.data.status === 'completed') {
+                            showProcessingComplete();
+                        } else if (data.data.status === 'error') {
+                            showProcessingError();
+                        } else if (data.data.status === 'processing') {
+                            setTimeout(checkStatus, 5000); // Check again in 5 seconds
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error checking analysis status:', error);
+                    setTimeout(checkStatus, 10000); // Retry in 10 seconds
+                }
+            };
+
+            checkStatus();
+        }
+
+        // Update processing steps
+        function updateProcessingSteps(status) {
+            const steps = document.querySelectorAll('.processing-step');
+
+            // Reset all steps
+            steps.forEach(step => {
+                step.classList.remove('active', 'completed');
+            });
+
+            // Update based on status
+            switch (status) {
+                case 'processing':
+                    steps[0].classList.add('completed');
+                    steps[1].classList.add('active');
+                    break;
+                case 'completed':
+                    steps.forEach(step => step.classList.add('completed'));
+                    break;
+                case 'error':
+                    steps[0].classList.add('completed');
+                    steps[1].classList.add('error');
+                    break;
+            }
+        }
+
+        // Show processing complete
+        function showProcessingComplete() {
+            document.getElementById('viewAnalysisBtn').style.display = 'inline-block';
+            showNotification('<%= t("notifications.analysis_completed") %>', 'success');
+        }
+
+        // Show processing error
+        function showProcessingError() {
+            showNotification('<%= t("errors.processing_error") %>', 'error');
+        }
+
+        // Navigation functions
+        function goToDashboard() {
+            window.location.href = '/dashboard';
+        }
+
+        function viewAnalysis() {
+            if (currentAnalysisId) {
+                window.location.href = `/analysis/${currentAnalysisId}`;
+            }
+        }
+
+        // Helper functions
+        function getFileIconClass(mimeType) {
+            const iconMap = {
+                'application/pdf': 'icon-file-pdf',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'icon-file-excel',
+                'application/vnd.ms-excel': 'icon-file-excel',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'icon-file-word',
+                'text/csv': 'icon-file-csv',
+                'image/jpeg': 'icon-file-image',
+                'image/png': 'icon-file-image'
+            };
+            return iconMap[mimeType] || 'icon-file';
+        }
+
+        function formatFileSize(bytes) {
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            if (bytes === 0) return '0 Bytes';
+            const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+            return Math.round(bytes / Math.pow(1024, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function getCategoryTitle(category) {
+            const titles = {
+                'Liquidity': '<%= t("categories.liquidity") %>',
+                'Leverage': '<%= t("categories.leverage") %>',
+                'Profitability': '<%= t("categories.profitability") %>',
+                'Activity': '<%= t("categories.activity") %>',
+                'Market': '<%= t("categories.market") %>',
+                'Banking': '<%= t("categories.banking") %>',
+                'Insurance': '<%= t("categories.insurance") %>'
+            };
+            return titles[category] || category;
+        }
+
+        function populateSelect(selectId, data, language) {
+            const select = document.getElementById(selectId);
+            const currentOption = select.querySelector('option[value=""]');
+
+            select.innerHTML = '';
+            if (currentOption) {
+                select.appendChild(currentOption);
+            }
+
+            data.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.id;
+                option.textContent = language === 'ar' ? (item.name_ar || item.name_en) : item.name_en;
+                select.appendChild(option);
+            });
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                </div>
+            `;
+
+            document.getElementById('notifications').appendChild(notification);
+
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/public/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Service' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: يناير 2025' : 'Last updated: January 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <h2 class="text-2xl font-bold text-gold mb-4">1. القبول بالشروط</h2>
+                <p class="text-gold/80 mb-6">
+                    بوصولك واستخدامك لمنصة FinClick.AI، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام المنصة.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">2. وصف الخدمة</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">FinClick.AI هي منصة ذكية للتحليل المالي تقدم:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>أكثر من 180 نوع من التحليل المالي</li>
+                        <li>تحليل ذكي باستخدام الذكاء الاصطناعي</li>
+                        <li>إنتاج تقارير احترافية (PDF، Excel، PowerPoint، Word)</li>
+                        <li>مقارنات قطاعية ومعيارية</li>
+                        <li>أدوات تحليل مجانية محدودة</li>
+                        <li>خدمات الاشتراك المدفوعة</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">3. التسجيل والحساب</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. متطلبات التسجيل:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>يجب أن تكون بعمر 18 سنة أو أكبر</li>
+                        <li>تقديم معلومات صحيحة ودقيقة</li>
+                        <li>الحفاظ على سرية بيانات الدخول</li>
+                        <li>إشعارنا فوراً بأي انتهاك أمني</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. مسؤولية الحساب:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>أنت مسؤول عن جميع الأنشطة في حسابك</li>
+                        <li>يجب حماية كلمة المرور وعدم مشاركتها</li>
+                        <li>إشعارنا فوراً بأي استخدام غير مصرح به</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">4. الاشتراكات والدفع</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. خطط الاشتراك:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li><strong>مجاني:</strong> وصول محدود للأدوات الأساسية</li>
+                        <li><strong>أساسي:</strong> 99 ريال شهرياً - 20 تحليل، 10 تقارير</li>
+                        <li><strong>متقدم:</strong> 299 ريال شهرياً - 100 تحليل، 50 تقرير</li>
+                        <li><strong>مؤسسة:</strong> 999 ريال شهرياً - تحليل ومواراً غير محدودة</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. شروط الدفع:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>الأسعار بالريال السعودي شاملة ضريبة القيمة المضافة</li>
+                        <li>الدفع مقدماً قبل بدء فترة الاشتراك</li>
+                        <li>تجديد تلقائي ما لم يتم الإلغاء</li>
+                        <li>عدم استرداد المبالغ المدفوعة إلا في حالات استثنائية</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ج. الإلغاء والاسترداد:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>يمكن إلغاء الاشتراك في أي وقت</li>
+                        <li>الاسترداد متاح خلال 7 أيام من الاشتراك الأول</li>
+                        <li>لا استرداد للاشتراكات المُستخدمة جزئياً</li>
+                        <li>حالات استثنائية تُقيم حسب كل حالة</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">5. الاستخدام المقبول</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. الاستخدامات المسموحة:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>التحليل المالي للأغراض التجارية والشخصية</li>
+                        <li>البحث الأكاديمي والتعليمي</li>
+                        <li>اتخاذ القرارات الاستثمارية</li>
+                        <li>التقييم المالي والتخطيط</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. الاستخدامات المحظورة:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>انتهاك حقوق الملكية الفكرية</li>
+                        <li>محاولة اختراق أو تعطيل المنصة</li>
+                        <li>رفع بيانات مزيفة أو مضللة</li>
+                        <li>إعادة بيع الخدمات دون إذن</li>
+                        <li>استخدام المنصة لأغراض غير قانونية</li>
+                        <li>التلاعب أو محاولة تجاوز القيود</li>
+                        <li>مشاركة حساب واحد بين عدة مستخدمين</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">6. البيانات والخصوصية</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. ملكية البيانات:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>تحتفظ بملكية جميع البيانات التي ترفعها</li>
+                        <li>نحتفظ بحق استخدام البيانات المجهولة لتحسين الخدمة</li>
+                        <li>لن نشارك بياناتك مع أطراف ثالثة دون موافقتك</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. الأمان:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>نستخدم أحدث تقنيات التشفير والحماية</li>
+                        <li>نسخ احتياطية منتظمة ومحمية</li>
+                        <li>فرق أمان متخصصة لمراقبة النظام</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">7. الملكية الفكرية</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">جميع حقوق الملكية الفكرية في FinClick.AI محفوظة، بما في ذلك:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>خوارزميات التحليل المالي</li>
+                        <li>تصميم واجهة المستخدم</li>
+                        <li>الشعارات والعلامات التجارية</li>
+                        <li>المحتوى والنصوص</li>
+                        <li>قوالب التقارير والعروض</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">8. إخلاء المسؤولية</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">FinClick.AI يقدم خدمات التحليل المالي لأغراض إعلامية فقط. نحن لا نقدم:</p>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>استشارات مالية أو استثمارية مخصصة</li>
+                        <li>ضمانات حول دقة التوقعات المستقبلية</li>
+                        <li>توصيات شراء أو بيع محددة</li>
+                    </ul>
+                    <p>المستخدم مسؤول عن قراراته الاستثمارية والمالية.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">9. تحديد المسؤولية</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">في حدود القانون المطبق، فإن مسؤوليتنا محدودة كالتالي:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>الحد الأقصى للمسؤولية هو قيمة اشتراكك الشهري</li>
+                        <li>لا نتحمل مسؤولية الأضرار غير المباشرة</li>
+                        <li>لا نتحمل مسؤولية فقدان الأرباح أو البيانات</li>
+                        <li>المسؤولية محدودة بالخدمات المدفوعة فعلاً</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">10. فسخ الخدمة</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. الفسخ من قِبلك:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>يمكنك إلغاء اشتراكك في أي وقت</li>
+                        <li>ستحتفظ بالوصول حتى نهاية فترة الاشتراك المدفوعة</li>
+                        <li>يمكنك حذف حسابك نهائياً</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. الفسخ من قِبلنا:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>انتهاك شروط الاستخدام</li>
+                        <li>الأنشطة الاحتيالية أو غير القانونية</li>
+                        <li>عدم دفع الرسوم المستحقة</li>
+                        <li>سوء الاستخدام المتكرر</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">11. القانون المطبق</h2>
+                <div class="text-gold/80 mb-6">
+                    <p>تخضع هذه الشروط لقوانين المملكة العربية السعودية. أي نزاع سيتم حله عبر:</p>
+                    <ul class="list-disc list-inside space-y-1 mt-4">
+                        <li>التفاوض والوساطة أولاً</li>
+                        <li>محاكم المملكة العربية السعودية في جدة</li>
+                        <li>تطبيق أحكام النظام السعودي</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">12. تعديل الشروط</h2>
+                <p class="text-gold/80 mb-6">
+                    نحتفظ بحق تعديل هذه الشروط في أي وقت. سيتم إشعارك بالتغييرات الجوهرية عبر البريد الإلكتروني أو إشعار على المنصة قبل 30 يوماً من دخولها حيز التنفيذ.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">13. معلومات الاتصال</h2>
+                <div class="text-gold/80">
+                    <p class="mb-2">لأي استفسارات حول شروط الاستخدام:</p>
+                    <ul class="list-none space-y-1">
+                        <li><strong>الشركة:</strong> FinClick.AI</li>
+                        <li><strong>البريد الإلكتروني:</strong> legal@finclick.ai</li>
+                        <li><strong>الهاتف:</strong> +966 544 827 213</li>
+                        <li><strong>العنوان:</strong> المملكة العربية السعودية، جدة</li>
+                        <li><strong>الدعم:</strong> support@finclick.ai</li>
+                    </ul>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <h2 class="text-2xl font-bold text-gold mb-4">1. Acceptance of Terms</h2>
+                <p class="text-gold/80 mb-6">
+                    By accessing and using the FinClick.AI platform, you agree to be bound by these Terms of Service. If you do not agree to any of these terms, please do not use the platform.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">2. Service Description</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">FinClick.AI is an intelligent financial analysis platform that provides:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Over 180 types of financial analysis</li>
+                        <li>AI-powered intelligent analysis</li>
+                        <li>Professional report generation (PDF, Excel, PowerPoint, Word)</li>
+                        <li>Sector and benchmark comparisons</li>
+                        <li>Limited free analysis tools</li>
+                        <li>Paid subscription services</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">3. Registration and Account</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Registration Requirements:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Must be 18 years old or older</li>
+                        <li>Provide accurate and truthful information</li>
+                        <li>Maintain confidentiality of login credentials</li>
+                        <li>Notify us immediately of any security breach</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Account Responsibility:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>You are responsible for all activities in your account</li>
+                        <li>Must protect password and not share it</li>
+                        <li>Notify us immediately of any unauthorized use</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">4. Subscriptions and Payment</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Subscription Plans:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li><strong>Free:</strong> Limited access to basic tools</li>
+                        <li><strong>Basic:</strong> 99 SAR monthly - 20 analyses, 10 reports</li>
+                        <li><strong>Premium:</strong> 299 SAR monthly - 100 analyses, 50 reports</li>
+                        <li><strong>Enterprise:</strong> 999 SAR monthly - unlimited analyses and reports</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Payment Terms:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Prices in Saudi Riyal including VAT</li>
+                        <li>Payment in advance before subscription period</li>
+                        <li>Automatic renewal unless cancelled</li>
+                        <li>No refund of paid amounts except in exceptional cases</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">c. Cancellation and Refund:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Subscription can be cancelled at any time</li>
+                        <li>Refund available within 7 days of first subscription</li>
+                        <li>No refund for partially used subscriptions</li>
+                        <li>Exceptional cases evaluated individually</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">5. Acceptable Use</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Permitted Uses:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Financial analysis for business and personal purposes</li>
+                        <li>Academic and educational research</li>
+                        <li>Investment decision making</li>
+                        <li>Financial evaluation and planning</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Prohibited Uses:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Violating intellectual property rights</li>
+                        <li>Attempting to hack or disrupt the platform</li>
+                        <li>Uploading false or misleading data</li>
+                        <li>Reselling services without permission</li>
+                        <li>Using platform for illegal purposes</li>
+                        <li>Manipulation or attempting to bypass restrictions</li>
+                        <li>Sharing one account among multiple users</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">6. Data and Privacy</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Data Ownership:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>You retain ownership of all data you upload</li>
+                        <li>We reserve the right to use anonymized data to improve service</li>
+                        <li>We will not share your data with third parties without consent</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Security:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>We use latest encryption and protection technologies</li>
+                        <li>Regular and protected backups</li>
+                        <li>Specialized security teams monitoring the system</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">7. Intellectual Property</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">All intellectual property rights in FinClick.AI are reserved, including:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Financial analysis algorithms</li>
+                        <li>User interface design</li>
+                        <li>Logos and trademarks</li>
+                        <li>Content and texts</li>
+                        <li>Report and presentation templates</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">8. Disclaimers</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">FinClick.AI provides financial analysis services for informational purposes only. We do not provide:</p>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Personalized financial or investment advice</li>
+                        <li>Guarantees about accuracy of future predictions</li>
+                        <li>Specific buy or sell recommendations</li>
+                    </ul>
+                    <p>Users are responsible for their investment and financial decisions.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">9. Limitation of Liability</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">To the extent permitted by applicable law, our liability is limited as follows:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Maximum liability is the value of your monthly subscription</li>
+                        <li>We are not liable for indirect damages</li>
+                        <li>We are not liable for loss of profits or data</li>
+                        <li>Liability limited to actually paid services</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">10. Service Termination</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Termination by You:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>You can cancel your subscription at any time</li>
+                        <li>You will retain access until the end of paid subscription period</li>
+                        <li>You can permanently delete your account</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Termination by Us:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Violation of terms of use</li>
+                        <li>Fraudulent or illegal activities</li>
+                        <li>Non-payment of due fees</li>
+                        <li>Repeated misuse</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">11. Governing Law</h2>
+                <div class="text-gold/80 mb-6">
+                    <p>These terms are governed by the laws of Saudi Arabia. Any disputes will be resolved through:</p>
+                    <ul class="list-disc list-inside space-y-1 mt-4">
+                        <li>Negotiation and mediation first</li>
+                        <li>Courts of Saudi Arabia in Jeddah</li>
+                        <li>Application of Saudi legal provisions</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">12. Terms Modification</h2>
+                <p class="text-gold/80 mb-6">
+                    We reserve the right to modify these terms at any time. You will be notified of material changes via email or platform notice 30 days before they take effect.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">13. Contact Information</h2>
+                <div class="text-gold/80">
+                    <p class="mb-2">For any questions about these Terms of Service:</p>
+                    <ul class="list-none space-y-1">
+                        <li><strong>Company:</strong> FinClick.AI</li>
+                        <li><strong>Email:</strong> legal@finclick.ai</li>
+                        <li><strong>Phone:</strong> +966 544 827 213</li>
+                        <li><strong>Address:</strong> Saudi Arabia, Jeddah</li>
+                        <li><strong>Support:</strong> support@finclick.ai</li>
+                    </ul>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4">
+                    <a href="/privacy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/contact" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'اتصل بنا' : 'Contact Us' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

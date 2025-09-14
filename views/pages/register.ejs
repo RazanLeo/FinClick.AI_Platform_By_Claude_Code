@@ -1,0 +1,346 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto">
+            <!-- Logo Section -->
+            <div class="text-center mb-8">
+                <div class="inline-block">
+                    <img src="/public/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+                    <h1 class="text-2xl font-bold text-gold mb-2">FinClick.AI</h1>
+                    <p class="text-gold/70">
+                        <%= language === 'ar' ? 'انضم لثورة التحليل المالي الذكي' : 'Join the Intelligent Financial Analysis Revolution' %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <h2 class="text-2xl font-bold text-gold mb-6 text-center">
+                    <%= language === 'ar' ? 'إنشاء حساب جديد' : 'Create New Account' %>
+                </h2>
+
+                <form action="/api/auth/register" method="POST" class="space-y-6">
+                    <!-- Account Type -->
+                    <div>
+                        <label class="block text-sm font-medium text-gold mb-3">
+                            <%= language === 'ar' ? 'نوع الحساب' : 'Account Type' %>
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <input type="radio" name="accountType" value="individual" id="individual" class="sr-only" checked>
+                                <label for="individual" class="flex items-center p-4 border-2 border-gold/30 rounded-lg cursor-pointer hover:border-gold transition-colors account-type-option">
+                                    <div class="flex-1">
+                                        <div class="text-gold font-medium"><%= language === 'ar' ? 'فرد' : 'Individual' %></div>
+                                        <div class="text-gold/60 text-sm mt-1"><%= language === 'ar' ? 'للأفراد والمستثمرين' : 'For individuals and investors' %></div>
+                                    </div>
+                                    <i class="fas fa-user text-gold"></i>
+                                </label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="accountType" value="business" id="business" class="sr-only">
+                                <label for="business" class="flex items-center p-4 border-2 border-gold/30 rounded-lg cursor-pointer hover:border-gold transition-colors account-type-option">
+                                    <div class="flex-1">
+                                        <div class="text-gold font-medium"><%= language === 'ar' ? 'شركة' : 'Business' %></div>
+                                        <div class="text-gold/60 text-sm mt-1"><%= language === 'ar' ? 'للشركات والمؤسسات' : 'For companies and institutions' %></div>
+                                    </div>
+                                    <i class="fas fa-building text-gold"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'الاسم الأول' : 'First Name' %> *
+                            </label>
+                            <input type="text" name="firstName" required
+                                   class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                   placeholder="<%= language === 'ar' ? 'أدخل اسمك الأول' : 'Enter your first name' %>">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'اسم العائلة' : 'Last Name' %> *
+                            </label>
+                            <input type="text" name="lastName" required
+                                   class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                   placeholder="<%= language === 'ar' ? 'أدخل اسم العائلة' : 'Enter your last name' %>">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium text-gold mb-2">
+                            <%= language === 'ar' ? 'البريد الإلكتروني' : 'Email Address' %> *
+                        </label>
+                        <input type="email" name="email" required
+                               class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                               placeholder="<%= language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email address' %>">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label class="block text-sm font-medium text-gold mb-2">
+                            <%= language === 'ar' ? 'رقم الهاتف' : 'Phone Number' %>
+                        </label>
+                        <div class="flex">
+                            <select name="countryCode" class="px-3 py-3 bg-gray-800/50 border border-gold/30 border-r-0 rounded-l-lg text-gold focus:outline-none focus:border-gold">
+                                <option value="+966">🇸🇦 +966</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+971">🇦🇪 +971</option>
+                            </select>
+                            <input type="tel" name="phone"
+                                   class="flex-1 px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-r-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                   placeholder="<%= language === 'ar' ? '5xxxxxxxx' : 'Phone number' %>">
+                        </div>
+                    </div>
+
+                    <!-- Company Information (shown for business accounts) -->
+                    <div id="companySection" class="hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gold mb-2">
+                                    <%= language === 'ar' ? 'اسم الشركة' : 'Company Name' %> *
+                                </label>
+                                <input type="text" name="companyName"
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                       placeholder="<%= language === 'ar' ? 'أدخل اسم الشركة' : 'Enter company name' %>">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gold mb-2">
+                                    <%= language === 'ar' ? 'المنصب' : 'Position' %>
+                                </label>
+                                <input type="text" name="position"
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                                       placeholder="<%= language === 'ar' ? 'مدير مالي، محلل، إلخ' : 'Financial Manager, Analyst, etc.' %>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'كلمة المرور' : 'Password' %> *
+                            </label>
+                            <div class="relative">
+                                <input type="password" name="password" id="password" required
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold pr-12"
+                                       placeholder="<%= language === 'ar' ? 'كلمة مرور قوية' : 'Strong password' %>">
+                                <button type="button" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gold/70 hover:text-gold toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="mt-2">
+                                <div id="passwordStrength" class="h-1 bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-red-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                                <p class="text-xs text-gold/60 mt-1">
+                                    <%= language === 'ar' ? 'يجب أن تحتوي على 8 أحرف على الأقل مع أرقام ورموز' : 'Must contain at least 8 characters with numbers and symbols' %>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gold mb-2">
+                                <%= language === 'ar' ? 'تأكيد كلمة المرور' : 'Confirm Password' %> *
+                            </label>
+                            <div class="relative">
+                                <input type="password" name="confirmPassword" id="confirmPassword" required
+                                       class="w-full px-4 py-3 bg-gray-800/50 border border-gold/30 rounded-lg text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold pr-12"
+                                       placeholder="<%= language === 'ar' ? 'أعد كتابة كلمة المرور' : 'Repeat password' %>">
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2" id="passwordMatch">
+                                    <i class="fas fa-times text-red-500 hidden"></i>
+                                    <i class="fas fa-check text-green-500 hidden"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Privacy -->
+                    <div class="space-y-4">
+                        <label class="flex items-start">
+                            <input type="checkbox" name="agreeTerms" required class="mt-1 rounded border-gold/30 bg-gray-800/50 text-gold focus:ring-gold">
+                            <span class="ml-3 text-sm text-gold/80">
+                                <%= language === 'ar' ?
+                                    'أوافق على <a href="/terms" class="text-gold hover:text-yellow-400 underline">شروط الاستخدام</a> و <a href="/privacy" class="text-gold hover:text-yellow-400 underline">سياسة الخصوصية</a>' :
+                                    'I agree to the <a href="/terms" class="text-gold hover:text-yellow-400 underline">Terms of Service</a> and <a href="/privacy" class="text-gold hover:text-yellow-400 underline">Privacy Policy</a>'
+                                %>
+                            </span>
+                        </label>
+                        <label class="flex items-start">
+                            <input type="checkbox" name="agreeMarketing" class="mt-1 rounded border-gold/30 bg-gray-800/50 text-gold focus:ring-gold">
+                            <span class="ml-3 text-sm text-gold/80">
+                                <%= language === 'ar' ?
+                                    'أوافق على تلقي التحديثات والعروض التسويقية عبر البريد الإلكتروني' :
+                                    'I agree to receive updates and marketing offers via email'
+                                %>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" disabled
+                            class="w-full bg-gradient-to-r from-gold to-yellow-400 text-black font-bold py-3 px-4 rounded-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 glow-effect disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                        <%= language === 'ar' ? 'إنشاء الحساب' : 'Create Account' %>
+                    </button>
+                </form>
+
+                <!-- Login Link -->
+                <div class="text-center mt-6">
+                    <p class="text-gold/70">
+                        <%= language === 'ar' ? 'لديك حساب بالفعل؟' : "Already have an account?" %>
+                        <a href="/login" class="text-gold hover:text-yellow-400 font-medium">
+                            <%= language === 'ar' ? 'تسجيل الدخول' : 'Login here' %>
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Preview -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-900/30 border border-gold/10 rounded-lg p-4 text-center">
+                    <i class="fas fa-chart-line text-2xl text-gold mb-2"></i>
+                    <h3 class="text-sm font-bold text-gold mb-1">180+ <%= language === 'ar' ? 'نوع تحليل' : 'Analysis Types' %></h3>
+                    <p class="text-xs text-gold/60"><%= language === 'ar' ? 'جميع أنواع التحليل المالي' : 'All types of financial analysis' %></p>
+                </div>
+                <div class="bg-gray-900/30 border border-gold/10 rounded-lg p-4 text-center">
+                    <i class="fas fa-robot text-2xl text-gold mb-2"></i>
+                    <h3 class="text-sm font-bold text-gold mb-1"><%= language === 'ar' ? 'ذكاء اصطناعي' : 'AI Powered' %></h3>
+                    <p class="text-xs text-gold/60"><%= language === 'ar' ? 'تحليل ذكي بتقنية متقدمة' : 'Intelligent analysis with advanced technology' %></p>
+                </div>
+                <div class="bg-gray-900/30 border border-gold/10 rounded-lg p-4 text-center">
+                    <i class="fas fa-file-pdf text-2xl text-gold mb-2"></i>
+                    <h3 class="text-sm font-bold text-gold mb-1"><%= language === 'ar' ? 'تقارير احترافية' : 'Professional Reports' %></h3>
+                    <p class="text-xs text-gold/60"><%= language === 'ar' ? 'تقارير PDF وExcel وPowerPoint' : 'PDF, Excel and PowerPoint reports' %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Account type toggle
+    const accountTypeRadios = document.querySelectorAll('input[name="accountType"]');
+    const companySection = document.getElementById('companySection');
+
+    accountTypeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.value === 'business') {
+                companySection.classList.remove('hidden');
+                document.querySelector('input[name="companyName"]').required = true;
+            } else {
+                companySection.classList.add('hidden');
+                document.querySelector('input[name="companyName"]').required = false;
+            }
+
+            // Update visual selection
+            document.querySelectorAll('.account-type-option').forEach(option => {
+                option.classList.remove('border-gold', 'bg-gold/10');
+                option.classList.add('border-gold/30');
+            });
+            this.parentElement.nextElementSibling.classList.add('border-gold', 'bg-gold/10');
+            this.parentElement.nextElementSibling.classList.remove('border-gold/30');
+        });
+    });
+
+    // Password strength checker
+    const passwordInput = document.getElementById('password');
+    const passwordStrength = document.getElementById('passwordStrength').firstElementChild;
+
+    passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        let strength = 0;
+        let color = 'bg-red-500';
+
+        if (password.length >= 8) strength += 25;
+        if (/[a-z]/.test(password)) strength += 25;
+        if (/[A-Z]/.test(password)) strength += 25;
+        if (/\d/.test(password)) strength += 25;
+        if (/[^a-zA-Z\d]/.test(password)) strength += 25;
+
+        if (strength >= 75) color = 'bg-green-500';
+        else if (strength >= 50) color = 'bg-yellow-500';
+        else if (strength >= 25) color = 'bg-orange-500';
+
+        passwordStrength.className = `h-full ${color} rounded-full transition-all duration-300`;
+        passwordStrength.style.width = Math.min(strength, 100) + '%';
+    });
+
+    // Password confirmation
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const passwordMatch = document.getElementById('passwordMatch');
+
+    function checkPasswordMatch() {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        if (confirmPassword.length === 0) {
+            passwordMatch.children[0].classList.add('hidden');
+            passwordMatch.children[1].classList.add('hidden');
+        } else if (password === confirmPassword) {
+            passwordMatch.children[0].classList.add('hidden');
+            passwordMatch.children[1].classList.remove('hidden');
+        } else {
+            passwordMatch.children[0].classList.remove('hidden');
+            passwordMatch.children[1].classList.add('hidden');
+        }
+
+        updateSubmitButton();
+    }
+
+    confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+    passwordInput.addEventListener('input', checkPasswordMatch);
+
+    // Toggle password visibility
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('input');
+            if (input.type === 'password') {
+                input.type = 'text';
+                this.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                input.type = 'password';
+                this.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        });
+    });
+
+    // Form validation and submit button control
+    const form = document.querySelector('form');
+    const submitBtn = document.getElementById('submitBtn');
+    const agreeTerms = document.querySelector('input[name="agreeTerms"]');
+
+    function updateSubmitButton() {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+        const terms = agreeTerms.checked;
+        const requiredFields = form.querySelectorAll('input[required]');
+        let allFieldsFilled = true;
+
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                allFieldsFilled = false;
+            }
+        });
+
+        const passwordsMatch = password === confirmPassword && password.length >= 8;
+
+        if (allFieldsFilled && passwordsMatch && terms) {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+
+    // Add event listeners for form validation
+    form.addEventListener('input', updateSubmitButton);
+    form.addEventListener('change', updateSubmitButton);
+
+    // Initialize account type selection visual
+    document.querySelector('label[for="individual"]').classList.add('border-gold', 'bg-gold/10');
+});
+</script>

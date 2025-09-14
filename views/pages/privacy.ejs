@@ -1,0 +1,299 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/public/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: يناير 2025' : 'Last updated: January 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <h2 class="text-2xl font-bold text-gold mb-4">1. مقدمة</h2>
+                <p class="text-gold/80 mb-6">
+                    نحن في FinClick.AI نولي أهمية قصوى لحماية خصوصيتك وأمان بياناتك. تحدد سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحمايتنا للمعلومات الشخصية التي تقدمها لنا عند استخدام منصتنا.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">2. المعلومات التي نجمعها</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. المعلومات الشخصية:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>الاسم الكامل</li>
+                        <li>عنوان البريد الإلكتروني</li>
+                        <li>رقم الهاتف</li>
+                        <li>معلومات الشركة (للحسابات التجارية)</li>
+                        <li>المنصب والتخصص</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. البيانات المالية:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>القوائم المالية المرفوعة</li>
+                        <li>نتائج التحليل المالي</li>
+                        <li>التقارير المُنتجة</li>
+                        <li>تفضيلات التحليل</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ج. معلومات تقنية:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>عنوان IP</li>
+                        <li>نوع المتصفح ونظام التشغيل</li>
+                        <li>سجلات الاستخدام</li>
+                        <li>ملفات تعريف الارتباط (Cookies)</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">3. كيفية استخدام المعلومات</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-2">نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>تقديم خدمات التحليل المالي</li>
+                        <li>إنتاج التقارير والعروض التقديمية</li>
+                        <li>تحسين جودة الخدمة</li>
+                        <li>التواصل معك بشأن حسابك والخدمات</li>
+                        <li>معالجة المدفوعات والاشتراكات</li>
+                        <li>الامتثال للمتطلبات القانونية</li>
+                        <li>منع الاحتيال وضمان الأمان</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">4. حماية البيانات والأمان</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">أ. التشفير:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>تشفير البيانات أثناء النقل باستخدام SSL/TLS</li>
+                        <li>تشفير البيانات المحفوظة باستخدام AES-256</li>
+                        <li>تشفير كلمات المرور باستخدام خوارزميات آمنة</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ب. التحكم في الوصول:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>مصادقة ثنائية العوامل</li>
+                        <li>صلاحيات محددة لكل مستخدم</li>
+                        <li>مراقبة الأنشطة المشبوهة</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">ج. الاحتياطات الأمنية:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>جدران حماية متقدمة</li>
+                        <li>نسخ احتياطية منتظمة ومشفرة</li>
+                        <li>اختبارات أمنية دورية</li>
+                        <li>فرق أمان متخصصة</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">5. مشاركة المعلومات</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">نحن لا نبيع أو نؤجر أو نتاجر ببياناتك الشخصية. قد نشارك معلوماتك فقط في الحالات التالية:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>مقدمي الخدمات المُعتمدين (خدمات الدفع، التحليل، الاستضافة)</li>
+                        <li>متطلبات قانونية أو أوامر قضائية</li>
+                        <li>حماية حقوقنا أو حقوق المستخدمين الآخرين</li>
+                        <li>اندماج أو استحواذ (بعد إشعارك مسبقاً)</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">6. حقوقك</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-2">لديك الحقوق التالية فيما يتعلق ببياناتك الشخصية:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>الوصول:</strong> طلب نسخة من بياناتك الشخصية</li>
+                        <li><strong>التصحيح:</strong> تصحيح أي بيانات غير دقيقة</li>
+                        <li><strong>الحذف:</strong> طلب حذف بياناتك الشخصية</li>
+                        <li><strong>النقل:</strong> نقل بياناتك إلى خدمة أخرى</li>
+                        <li><strong>الاعتراض:</strong> الاعتراض على معالجة بياناتك</li>
+                        <li><strong>التقييد:</strong> تقييد معالجة بياناتك</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">7. ملفات تعريف الارتباط (Cookies)</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">نستخدم ملفات تعريف الارتباط لتحسين تجربتك:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>ضرورية:</strong> لوظائف المنصة الأساسية</li>
+                        <li><strong>تحليلية:</strong> لفهم كيفية استخدام المنصة</li>
+                        <li><strong>وظيفية:</strong> لحفظ تفضيلاتك</li>
+                        <li><strong>تسويقية:</strong> لعرض محتوى مناسب (بموافقتك)</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">8. الاحتفاظ بالبيانات</h2>
+                <p class="text-gold/80 mb-6">
+                    نحتفظ بالمعلومات الشخصية طالما كان حسابك نشطاً أو حسب الحاجة لتقديم الخدمات. بعد إغلاق الحساب، نحتفظ بالبيانات لمدة 7 سنوات للامتثال القانوني، ثم يتم حذفها نهائياً.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">9. التحديثات</h2>
+                <p class="text-gold/80 mb-6">
+                    قد نقوم بتحديث سياسة الخصوصية من وقت لآخر. سنقوم بإشعارك بأي تغييرات جوهرية عبر البريد الإلكتروني أو من خلال إشعار على المنصة.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">10. التواصل معنا</h2>
+                <div class="text-gold/80">
+                    <p class="mb-2">لأي استفسارات بشأن سياسة الخصوصية، يرجى التواصل معنا:</p>
+                    <ul class="list-none space-y-1">
+                        <li><strong>البريد الإلكتروني:</strong> privacy@finclick.ai</li>
+                        <li><strong>الهاتف:</strong> +966 544 827 213</li>
+                        <li><strong>العنوان:</strong> المملكة العربية السعودية، جدة</li>
+                    </ul>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <h2 class="text-2xl font-bold text-gold mb-4">1. Introduction</h2>
+                <p class="text-gold/80 mb-6">
+                    At FinClick.AI, we take your privacy and data security seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our platform.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">2. Information We Collect</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Personal Information:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Full name</li>
+                        <li>Email address</li>
+                        <li>Phone number</li>
+                        <li>Company information (for business accounts)</li>
+                        <li>Position and specialization</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Financial Data:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Uploaded financial statements</li>
+                        <li>Financial analysis results</li>
+                        <li>Generated reports</li>
+                        <li>Analysis preferences</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">c. Technical Information:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>IP address</li>
+                        <li>Browser type and operating system</li>
+                        <li>Usage logs</li>
+                        <li>Cookies</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">3. How We Use Information</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-2">We use the collected information for the following purposes:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Providing financial analysis services</li>
+                        <li>Generating reports and presentations</li>
+                        <li>Improving service quality</li>
+                        <li>Communicating about your account and services</li>
+                        <li>Processing payments and subscriptions</li>
+                        <li>Legal compliance</li>
+                        <li>Fraud prevention and security</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">4. Data Protection and Security</h2>
+                <div class="text-gold/80 mb-6">
+                    <h3 class="text-xl font-semibold text-gold mb-2">a. Encryption:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Data in transit encrypted using SSL/TLS</li>
+                        <li>Data at rest encrypted using AES-256</li>
+                        <li>Password encryption using secure algorithms</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">b. Access Control:</h3>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Two-factor authentication</li>
+                        <li>Role-based permissions</li>
+                        <li>Suspicious activity monitoring</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gold mb-2">c. Security Measures:</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Advanced firewalls</li>
+                        <li>Regular encrypted backups</li>
+                        <li>Periodic security testing</li>
+                        <li>Dedicated security teams</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">5. Information Sharing</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">We do not sell, rent, or trade your personal data. We may share your information only in the following cases:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Trusted service providers (payment, analytics, hosting services)</li>
+                        <li>Legal requirements or court orders</li>
+                        <li>Protecting our rights or other users' rights</li>
+                        <li>Merger or acquisition (after prior notice)</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">6. Your Rights</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-2">You have the following rights regarding your personal data:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Access:</strong> Request a copy of your personal data</li>
+                        <li><strong>Rectification:</strong> Correct any inaccurate data</li>
+                        <li><strong>Erasure:</strong> Request deletion of your personal data</li>
+                        <li><strong>Portability:</strong> Transfer your data to another service</li>
+                        <li><strong>Objection:</strong> Object to processing of your data</li>
+                        <li><strong>Restriction:</strong> Restrict processing of your data</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">7. Cookies</h2>
+                <div class="text-gold/80 mb-6">
+                    <p class="mb-4">We use cookies to improve your experience:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Necessary:</strong> For basic platform functionality</li>
+                        <li><strong>Analytics:</strong> To understand platform usage</li>
+                        <li><strong>Functional:</strong> To save your preferences</li>
+                        <li><strong>Marketing:</strong> To show relevant content (with your consent)</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">8. Data Retention</h2>
+                <p class="text-gold/80 mb-6">
+                    We retain personal information as long as your account is active or as needed to provide services. After account closure, we retain data for 7 years for legal compliance, then permanently delete it.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">9. Updates</h2>
+                <p class="text-gold/80 mb-6">
+                    We may update this Privacy Policy from time to time. We will notify you of any material changes via email or through a notice on the platform.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gold mb-4">10. Contact Us</h2>
+                <div class="text-gold/80">
+                    <p class="mb-2">For any questions about this Privacy Policy, please contact us:</p>
+                    <ul class="list-none space-y-1">
+                        <li><strong>Email:</strong> privacy@finclick.ai</li>
+                        <li><strong>Phone:</strong> +966 544 827 213</li>
+                        <li><strong>Address:</strong> Saudi Arabia, Jeddah</li>
+                    </ul>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4">
+                    <a href="/terms" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Service' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/contact" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'اتصل بنا' : 'Contact Us' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

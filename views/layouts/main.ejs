@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="<%= language === 'ar' ? 'ar' : 'en' %>" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title || 'FinClick.AI - Revolutionary Intelligent Financial Analysis Platform' %></title>
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="<%= language === 'ar' ? 'منصة التحليل المالي الذكية والثورية - FinClick.AI تقدم تحليل مالي شامل بالذكاء الاصطناعي في ثوانٍ معدودة' : 'FinClick.AI - Revolutionary AI-powered financial analysis platform providing comprehensive financial analysis in seconds' %>">
+    <meta name="keywords" content="<%= language === 'ar' ? 'تحليل مالي، ذكاء اصطناعي، تقارير مالية، التحليل المالي الذكي، منصة مالية سعودية' : 'financial analysis, AI, artificial intelligence, financial reports, smart financial analysis, Saudi fintech platform' %>">
+    <meta name="author" content="Razan Ahmed Tawfik">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="<%= title || 'FinClick.AI - Revolutionary Intelligent Financial Analysis Platform' %>">
+    <meta property="og:description" content="<%= language === 'ar' ? 'منصة التحليل المالي الذكية والثورية' : 'Revolutionary Intelligent Financial Analysis Platform' %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://finclick.ai">
+    <meta property="og:image" content="https://finclick.ai/images/logo-og.png">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="twitter:description" content="<%= language === 'ar' ? 'منصة التحليل المالي الذكية والثورية' : 'Revolutionary Intelligent Financial Analysis Platform' %>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Arabic Font -->
+    <% if (language === 'ar') { %>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <% } %>
+
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/main.css" rel="stylesheet">
+    <% if (language === 'ar') { %>
+    <link href="/css/rtl.css" rel="stylesheet">
+    <% } %>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FinClick.AI",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "<%= language === 'ar' ? 'منصة التحليل المالي الذكية والثورية' : 'Revolutionary Intelligent Financial Analysis Platform' %>",
+        "url": "https://finclick.ai",
+        "author": {
+            "@type": "Person",
+            "name": "Razan Ahmed Tawfik"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "5000",
+            "priceCurrency": "SAR"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-black: #000000;
+            --primary-gold: #B48500;
+            --text-color: <%= language === 'ar' ? '#B48500' : '#B48500' %>;
+            --bg-color: #000000;
+            --font-family: <%= language === 'ar' ? "'Tajawal', Arial, sans-serif" : "'Inter', 'Segoe UI', sans-serif" %>;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-neural-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(180, 133, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(180, 133, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(180, 133, 0, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #B48500, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(180, 133, 0, 0.3);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(180, 133, 0, 0.5);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .neural-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .neural-lines::before,
+        .neural-lines::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #B48500, transparent);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .neural-lines::before {
+            left: 20%;
+            animation-delay: -2s;
+        }
+
+        .neural-lines::after {
+            left: 80%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) }
+            50% { transform: translateY(-20px) }
+        }
+
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(180, 133, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(180, 133, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(180, 133, 0, 0); }
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(180, 133, 0, 0.3);
+            border-top: 4px solid #B48500;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* RTL Styles */
+        [dir="rtl"] .transform-rtl {
+            transform: scaleX(-1);
+        }
+
+        [dir="rtl"] .text-right {
+            text-align: right;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto;
+            margin-left: unset;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #B48500;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD700;
+        }
+    </style>
+</head>
+<body class="bg-neural-pattern">
+    <!-- Neural Network Background Animation -->
+    <div class="neural-lines"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-black z-50 flex items-center justify-center">
+        <div class="text-center">
+            <div class="loading-spinner mx-auto mb-4"></div>
+            <div class="text-xl font-semibold text-gold animate-pulse">
+                <%= language === 'ar' ? 'جاري التحميل...' : 'Loading...' %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skip to main content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-gold text-black p-2 z-50">
+        <%= language === 'ar' ? 'انتقل إلى المحتوى الرئيسي' : 'Skip to main content' %>
+    </a>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <%- body %>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-gold text-black p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-all duration-300 transform scale-0 hover-glow z-40" aria-label="<%= language === 'ar' ? 'العودة إلى الأعلى' : 'Back to top' %>">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Language-specific Scripts -->
+    <% if (language === 'ar') { %>
+    <script src="/js/rtl.js"></script>
+    <% } %>
+
+    <script>
+        // Initialize loading screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 300);
+            }, 1000);
+        });
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.transform = 'scale(1)';
+            } else {
+                backToTopBtn.style.transform = 'scale(0)';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Global variables for language and user
+        window.currentLanguage = '<%= language %>';
+        window.currentUser = <%- JSON.stringify(user || null) %>;
+
+        // Translation function
+        window.t = function(key, options) {
+            // This would be replaced with actual translation logic
+            return key;
+        };
+    </script>
+
+    <!-- Analytics (Add your analytics code here) -->
+    <!-- Google Analytics, Facebook Pixel, etc. -->
+</body>
+</html>

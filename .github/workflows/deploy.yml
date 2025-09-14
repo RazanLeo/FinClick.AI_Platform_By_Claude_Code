@@ -1,0 +1,147 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run linting
+      run: npm run lint --if-present
+
+    - name: Run type checking
+      run: npm run typecheck --if-present
+
+    - name: Run tests
+      run: npm test --if-present
+      env:
+        NODE_ENV: test
+        JWT_SECRET: test-jwt-secret-key-for-testing-only
+        SUPABASE_URL: https://test.supabase.co
+        SUPABASE_ANON_KEY: test-anon-key
+        SUPABASE_SERVICE_ROLE_KEY: test-service-key
+
+    - name: Run E2E tests
+      run: npm run test:e2e --if-present
+      env:
+        NODE_ENV: test
+
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run security audit
+      run: npm audit --audit-level moderate
+
+    - name: Check for vulnerabilities
+      run: npm audit --production
+
+  deploy:
+    needs: [test, security]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build project
+      run: npm run build --if-present
+      env:
+        NODE_ENV: production
+
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        vercel-args: '--prod'
+
+  health-check:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+
+    steps:
+    - name: Wait for deployment
+      run: sleep 30
+
+    - name: Health check
+      run: |
+        curl -f https://finclick.ai/healthz || exit 1
+        echo "✅ Health check passed"
+
+    - name: API check
+      run: |
+        curl -f https://finclick.ai/api/health || exit 1
+        echo "✅ API health check passed"
+
+    - name: Performance check
+      run: |
+        response_time=$(curl -o /dev/null -s -w '%{time_total}\n' https://finclick.ai)
+        echo "Response time: $response_time seconds"
+        if (( $(echo "$response_time > 5.0" | bc -l) )); then
+          echo "❌ Response time too slow: $response_time seconds"
+          exit 1
+        else
+          echo "✅ Performance check passed"
+        fi
+
+  notify:
+    needs: [health-check]
+    runs-on: ubuntu-latest
+    if: always() && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+
+    steps:
+    - name: Notify deployment status
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        channel: '#deployments'
+        text: |
+          FinClick.AI Deployment Status: ${{ job.status }}
+          Branch: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Author: ${{ github.actor }}
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always()

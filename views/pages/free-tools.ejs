@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأدوات المجانية - FinClick.AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/rtl.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<%- include('../layouts/main', {
+    title: 'الأدوات المجانية - FinClick.AI',
+    currentPage: 'free-tools'
+}) %>
+
+<main class="container my-5">
+    <!-- Hero Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary mb-4">الأدوات المجانية</h1>
+        <p class="lead mb-4">استفد من مجموعة أدوات مالية مجانية لمساعدتك في اتخاذ قرارات مالية أذكى</p>
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="text-success mb-0"><i class="fas fa-gift me-2"></i>جميع الأدوات مجانية 100% بدون حاجة للتسجيل</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Tools Grid -->
+    <div class="row">
+        <!-- Economic Calendar -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>التقويم الاقتصادي</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text mb-4">تابع أهم الأحداث والبيانات الاقتصادية التي تؤثر على الأسواق المالية</p>
+
+                    <div id="economic-calendar" class="mb-4">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>الوقت</th>
+                                        <th>الحدث</th>
+                                        <th>البلد</th>
+                                        <th>الأهمية</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calendar-events">
+                                    <tr>
+                                        <td>09:00</td>
+                                        <td>معدل التضخم</td>
+                                        <td>🇸🇦 السعودية</td>
+                                        <td><span class="badge bg-danger">عالية</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:30</td>
+                                        <td>قرار البنك المركزي</td>
+                                        <td>🇦🇪 الإمارات</td>
+                                        <td><span class="badge bg-warning">متوسطة</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14:00</td>
+                                        <td>مؤشر أسعار النفط</td>
+                                        <td>🌍 عالمي</td>
+                                        <td><span class="badge bg-danger">عالية</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary">تحديث البيانات</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial News -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="fas fa-newspaper me-2"></i>الأخبار المالية</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text mb-4">آخر الأخبار المالية والاقتصادية المؤثرة على الأسواق السعودية والخليجية</p>
+
+                    <div id="financial-news">
+                        <div class="news-item mb-3 p-3 border-start border-3 border-success">
+                            <h6 class="fw-bold">ارتفاع أسعار النفط إلى 85 دولار للبرميل</h6>
+                            <p class="small text-muted mb-1">منذ ساعتين • رويترز</p>
+                            <p class="mb-0">سجل خام برنت ارتفاعاً بنسبة 2.5% ليصل إلى 85 دولار للبرميل...</p>
+                        </div>
+
+                        <div class="news-item mb-3 p-3 border-start border-3 border-info">
+                            <h6 class="fw-bold">البنك المركزي السعودي يبقي على أسعار الفائدة</h6>
+                            <p class="small text-muted mb-1">منذ 4 ساعات • العربية</p>
+                            <p class="mb-0">أبقى البنك المركزي السعودي على معدل الريبو عند 6%...</p>
+                        </div>
+
+                        <div class="news-item mb-3 p-3 border-start border-3 border-warning">
+                            <h6 class="fw-bold">نمو الناتج المحلي السعودي 4.2% في الربع الثالث</h6>
+                            <p class="small text-muted mb-1">منذ 6 ساعات • واس</p>
+                            <p class="mb-0">أظهرت بيانات الهيئة العامة للإحصاء نمو الاقتصاد السعودي...</p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success">المزيد من الأخبار</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Calculators -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0"><i class="fas fa-calculator me-2"></i>الحاسبات المالية</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text mb-4">حاسبات مالية متنوعة لمساعدتك في التخطيط المالي</p>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <h6>حاسبة القرض</h6>
+                            <div class="row">
+                                <div class="col-4">
+                                    <input type="number" class="form-control form-control-sm" placeholder="المبلغ" id="loan-amount">
+                                </div>
+                                <div class="col-4">
+                                    <input type="number" class="form-control form-control-sm" placeholder="الفائدة %" id="interest-rate">
+                                </div>
+                                <div class="col-4">
+                                    <input type="number" class="form-control form-control-sm" placeholder="المدة (سنة)" id="loan-term">
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-info" onclick="calculateLoan()">احسب</button>
+                                <span id="loan-result" class="ms-2 fw-bold text-success"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <h6>حاسبة العائد على الاستثمار (ROI)</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="number" class="form-control form-control-sm" placeholder="رأس المال" id="investment-amount">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control form-control-sm" placeholder="الربح" id="profit-amount">
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-info" onclick="calculateROI()">احسب ROI</button>
+                                <span id="roi-result" class="ms-2 fw-bold text-success"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <h6>حاسبة الفائدة المركبة</h6>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="number" class="form-control form-control-sm" placeholder="المبلغ" id="principal">
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" class="form-control form-control-sm" placeholder="الفائدة %" id="compound-rate">
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" class="form-control form-control-sm" placeholder="المدة" id="compound-time">
+                                </div>
+                                <div class="col-3">
+                                    <select class="form-select form-select-sm" id="compound-freq">
+                                        <option value="1">سنوي</option>
+                                        <option value="12">شهري</option>
+                                        <option value="365">يومي</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-info" onclick="calculateCompound()">احسب</button>
+                                <span id="compound-result" class="ms-2 fw-bold text-success"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Sentiment -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0"><i class="fas fa-chart-pie me-2"></i>مؤشر المزاج العام للسوق</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text mb-4">تتبع المزاج العام للمستثمرين في السوق السعودي</p>
+
+                    <div class="text-center mb-4">
+                        <div class="position-relative" style="width: 200px; height: 200px; margin: 0 auto;">
+                            <canvas id="sentiment-chart" width="200" height="200"></canvas>
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="text-center">
+                                    <h3 class="text-success mb-0">68%</h3>
+                                    <small class="text-muted">إيجابي</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="p-2 bg-success text-white rounded">
+                                <i class="fas fa-arrow-up"></i>
+                                <div>صاعد</div>
+                                <strong>68%</strong>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-2 bg-secondary text-white rounded">
+                                <i class="fas fa-minus"></i>
+                                <div>محايد</div>
+                                <strong>20%</strong>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-2 bg-danger text-white rounded">
+                                <i class="fas fa-arrow-down"></i>
+                                <div>هابط</div>
+                                <strong>12%</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="btn btn-warning">تحديث البيانات</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Financial Bot -->
+        <div class="col-12 mb-4">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-gradient text-white">
+                    <h4 class="mb-0"><i class="fas fa-robot me-2"></i>بوت GPT المالي المجاني</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text mb-4">اسأل مساعد الذكاء الاصطناعي أي سؤال مالي واحصل على إجابات فورية ودقيقة</p>
+
+                    <div id="chat-container" class="border rounded p-3 mb-3" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+                        <div class="chat-message bot-message mb-3">
+                            <div class="d-flex align-items-start">
+                                <div class="avatar bg-primary text-white rounded-circle me-2 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content bg-white p-3 rounded shadow-sm">
+                                    <p class="mb-0">مرحباً! أنا مساعدك المالي الذكي. يمكنني مساعدتك في:</p>
+                                    <ul class="mb-0 mt-2">
+                                        <li>شرح المصطلحات المالية</li>
+                                        <li>تحليل النسب المالية</li>
+                                        <li>نصائح الاستثمار</li>
+                                        <li>التخطيط المالي</li>
+                                        <li>أسئلة عامة حول المال والاستثمار</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="اكتب سؤالك المالي هنا..." id="user-question">
+                        <button class="btn btn-primary" type="button" onclick="askBot()">
+                            <i class="fas fa-paper-plane"></i> إرسال
+                        </button>
+                    </div>
+
+                    <div class="mt-3">
+                        <h6>أسئلة سريعة:</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-primary btn-sm" onclick="askQuickQuestion('ما هو العائد على الاستثمار؟')">ما هو ROI؟</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="askQuickQuestion('كيف أحسب نسبة السيولة؟')">حساب السيولة</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="askQuickQuestion('ما الفرق بين الأسهم والسندات؟')">الأسهم vs السندات</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="askQuickQuestion('نصائح للاستثمار المبتدئين')">نصائح الاستثمار</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-primary text-white text-center">
+                <div class="card-body p-5">
+                    <h3 class="card-title mb-3">هل تريد المزيد من الأدوات المتقدمة؟</h3>
+                    <p class="card-text mb-4">انضم إلى FinClick.AI واحصل على أكثر من 180 نوع تحليل مالي متقدم</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="/register" class="btn btn-light btn-lg">ابدأ مجاناً</a>
+                        <a href="/pricing" class="btn btn-outline-light btn-lg">عرض الأسعار</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <img src="/images/logo.png" alt="FinClick.AI" height="40" class="mb-3">
+                <p>منصة التحليل المالي الذكي الرائدة في المنطقة العربية</p>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <h6>الخدمات</h6>
+                <ul class="list-unstyled">
+                    <li><a href="/analysis-types" class="text-light-50">أنواع التحليل</a></li>
+                    <li><a href="/free-tools" class="text-light-50">الأدوات المجانية</a></li>
+                    <li><a href="/pricing" class="text-light-50">الأسعار</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <h6>الشركة</h6>
+                <ul class="list-unstyled">
+                    <li><a href="/about" class="text-light-50">من نحن</a></li>
+                    <li><a href="/contact" class="text-light-50">اتصل بنا</a></li>
+                    <li><a href="/careers" class="text-light-50">الوظائف</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <h6>الدعم</h6>
+                <ul class="list-unstyled">
+                    <li><a href="/help" class="text-light-50">المساعدة</a></li>
+                    <li><a href="/privacy" class="text-light-50">الخصوصية</a></li>
+                    <li><a href="/terms" class="text-light-50">الشروط</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <h6>تابعنا</h6>
+                <div class="d-flex gap-2">
+                    <a href="#" class="text-light-50"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light-50"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-light-50"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="mb-0">&copy; 2024 FinClick.AI. جميع الحقوق محفوظة.</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <p class="mb-0">صُنع بـ ❤️ في المملكة العربية السعودية</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Financial Calculators
+function calculateLoan() {
+    const amount = parseFloat(document.getElementById('loan-amount').value);
+    const rate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+    const term = parseFloat(document.getElementById('loan-term').value) * 12;
+
+    if (amount && rate && term) {
+        const payment = (amount * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+        document.getElementById('loan-result').textContent = `القسط الشهري: ${payment.toFixed(2)} ريال`;
+    }
+}
+
+function calculateROI() {
+    const investment = parseFloat(document.getElementById('investment-amount').value);
+    const profit = parseFloat(document.getElementById('profit-amount').value);
+
+    if (investment && profit) {
+        const roi = ((profit - investment) / investment) * 100;
+        document.getElementById('roi-result').textContent = `العائد: ${roi.toFixed(2)}%`;
+    }
+}
+
+function calculateCompound() {
+    const principal = parseFloat(document.getElementById('principal').value);
+    const rate = parseFloat(document.getElementById('compound-rate').value) / 100;
+    const time = parseFloat(document.getElementById('compound-time').value);
+    const frequency = parseFloat(document.getElementById('compound-freq').value);
+
+    if (principal && rate && time && frequency) {
+        const amount = principal * Math.pow(1 + rate/frequency, frequency * time);
+        document.getElementById('compound-result').textContent = `المبلغ النهائي: ${amount.toFixed(2)} ريال`;
+    }
+}
+
+// AI Bot
+function askBot() {
+    const question = document.getElementById('user-question').value;
+    if (question.trim()) {
+        addMessage('user', question);
+
+        // Simulate AI response
+        setTimeout(() => {
+            const response = generateBotResponse(question);
+            addMessage('bot', response);
+        }, 1000);
+
+        document.getElementById('user-question').value = '';
+    }
+}
+
+function askQuickQuestion(question) {
+    document.getElementById('user-question').value = question;
+    askBot();
+}
+
+function addMessage(sender, message) {
+    const container = document.getElementById('chat-container');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${sender}-message mb-3`;
+
+    if (sender === 'user') {
+        messageDiv.innerHTML = `
+            <div class="d-flex align-items-start justify-content-end">
+                <div class="message-content bg-primary text-white p-3 rounded shadow-sm me-2">
+                    <p class="mb-0">${message}</p>
+                </div>
+                <div class="avatar bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        `;
+    } else {
+        messageDiv.innerHTML = `
+            <div class="d-flex align-items-start">
+                <div class="avatar bg-primary text-white rounded-circle me-2 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content bg-white p-3 rounded shadow-sm">
+                    <p class="mb-0">${message}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    container.appendChild(messageDiv);
+    container.scrollTop = container.scrollHeight;
+}
+
+function generateBotResponse(question) {
+    const responses = {
+        'roi': 'العائد على الاستثمار (ROI) هو مقياس يستخدم لقياس كفاءة الاستثمار. يُحسب بقسمة صافي الربح على تكلفة الاستثمار ثم ضربه في 100 للحصول على النسبة المئوية.',
+        'سيولة': 'نسبة السيولة تُحسب بقسمة الأصول المتداولة على الخصوم المتداولة. النسبة المثلى هي 2:1 أو أكثر، مما يعني أن الشركة لديها أصول متداولة تكفي لسداد التزاماتها قصيرة المدى.',
+        'أسهم': 'الأسهم تمثل ملكية في الشركة وتحمل مخاطر أعلى لكن عوائد محتملة أكبر. السندات هي قروض للشركات أو الحكومات وتوفر دخلاً ثابتاً بمخاطر أقل.',
+        'استثمار': 'للمبتدئين: ابدأ بالتنويع، استثمر في صناديق المؤشرات، لا تضع كل أموالك في استثمار واحد، وتعلم قبل الاستثمار.'
+    };
+
+    const lowerQuestion = question.toLowerCase();
+    for (let key in responses) {
+        if (lowerQuestion.includes(key)) {
+            return responses[key];
+        }
+    }
+
+    return 'شكراً لسؤالك! هذا سؤال ممتاز حول المال والاستثمار. للحصول على إجابة مفصلة ومخصصة، يمكنك التسجيل في FinClick.AI والاستفادة من نظام التحليل المالي الذكي المتقدم.';
+}
+
+// Allow Enter key for bot
+document.getElementById('user-question').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        askBot();
+    }
+});
+</script>
+</body>
+</html>
