@@ -1,0 +1,388 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'معلومات الشركة' : 'Company Information' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'FinClick.AI - منصة التحليل المالي الذكية والثورية' : 'FinClick.AI - Revolutionary Intelligent Financial Analysis Platform' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-8">
+            <% if (language === 'ar') { %>
+            <!-- Arabic Content -->
+
+            <!-- الرؤية -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center ml-4">
+                        <i class="fas fa-eye text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">الرؤية</h2>
+                </div>
+                <p class="text-gold/80 text-lg leading-relaxed">
+                    أن نكون المنصة الرائدة عالمياً في مجال التحليل المالي بالذكاء الاصطناعي، نمكن الشركات والمستثمرين من اتخاذ قرارات مالية ذكية ومدروسة تقود نحو النجاح والنمو المستدام في الأسواق المالية العالمية.
+                </p>
+            </div>
+
+            <!-- الرسالة -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center ml-4">
+                        <i class="fas fa-bullseye text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">الرسالة</h2>
+                </div>
+                <p class="text-gold/80 text-lg leading-relaxed">
+                    نقدم حلول تحليل مالي متطورة تعتمد على الذكاء الاصطناعي وأحدث التقنيات، لتمكين عملائنا من فهم وضعهم المالي بدقة عالية واتخاذ قرارات استراتيجية مبنية على بيانات موثوقة وتحليلات شاملة تضمن تحقيق أهدافهم المالية بكفاءة ونجاح.
+                </p>
+            </div>
+
+            <!-- الأهداف -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center ml-4">
+                        <i class="fas fa-target text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">الأهداف</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3 space-x-reverse">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">1</div>
+                        <p class="text-gold/80">توفير أدوات تحليل مالي متقدمة وسهلة الاستخدام للشركات والمستثمرين</p>
+                    </div>
+                    <div class="flex items-start space-x-3 space-x-reverse">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">2</div>
+                        <p class="text-gold/80">تمكين اتخاذ قرارات مالية مدروسة من خلال بيانات دقيقة وموثوقة</p>
+                    </div>
+                    <div class="flex items-start space-x-3 space-x-reverse">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">3</div>
+                        <p class="text-gold/80">دعم النمو الاقتصادي من خلال تحسين الشفافية والكفاءة في الأسواق المالية</p>
+                    </div>
+                    <div class="flex items-start space-x-3 space-x-reverse">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">4</div>
+                        <p class="text-gold/80">بناء جسور الثقة بين المستثمرين والشركات من خلال التحليل الشفاف</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الخدمات الرئيسية للنظام -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center ml-4">
+                        <i class="fas fa-cogs text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">الخدمات الرئيسية للنظام</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-chart-line text-gold"></i>
+                            <span class="text-gold/80">180 نوع من التحليل المالي المتقدم</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-robot text-gold"></i>
+                            <span class="text-gold/80">وكلاء الذكاء الاصطناعي المتخصصة</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-file-alt text-gold"></i>
+                            <span class="text-gold/80">تقارير شاملة بصيغ متعددة</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-shield-alt text-gold"></i>
+                            <span class="text-gold/80">أمان وحماية عالية المستوى</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-globe text-gold"></i>
+                            <span class="text-gold/80">دعم متعدد اللغات (عربي/إنجليزي)</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-clock text-gold"></i>
+                            <span class="text-gold/80">تحليل في الوقت الفعلي</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-calculator text-gold"></i>
+                            <span class="text-gold/80">أدوات حاسبة مالية مجانية</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-headset text-gold"></i>
+                            <span class="text-gold/80">دعم فني متخصص 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- القيم الأساسية -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center ml-4">
+                        <i class="fas fa-gem text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">القيم الأساسية</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-accuracy-percentage"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">الدقة والموثوقية</h3>
+                                <p class="text-gold/70">نلتزم بأعلى معايير الدقة في التحليل والبيانات</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">الابتكار التقني</h3>
+                                <p class="text-gold/70">نسعى دائماً لتطوير حلول مبتكرة ومتطورة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">حماية البيانات</h3>
+                                <p class="text-gold/70">أمان وخصوصية المعلومات أولوية قصوى</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">الشفافية والثقة</h3>
+                                <p class="text-gold/70">نبني علاقات طويلة الأمد مع عملائنا</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">التميز في الخدمة</h3>
+                                <p class="text-gold/70">نقدم خدمة عملاء استثنائية وداعمة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">الريادة العالمية</h3>
+                                <p class="text-gold/70">نهدف لقيادة السوق في التحليل المالي</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } else { %>
+            <!-- English Content -->
+
+            <!-- Vision -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-eye text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">Vision</h2>
+                </div>
+                <p class="text-gold/80 text-lg leading-relaxed">
+                    To be the world's leading platform in AI-powered financial analysis, empowering companies and investors to make intelligent and informed financial decisions that drive success and sustainable growth in global financial markets.
+                </p>
+            </div>
+
+            <!-- Mission -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-bullseye text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">Mission</h2>
+                </div>
+                <p class="text-gold/80 text-lg leading-relaxed">
+                    We provide advanced financial analysis solutions based on artificial intelligence and cutting-edge technologies, empowering our clients to understand their financial position with high accuracy and make strategic decisions based on reliable data and comprehensive analyses that ensure achieving their financial goals efficiently and successfully.
+                </p>
+            </div>
+
+            <!-- Objectives -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-target text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">Objectives</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">1</div>
+                        <p class="text-gold/80">Provide advanced and easy-to-use financial analysis tools for companies and investors</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">2</div>
+                        <p class="text-gold/80">Enable informed financial decision-making through accurate and reliable data</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">3</div>
+                        <p class="text-gold/80">Support economic growth by improving transparency and efficiency in financial markets</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">4</div>
+                        <p class="text-gold/80">Build bridges of trust between investors and companies through transparent analysis</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main System Services -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-cogs text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">Main System Services</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-chart-line text-gold"></i>
+                            <span class="text-gold/80">180 types of advanced financial analysis</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-robot text-gold"></i>
+                            <span class="text-gold/80">Specialized AI agents</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-file-alt text-gold"></i>
+                            <span class="text-gold/80">Comprehensive reports in multiple formats</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shield-alt text-gold"></i>
+                            <span class="text-gold/80">High-level security and protection</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-globe text-gold"></i>
+                            <span class="text-gold/80">Multi-language support (Arabic/English)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-gold"></i>
+                            <span class="text-gold/80">Real-time analysis</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-calculator text-gold"></i>
+                            <span class="text-gold/80">Free financial calculator tools</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-headset text-gold"></i>
+                            <span class="text-gold/80">Specialized 24/7 technical support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-gem text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gold">Core Values</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-accuracy-percentage"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">Accuracy and Reliability</h3>
+                                <p class="text-gold/70">We adhere to the highest standards of accuracy in analysis and data</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">Technical Innovation</h3>
+                                <p class="text-gold/70">We constantly strive to develop innovative and advanced solutions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">Data Protection</h3>
+                                <p class="text-gold/70">Security and privacy of information is our top priority</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">Transparency and Trust</h3>
+                                <p class="text-gold/70">We build long-term relationships with our clients</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">Service Excellence</h3>
+                                <p class="text-gold/70">We provide exceptional and supportive customer service</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gold mb-1">Global Leadership</h3>
+                                <p class="text-gold/70">We aim to lead the market in financial analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+            <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                <i class="fas fa-arrow-left mr-2 <%= language === 'ar' ? 'transform rotate-180 ml-2 mr-0' : '' %>"></i>
+                <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+            </a>
+            <div class="flex space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                <a href="/privacy" class="text-gold hover:text-yellow-400">
+                    <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+                </a>
+                <span class="text-gold/40">|</span>
+                <a href="/contact" class="text-gold hover:text-yellow-400">
+                    <%= language === 'ar' ? 'اتصل بنا' : 'Contact Us' %>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

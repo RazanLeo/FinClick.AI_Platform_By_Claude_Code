@@ -1,0 +1,181 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'سياسة حقوق الملكية الفكرية والعلامة التجارية' : 'Intellectual Property and Trademark Policy' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: أغسطس 2025' : 'Last updated: August 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <div class="space-y-8">
+                    <!-- الملكية الفكرية -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الملكية الفكرية:</h2>
+                                <p class="text-gold/80">جميع الحقوق، الكود، التصميم، المحتوى، والتقنيات الخاصة بمنصة FinClick.AI محمية بموجب قوانين حقوق النشر والملكية الفكرية.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- العلامة التجارية -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">العلامة التجارية:</h2>
+                                <p class="text-gold/80">اسم وشعار FinClick.AI علامة تجارية مسجلة ومحمية قانونياً، ولا يجوز استخدامها دون إذن صريح مكتوب من إدارة الشركة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- حقوق المحتوى -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">حقوق المحتوى:</h2>
+                                <p class="text-gold/80">جميع التحليلات، التقارير، والرؤى المالية المولدة من المنصة مملوكة لـ FinClick.AI ولا يحق للمستخدم إعادة نشرها كمحتوى آلي أو تجاري.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- براءات الاختراع -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">براءات الاختراع:</h2>
+                                <p class="text-gold/80">تقنيات الذكاء الاصطناعي والخوارزميات المتقدمة للتحليل المالي محمية ببراءات اختراع مسجلة ومحفوظة الحقوق.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- حماية التقنية -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">حماية التقنية:</h2>
+                                <p class="text-gold/80">أي محاولة لنسخ، هندسة عكسية، أو سرقة التقنيات الخاصة بالمنصة يعرض المخالف للمساءلة القانونية الكاملة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الإبلاغ عن الانتهاكات -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الإبلاغ عن الانتهاكات:</h2>
+                                <p class="text-gold/80">لإبلاغ عن انتهاك حقوق الملكية الفكرية، تواصل معنا عبر legal@finclick.ai مع تفاصيل كاملة عن الانتهاك المزعوم.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <div class="space-y-8">
+                    <!-- Intellectual Property -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Intellectual Property:</h2>
+                                <p class="text-gold/80">All rights, code, design, content, and technologies of FinClick.AI platform are protected under copyright and intellectual property laws.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Trademark -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Trademark:</h2>
+                                <p class="text-gold/80">FinClick.AI name and logo are registered and legally protected trademarks, and cannot be used without explicit written permission from company management.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Content Rights -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Content Rights:</h2>
+                                <p class="text-gold/80">All analyses, reports, and financial insights generated by the platform are owned by FinClick.AI and users may not republish them as automated or commercial content.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Patents -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Patents:</h2>
+                                <p class="text-gold/80">AI technologies and advanced algorithms for financial analysis are protected by registered patents with reserved rights.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Technology Protection -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Technology Protection:</h2>
+                                <p class="text-gold/80">Any attempt to copy, reverse engineer, or steal platform proprietary technologies exposes the violator to full legal accountability.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Violation Reporting -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Violation Reporting:</h2>
+                                <p class="text-gold/80">To report intellectual property violations, contact us via legal@finclick.ai with complete details about the alleged violation.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2 <%= language === 'ar' ? 'transform rotate-180 ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <a href="/compliance-policy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الامتثال' : 'Compliance Policy' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/terms" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Use' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

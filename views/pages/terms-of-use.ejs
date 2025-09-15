@@ -1,0 +1,181 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Use' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: أغسطس 2025' : 'Last updated: August 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <div class="space-y-8">
+                    <!-- الاستخدام المصرح به -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الاستخدام المصرح به:</h2>
+                                <p class="text-gold/80">المنصة تخدم أغراض التحليل المالي فقط، ويُحظر استخدامها لأغراض غير قانونية أو مشبوهة أو لإنشاء خدمات منافسة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الملكية الفكرية -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الملكية الفكرية:</h2>
+                                <p class="text-gold/80">جميع حقوق النظم، الكود، المحتوى، التصميم، والتحليلات مملوكة حصرياً لـ FinClick.AI ولا يحق للمستخدم إعادة توزيع أو بيع المخرجات كمحتوى آلي.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الدقة والمسؤولية -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الدقة والمسؤولية:</h2>
+                                <p class="text-gold/80">بالرغم من دقتنا العالية، لا نتحمل أي مسؤولية قانونية عن أي قرارات مالية تتخذها بناءً على التحليل المولد من النظام.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الاشتراك -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الاشتراك:</h2>
+                                <p class="text-gold/80">أي تأخير في الدفع يوقف الحساب تلقائياً. ولا يحق للمستخدم مشاركة الحساب مع غيره. اشتراك واحد = مستخدم واحد فقط.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- إنهاء الاستخدام -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">إنهاء الاستخدام:</h2>
+                                <p class="text-gold/80">يحق لـ FinClick.AI إيقاف أو تعطيل أي حساب يستخدم المنصة بشكل مسيء أو غير قانوني.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- تعديل الشروط -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">تعديل الشروط:</h2>
+                                <p class="text-gold/80">تحتفظ إدارة المنصة بحق تعديل هذه الشروط في أي وقت، ويتم إشعارك عبر البريد الإلكتروني.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <div class="space-y-8">
+                    <!-- Authorized Use -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Authorized Use:</h2>
+                                <p class="text-gold/80">The platform serves financial analysis purposes only, and it is prohibited to use it for illegal or suspicious purposes or to create competing services.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Intellectual Property -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Intellectual Property:</h2>
+                                <p class="text-gold/80">All rights to systems, code, content, design, and analysis are exclusively owned by FinClick.AI and the user may not redistribute or sell outputs as automated content.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Accuracy and Responsibility -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Accuracy and Responsibility:</h2>
+                                <p class="text-gold/80">Despite our high accuracy, we do not bear any legal responsibility for any financial decisions you make based on the analysis generated by the system.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Subscription -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Subscription:</h2>
+                                <p class="text-gold/80">Any delay in payment will automatically suspend the account. The user may not share the account with others. One subscription = one user only.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Termination of Use -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Termination of Use:</h2>
+                                <p class="text-gold/80">FinClick.AI has the right to suspend or disable any account that uses the platform abusively or illegally.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Terms Modification -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Terms Modification:</h2>
+                                <p class="text-gold/80">The platform management reserves the right to modify these terms at any time, and you will be notified by email.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2 <%= language === 'ar' ? 'transform rotate-180 ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <a href="/privacy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/contact" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'اتصل بنا' : 'Contact Us' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

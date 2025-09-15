@@ -1,0 +1,181 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'سياسة الدفع والاشتراك والاسترجاع' : 'Payment, Subscription and Refund Policy' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: أغسطس 2025' : 'Last updated: August 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <div class="space-y-8">
+                    <!-- خطط الاشتراك -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">خطط الاشتراك:</h2>
+                                <p class="text-gold/80">الاشتراك الشهري: 5000 ريال سعودي | الاشتراك السنوي: 54000 ريال سعودي (خصم 10% - توفير 6000 ريال). الأسعار شاملة ضريبة القيمة المضافة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- طرق الدفع -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">طرق الدفع:</h2>
+                                <p class="text-gold/80">نقبل جميع البطاقات الائتمانية (فيزا، ماستركارد، مدى)، التحويل البنكي، Apple Pay، وGoogle Pay عبر بوابة PayTabs الآمنة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- التجديد التلقائي -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">التجديد التلقائي:</h2>
+                                <p class="text-gold/80">الاشتراكات تتجدد تلقائياً ما لم يتم إلغاؤها قبل 24 ساعة من انتهاء الفترة. يمكن إدارة الاشتراك من لوحة التحكم الشخصية.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- سياسة الاسترداد -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">سياسة الاسترداد:</h2>
+                                <p class="text-gold/80">ضمان استرداد كامل خلال 7 أيام من الاشتراك الأول دون أي شروط. بعد ذلك، استرداد نسبي حسب الاستخدام الفعلي للمنصة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- تعليق الحساب -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">تعليق الحساب:</h2>
+                                <p class="text-gold/80">أي تأخير في الدفع لأكثر من 48 ساعة يؤدي لتعليق الحساب تلقائياً. يتم إعادة التفعيل فور تسوية المستحقات.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الفواتير -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الفواتير:</h2>
+                                <p class="text-gold/80">فواتير إلكترونية معتمدة من هيئة الزكاة والضريبة ترسل فوراً عبر البريد الإلكتروني مع إمكانية التحميل من حسابك الشخصي.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <div class="space-y-8">
+                    <!-- Subscription Plans -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Subscription Plans:</h2>
+                                <p class="text-gold/80">Monthly Subscription: 5000 SAR | Annual Subscription: 54000 SAR (10% discount - save 6000 SAR). Prices include VAT.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Payment Methods -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Payment Methods:</h2>
+                                <p class="text-gold/80">We accept all credit cards (Visa, MasterCard, Mada), bank transfers, Apple Pay, and Google Pay through secure PayTabs gateway.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Auto Renewal -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Auto Renewal:</h2>
+                                <p class="text-gold/80">Subscriptions auto-renew unless canceled 24 hours before expiration. You can manage your subscription from your personal dashboard.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Refund Policy -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Refund Policy:</h2>
+                                <p class="text-gold/80">Full refund guarantee within 7 days of first subscription without any conditions. After that, proportional refund based on actual platform usage.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Account Suspension -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Account Suspension:</h2>
+                                <p class="text-gold/80">Any payment delay over 48 hours leads to automatic account suspension. Reactivation occurs immediately upon settlement of dues.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Invoices -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Invoices:</h2>
+                                <p class="text-gold/80">Electronic invoices certified by ZATCA are sent immediately via email with download capability from your personal account.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2 <%= language === 'ar' ? 'transform rotate-180 ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <a href="/ip-policy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الملكية الفكرية' : 'IP Policy' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/terms" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Use' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

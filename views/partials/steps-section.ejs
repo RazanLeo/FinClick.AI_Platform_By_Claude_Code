@@ -1,0 +1,177 @@
+<!-- System Steps Section -->
+<section class="py-20 relative">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'خطوات النظام' : 'System Steps' %>
+            </h2>
+            <p class="text-xl text-gold/70 max-w-3xl mx-auto">
+                <%= language === 'ar' ? 'ثلاث خطوات بسيطة فقط للحصول على تحليل مالي شامل ومفصل' : 'Just three simple steps to get comprehensive and detailed financial analysis' %>
+            </p>
+        </div>
+
+        <!-- Steps Grid -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Step 1: Upload Files -->
+            <div class="relative group">
+                <!-- Step Number -->
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect z-10">
+                    1
+                </div>
+
+                <!-- Step Card -->
+                <div class="bg-black/50 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition group-hover:scale-105 min-h-[400px] flex flex-col">
+                    <!-- Icon -->
+                    <div class="w-24 h-24 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-6 mx-auto glow-effect">
+                        <i class="fas fa-cloud-upload-alt text-gold text-3xl"></i>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-2xl font-bold text-gold mb-4 text-center">
+                        <%= language === 'ar' ? 'أرفق قوائمك' : 'Upload Your Statements' %>
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="text-gold/80 text-center leading-relaxed mb-6 flex-grow">
+                        <%= language === 'ar' ?
+                        'قم برفع القوائم المالية والوثائق المطلوبة بجميع الصيغ المدعومة (PDF، Excel، Word، الصور) بسهولة تامة' :
+                        'Upload financial statements and required documents in all supported formats (PDF, Excel, Word, Images) with complete ease'
+                        %>
+                    </p>
+
+                    <!-- Visual Element -->
+                    <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10">
+                        <div class="flex items-center justify-center space-x-3 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                            <i class="fas fa-file-pdf text-red-400"></i>
+                            <i class="fas fa-file-excel text-green-400"></i>
+                            <i class="fas fa-file-word text-blue-400"></i>
+                            <i class="fas fa-file-image text-purple-400"></i>
+                        </div>
+                        <p class="text-xs text-gold/60 text-center mt-2">
+                            <%= language === 'ar' ? 'جميع الصيغ مدعومة' : 'All formats supported' %>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Connector Arrow -->
+                <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                    <i class="fas fa-arrow-right text-gold/30 text-2xl <%= language === 'ar' ? 'transform rotate-180' : '' %>"></i>
+                </div>
+            </div>
+
+            <!-- Step 2: Select Analysis Options -->
+            <div class="relative group">
+                <!-- Step Number -->
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect z-10">
+                    2
+                </div>
+
+                <!-- Step Card -->
+                <div class="bg-black/50 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition group-hover:scale-105 min-h-[400px] flex flex-col">
+                    <!-- Icon -->
+                    <div class="w-24 h-24 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-6 mx-auto glow-effect">
+                        <i class="fas fa-cogs text-gold text-3xl"></i>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-2xl font-bold text-gold mb-4 text-center">
+                        <%= language === 'ar' ? 'حدد خيارات التحليل' : 'Select Analysis Options' %>
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="text-gold/80 text-center leading-relaxed mb-6 flex-grow">
+                        <%= language === 'ar' ?
+                        'اختر نوع التحليل المطلوب من بين 180+ نوع تحليل مالي، حدد القطاع والنشاط ومستوى المقارنة الجغرافي' :
+                        'Choose the required analysis type from 180+ financial analysis types, specify sector, activity, and geographical comparison level'
+                        %>
+                    </p>
+
+                    <!-- Visual Element -->
+                    <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10">
+                        <div class="space-y-2 text-xs text-gold/70">
+                            <div class="flex items-center justify-between">
+                                <span><%= language === 'ar' ? 'نوع التحليل:' : 'Analysis Type:' %></span>
+                                <span class="text-gold">180+ <%= language === 'ar' ? 'خيار' : 'Options' %></span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span><%= language === 'ar' ? 'القطاع:' : 'Sector:' %></span>
+                                <span class="text-gold">50+ <%= language === 'ar' ? 'قطاع' : 'Sectors' %></span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span><%= language === 'ar' ? 'المقارنة:' : 'Comparison:' %></span>
+                                <span class="text-gold">9 <%= language === 'ar' ? 'مستويات' : 'Levels' %></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connector Arrow -->
+                <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                    <i class="fas fa-arrow-right text-gold/30 text-2xl <%= language === 'ar' ? 'transform rotate-180' : '' %>"></i>
+                </div>
+            </div>
+
+            <!-- Step 3: Click Analyze -->
+            <div class="relative group">
+                <!-- Step Number -->
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect z-10">
+                    3
+                </div>
+
+                <!-- Step Card -->
+                <div class="bg-black/50 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition group-hover:scale-105 min-h-[400px] flex flex-col">
+                    <!-- Icon -->
+                    <div class="w-24 h-24 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-6 mx-auto glow-effect">
+                        <i class="fas fa-magic text-gold text-3xl"></i>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-2xl font-bold text-gold mb-4 text-center">
+                        <%= language === 'ar' ? 'اضغط زر التحليل' : 'Click Analyze Button' %>
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="text-gold/80 text-center leading-relaxed mb-6 flex-grow">
+                        <%= language === 'ar' ?
+                        'بضغطة زر واحدة احصل على تحليل مالي شامل ومفصل مع تقارير احترافية وتوصيات عملية في ثوانٍ معدودة' :
+                        'With one click get comprehensive and detailed financial analysis with professional reports and practical recommendations in seconds'
+                        %>
+                    </p>
+
+                    <!-- Visual Element -->
+                    <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10">
+                        <div class="text-center">
+                            <button class="px-6 py-3 bg-gradient-to-r from-gold to-yellow-400 text-black font-bold rounded-xl pulse-gold mb-2">
+                                <i class="fas fa-play <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                                <%= language === 'ar' ? 'بدء التحليل' : 'Start Analysis' %>
+                            </button>
+                            <p class="text-xs text-gold/60">
+                                <%= language === 'ar' ? 'النتائج في ثوانٍ' : 'Results in seconds' %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="text-center mt-16">
+            <div class="bg-gradient-to-r from-gold/10 to-gold/5 border border-gold/20 rounded-2xl p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'هل أنت مستعد؟' : 'Are You Ready?' %>
+                </h3>
+                <p class="text-gold/80 mb-6">
+                    <%= language === 'ar' ?
+                    'ابدأ رحلتك في التحليل المالي الذكي اليوم واكتشف قوة الذكاء الاصطناعي' :
+                    'Start your intelligent financial analysis journey today and discover the power of artificial intelligence'
+                    %>
+                </p>
+                <a href="/register" class="inline-flex items-center px-8 py-4 bg-gold text-black text-lg font-bold rounded-xl hover:bg-yellow-400 smooth-transition glow-effect pulse-gold">
+                    <i class="fas fa-rocket <%= language === 'ar' ? 'ml-3' : 'mr-3' %>"></i>
+                    <%= language === 'ar' ? 'ابدأ الآن مجاناً' : 'Start Now for Free' %>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

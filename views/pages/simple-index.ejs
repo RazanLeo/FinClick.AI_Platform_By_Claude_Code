@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinClick.AI - منصة التحليل المالي الذكي</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'IBM Plex Sans Arabic', Arial, sans-serif; }
+        .finclick-gold { color: #B48500; }
+        .finclick-bg-gold { background-color: #B48500; }
+        .neural-bg {
+            background: linear-gradient(45deg, #000000 25%, transparent 25%),
+                        linear-gradient(-45deg, #000000 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #B48500 75%),
+                        linear-gradient(-45deg, transparent 75%, #B48500 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Neural Background -->
+    <div class="fixed inset-0 neural-bg pointer-events-none"></div>
+
+    <!-- Header -->
+    <header class="relative z-50 bg-black bg-opacity-95">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 finclick-bg-gold rounded-lg flex items-center justify-center text-black font-bold text-xl">
+                        FC
+                    </div>
+                    <div class="mr-4">
+                        <h1 class="text-2xl font-bold">FinClick.AI</h1>
+                        <p class="text-sm text-gray-300">منصة التحليل المالي الذكي</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="hover:text-gold transition-colors">المميزات</a>
+                    <a href="#pricing" class="hover:text-gold transition-colors">الأسعار</a>
+                    <a href="/dashboard" class="finclick-bg-gold text-black px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors">تجربة مجانية</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <!-- Logo Animation -->
+                <div class="mb-8">
+                    <div class="w-32 h-32 mx-auto finclick-bg-gold rounded-3xl flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                        <span class="text-black font-bold text-4xl">FC</span>
+                    </div>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    FinClick<span class="finclick-gold">.AI</span>
+                </h1>
+
+                <h2 class="text-2xl md:text-3xl text-gray-300 mb-8">
+                    منصة التحليل المالي الذكي الثورية
+                </h2>
+
+                <!-- Key Features -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg border border-gray-700">
+                        <div class="text-3xl font-bold finclick-gold mb-2">180</div>
+                        <div class="text-lg">نوع تحليل مالي</div>
+                        <div class="text-sm text-gray-400">تحليل أساسي ومتوسط ومتقدم</div>
+                    </div>
+                    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg border border-gray-700">
+                        <div class="text-3xl font-bold finclick-gold mb-2">7</div>
+                        <div class="text-lg">وكلاء ذكاء اصطناعي</div>
+                        <div class="text-sm text-gray-400">متخصصين في التحليل المالي</div>
+                    </div>
+                    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg border border-gray-700">
+                        <div class="text-3xl font-bold finclick-gold mb-2">ثوانٍ</div>
+                        <div class="text-lg">سرعة التحليل</div>
+                        <div class="text-sm text-gray-400">نتائج فورية ودقيقة</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="space-x-4">
+                    <a href="/dashboard" class="inline-block finclick-bg-gold text-black px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition-colors">
+                        ابدأ التحليل الآن
+                    </a>
+                    <a href="/guest" class="inline-block border border-gray-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors">
+                        تجربة مجانية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="relative z-10 py-20 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold finclick-gold mb-2">106</div>
+                    <div class="text-gray-300">تحليل كلاسيكي أساسي</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold finclick-gold mb-2">21</div>
+                    <div class="text-gray-300">تحليل تطبيقي متوسط</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold finclick-gold mb-2">53</div>
+                    <div class="text-gray-300">تحليل متقدم</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold finclick-gold mb-2">5000</div>
+                    <div class="text-gray-300">ريال سعودي شهرياً</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Indicator -->
+    <section class="relative z-10 py-8 text-center">
+        <div class="container mx-auto px-4">
+            <div class="inline-flex items-center space-x-2 bg-green-600 bg-opacity-20 border border-green-600 rounded-lg px-4 py-2">
+                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <span class="text-green-400">🚀 المنصة تعمل بكامل طاقتها</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black bg-opacity-95 py-8 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="w-8 h-8 finclick-bg-gold rounded mr-3 flex items-center justify-center text-black font-bold">
+                    FC
+                </div>
+                <span class="text-xl font-bold">FinClick.AI</span>
+            </div>
+            <p class="text-gray-400 mb-4">منصة التحليل المالي الذكي الثورية</p>
+            <div class="flex justify-center space-x-6 text-sm">
+                <a href="/dashboard" class="hover:text-gold transition-colors">لوحة التحكم</a>
+                <a href="/admin" class="hover:text-gold transition-colors">المدير</a>
+                <a href="/api/test" class="hover:text-gold transition-colors">API</a>
+                <a href="/health" class="hover:text-gold transition-colors">الحالة</a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-700 text-xs text-gray-500">
+                <p>&copy; 2024 FinClick.AI - جميع الحقوق محفوظة | تطوير: رزان أحمد توفيق</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎉 FinClick.AI Platform Loaded Successfully!');
+            console.log('📊 180 Financial Analysis Types Ready');
+            console.log('🤖 7 AI Agents Initialized');
+
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.bg-gray-900');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

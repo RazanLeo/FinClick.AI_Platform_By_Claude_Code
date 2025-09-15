@@ -1,0 +1,155 @@
+<!-- Beneficiaries and Purposes Section -->
+<section class="py-20 bg-gradient-to-b from-black to-gray-900/50 relative">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'المستفيدين والأغراض' : 'Beneficiaries and Purposes' %>
+            </h2>
+            <p class="text-lg text-gold/70 max-w-6xl mx-auto leading-relaxed">
+                <%= language === 'ar' ?
+                'هذه المنصة تمكن كل مستفيدي التحليل المالي أياً كانوا أفراد أو جهات أو منظمات من إجراء جميع أنواع التحليل المالي المعروفة في العالم بجميع أنواعها وتصنيفاتها واستخداماتها من الكلاسيكية إلى المعقدة جداً بخطوات بسيطة وثوانٍ معدودة وضغطة زر. منصة قائمة على الذكاء الاصطناعي وتكامل وكلاء الذكاء الاصطناعي ونماذج وتقنيات الذكاء الاصطناعي والواجهات البرمجية وقواعد البيانات بشكل كامل وهي محلل مالي خارق يساعد كل شخص يتخذ القرارات المالية اللحظية يقدم تحليلات مالية مفصلة فائقة الدقة، بسرعة عالية، وبشكل احترافي.' :
+                'This platform enables all financial analysis beneficiaries, whether individuals, entities, or organizations, to perform all types of financial analysis known in the world with all their types, classifications, and uses from classical to very complex with simple steps and in seconds with the click of a button. A platform based on artificial intelligence and integration of AI agents, AI models and technologies, APIs, and databases completely. It is a super financial analyst that helps everyone make instant financial decisions and provides detailed financial analyses with extreme accuracy, high speed, and professionally.'
+                %>
+            </p>
+        </div>
+
+        <!-- Beneficiaries Grid -->
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Company Owners -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-start space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %> mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center glow-effect flex-shrink-0">
+                        <i class="fas fa-crown text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'أصحاب الشركات' : 'Company Owners' %>
+                        </h3>
+                        <p class="text-gold/80 leading-relaxed">
+                            <%= language === 'ar' ?
+                            'تساعد صاحب الشركة على فهم أداء شركته المالي بسهولة وسرعة في لحظات ومقارنة أداء شركته بشركات أخرى من نفس القطاع ونفس النشاط على عدة مستويات من المقارنة حسب متوسطات الصناعة (محلي على مستوى السعودية، على مستوى دول الخليج العربي، على مستوى الدول العربية، على مستوى آسيا، على مستوى أفريقيا، على مستوى أوروبا، على مستوى أمريكا الشمالية، على مستوى أمريكا الجنوبية، على مستوى أستراليا، على مستوى العالم).' :
+                            'Helps company owners understand their company\'s financial performance easily and quickly in moments and compare their company\'s performance with other companies from the same sector and same activity at several comparison levels according to industry averages (local level in Saudi Arabia, GCC level, Arab countries level, Asia level, Africa level, Europe level, North America level, South America level, Australia level, world level).'
+                            %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Professionals -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-start space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %> mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center glow-effect flex-shrink-0">
+                        <i class="fas fa-user-tie text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'المحللين الماليين والخبراء' : 'Financial Analysts & Experts' %>
+                        </h3>
+                        <p class="text-gold/80 leading-relaxed">
+                            <%= language === 'ar' ?
+                            'تساعد المدير المالي أو المحلل المالي أو الخبير المالي أو المقيم المالي في شركة على إنجاز عمله وجميع حسابات التحليل المالي في ثوانٍ معدودة بضغطة زر بدلاً من العمل لساعات وأيام وأسابيع لينجز ويعد تقرير تحليل مالي شامل مفصل بدون أخطاء أو إعداد عرض تقديمي. (ويستطيع تنفيذ كل أنواع التحليل المالي في العالم).' :
+                            'Helps financial managers, financial analysts, financial experts, or financial evaluators in companies accomplish their work and all financial analysis calculations in seconds with the click of a button instead of working for hours, days, and weeks to complete and prepare a comprehensive detailed financial analysis report without errors or preparing a presentation. (And can execute all types of financial analysis in the world).'
+                            %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investors -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-start space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %> mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center glow-effect flex-shrink-0">
+                        <i class="fas fa-chart-pie text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'المستثمرين' : 'Investors' %>
+                        </h3>
+                        <p class="text-gold/80 leading-relaxed">
+                            <%= language === 'ar' ?
+                            'تساعد أي مستثمر على اتخاذ قرار فوري لشراء أسهم شركة معينة أو الدخول في استثمار في شركة أياً كان نوع الاستثمار.' :
+                            'Helps any investor make an immediate decision to buy shares of a specific company or enter into an investment in a company regardless of the type of investment.'
+                            %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bank Employees -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-start space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %> mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center glow-effect flex-shrink-0">
+                        <i class="fas fa-university text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'موظفي البنوك' : 'Bank Employees' %>
+                        </h3>
+                        <p class="text-gold/80 leading-relaxed">
+                            <%= language === 'ar' ?
+                            'تساعد موظفي البنوك على تقييم أداء الشركات لاتخاذ قرارات التمويل والإقراض.' :
+                            'Helps bank employees evaluate company performance to make financing and lending decisions.'
+                            %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Evaluators -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-start space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %> mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center glow-effect flex-shrink-0">
+                        <i class="fas fa-building text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'مقيمي المشاريع' : 'Project Evaluators' %>
+                        </h3>
+                        <p class="text-gold/80 leading-relaxed">
+                            <%= language === 'ar' ?
+                            'تساعد على تقييم جدوى المشاريع الجديدة أو تقييم الشركات الناشئة والكبيرة وتقييم الشركات والأعمال بشكل كامل.' :
+                            'Helps evaluate the feasibility of new projects or evaluate startups and large companies and fully evaluate companies and businesses.'
+                            %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Financial Analysis Stakeholders -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-start space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %> mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center glow-effect flex-shrink-0">
+                        <i class="fas fa-users text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gold mb-3">
+                            <%= language === 'ar' ? 'جميع المهتمين بالتحليل المالي' : 'All Financial Analysis Stakeholders' %>
+                        </h3>
+                        <p class="text-gold/80 leading-relaxed">
+                            <%= language === 'ar' ?
+                            'تساعد جميع المهتمين بالتحليل المالي أياً كان فرد أو منظمة أو جهة. فهي منصة تقدم جميع أنواع التحليل المالي في العالم بضغطة زر. وهي منصة تخدم كل مستفيدي التحليل المالي وتخدم كل أغراض التحليل المالي. مرة أخرى تخدم كل مستفيدين التحليل المالي وكل أغراض التحليل المالي.' :
+                            'Helps all those interested in financial analysis, whether individuals, organizations, or entities. It is a platform that provides all types of financial analysis in the world with the click of a button. It is a platform that serves all financial analysis beneficiaries and serves all purposes of financial analysis. Once again, it serves all financial analysis beneficiaries and all purposes of financial analysis.'
+                            %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Statement -->
+        <div class="text-center mt-16">
+            <div class="bg-gradient-to-r from-gold/10 to-gold/5 border border-gold/20 rounded-2xl p-8 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'خلاصة القول' : 'In Summary' %>
+                </h3>
+                <p class="text-lg text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    'منصة FinClick.AI تخدم كل مستفيدي التحليل المالي وكل أغراض التحليل المالي - محلل مالي خارق يساعد كل شخص يتخذ القرارات المالية اللحظية' :
+                    'FinClick.AI platform serves all financial analysis beneficiaries and all purposes of financial analysis - a super financial analyst that helps everyone make instant financial decisions'
+                    %>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

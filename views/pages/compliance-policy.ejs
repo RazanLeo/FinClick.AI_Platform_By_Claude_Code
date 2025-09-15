@@ -1,0 +1,181 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'سياسة الامتثال' : 'Compliance Policy' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: أغسطس 2025' : 'Last updated: August 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <div class="space-y-8">
+                    <!-- الامتثال التنظيمي -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الامتثال التنظيمي:</h2>
+                                <p class="text-gold/80">FinClick.AI ملتزمة بجميع اللوائح المالية السعودية والعالمية، بما في ذلك لوائح هيئة السوق المالية والبنك المركزي السعودي.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- حماية البيانات -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">حماية البيانات:</h2>
+                                <p class="text-gold/80">نلتزم بلائحة حماية البيانات الشخصية السعودية (PDPL) واللائحة الأوروبية العامة لحماية البيانات (GDPR) لضمان أعلى معايير الخصوصية.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- مكافحة غسل الأموال -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">مكافحة غسل الأموال:</h2>
+                                <p class="text-gold/80">تطبق المنصة سياسات صارمة لمكافحة غسل الأموال وتمويل الإرهاب وفقاً للوائح المحلية والدولية مع نظام رصد متقدم.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- التدقيق والمراجعة -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">التدقيق والمراجعة:</h2>
+                                <p class="text-gold/80">مراجعات امتثال دورية كل ربع سنة من جهات تدقيق معتمدة مع تقارير شفافية كاملة وتحديثات مستمرة للسياسات.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الشفافية -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الشفافية:</h2>
+                                <p class="text-gold/80">نلتزم بالشفافية الكاملة في جميع العمليات مع نشر تقارير امتثال سنوية وإتاحة جميع السياسات للمراجعة العامة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- التبليغ عن المخالفات -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">التبليغ عن المخالفات:</h2>
+                                <p class="text-gold/80">نوفر قنوات آمنة للتبليغ عن أي مخالفات عبر compliance@finclick.ai مع ضمان حماية المبلغين وسرية التحقيقات.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <div class="space-y-8">
+                    <!-- Regulatory Compliance -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Regulatory Compliance:</h2>
+                                <p class="text-gold/80">FinClick.AI is committed to all Saudi and international financial regulations, including regulations from the Capital Market Authority and the Saudi Central Bank.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Data Protection -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Data Protection:</h2>
+                                <p class="text-gold/80">We comply with the Saudi Personal Data Protection Law (PDPL) and the European General Data Protection Regulation (GDPR) to ensure the highest privacy standards.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Anti-Money Laundering -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Anti-Money Laundering:</h2>
+                                <p class="text-gold/80">The platform implements strict anti-money laundering and counter-terrorism financing policies in accordance with local and international regulations with advanced monitoring system.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Auditing and Review -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Auditing and Review:</h2>
+                                <p class="text-gold/80">Quarterly compliance reviews by certified auditing firms with complete transparency reports and continuous policy updates.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Transparency -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Transparency:</h2>
+                                <p class="text-gold/80">We are committed to complete transparency in all operations with annual compliance reports publication and making all policies available for public review.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Violation Reporting -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Violation Reporting:</h2>
+                                <p class="text-gold/80">We provide secure channels for reporting violations via compliance@finclick.ai with guaranteed whistleblower protection and confidential investigations.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2 <%= language === 'ar' ? 'transform rotate-180 ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <a href="/security-policy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الأمان' : 'Security Policy' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/privacy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

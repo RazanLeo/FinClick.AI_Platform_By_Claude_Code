@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="<%= language %>" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= language === 'ar' ? 'لوحة تحكم المدير' : 'Admin Dashboard' %> - FinClick.AI</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+</head>
+<body class="admin-body bg-black text-gold">
+    <!-- Admin Navigation -->
+    <nav class="admin-nav bg-black border-b border-gold/20">
+        <div class="nav-container flex justify-between items-center p-4">
+            <div class="nav-brand flex items-center">
+                <img src="/images/logo.png" alt="FinClick.AI" class="w-10 h-10">
+                <span class="nav-brand-text text-gold text-xl font-bold mr-3">
+                    <%= language === 'ar' ? 'لوحة تحكم المدير' : 'Admin Dashboard' %>
+                </span>
+            </div>
+
+            <div class="nav-menu flex space-x-6" dir="ltr">
+                <a href="/admin/dashboard" class="nav-item active text-gold hover:text-secondary-gold">
+                    <i class="icon-dashboard"></i>
+                    <%= language === 'ar' ? 'الرئيسية' : 'Dashboard' %>
+                </a>
+                <a href="/admin/users" class="nav-item text-gold hover:text-secondary-gold">
+                    <i class="icon-users"></i>
+                    <%= language === 'ar' ? 'المستخدمين' : 'Users' %>
+                </a>
+                <a href="/admin/analyses" class="nav-item text-gold hover:text-secondary-gold">
+                    <i class="icon-chart"></i>
+                    <%= language === 'ar' ? 'التحليلات' : 'Analyses' %>
+                </a>
+                <a href="/admin/subscriptions" class="nav-item text-gold hover:text-secondary-gold">
+                    <i class="icon-credit-card"></i>
+                    <%= language === 'ar' ? 'الاشتراكات' : 'Subscriptions' %>
+                </a>
+                <a href="/admin/reports" class="nav-item text-gold hover:text-secondary-gold">
+                    <i class="icon-file-text"></i>
+                    <%= language === 'ar' ? 'التقارير' : 'Reports' %>
+                </a>
+                <a href="/admin/settings" class="nav-item text-gold hover:text-secondary-gold">
+                    <i class="icon-settings"></i>
+                    <%= language === 'ar' ? 'الإعدادات' : 'Settings' %>
+                </a>
+            </div>
+
+            <div class="nav-user flex items-center space-x-4">
+                <div class="language-switcher">
+                    <a href="?lang=en" class="<%= language === 'en' ? 'text-secondary-gold' : 'text-gold/70' %>">EN</a>
+                    <span class="text-gold/40">|</span>
+                    <a href="?lang=ar" class="<%= language === 'ar' ? 'text-secondary-gold' : 'text-gold/70' %>">عربي</a>
+                </div>
+
+                <div class="user-menu">
+                    <span class="text-gold">Admin: <%= user.first_name %></span>
+                    <a href="/logout" class="text-gold/70 hover:text-gold ml-4">
+                        <%= language === 'ar' ? 'خروج' : 'Logout' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main min-h-screen bg-black">
+        <!-- Header -->
+        <div class="admin-header bg-gradient-to-r from-black to-gold/10 p-6 border-b border-gold/20">
+            <div class="header-content">
+                <h1 class="text-3xl font-bold text-gold mb-2">
+                    <%= language === 'ar' ? 'مرحباً بك في لوحة تحكم المدير' : 'Welcome to Admin Dashboard' %>
+                </h1>
+                <p class="text-gold/70 text-lg">
+                    <%= language === 'ar' ? 'إدارة شاملة لمنصة FinClick.AI' : 'Comprehensive management of FinClick.AI platform' %>
+                </p>
+            </div>
+        </div>
+
+        <!-- Statistics Overview -->
+        <div class="stats-section p-6">
+            <h2 class="text-2xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'نظرة عامة على الإحصائيات' : 'Statistics Overview' %>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Total Users -->
+                <div class="stat-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold" id="totalUsers">-</h3>
+                            <p class="text-gold/70"><%= language === 'ar' ? 'إجمالي المستخدمين' : 'Total Users' %></p>
+                        </div>
+                        <div class="stat-icon text-3xl text-gold/40">
+                            <i class="icon-users"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-sm text-green-400" id="usersGrowth">+0%</span>
+                        <span class="text-gold/60 text-sm">
+                            <%= language === 'ar' ? 'من الشهر الماضي' : 'from last month' %>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Active Subscriptions -->
+                <div class="stat-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold" id="activeSubscriptions">-</h3>
+                            <p class="text-gold/70"><%= language === 'ar' ? 'الاشتراكات النشطة' : 'Active Subscriptions' %></p>
+                        </div>
+                        <div class="stat-icon text-3xl text-gold/40">
+                            <i class="icon-credit-card"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-sm text-green-400" id="subscriptionsGrowth">+0%</span>
+                        <span class="text-gold/60 text-sm">
+                            <%= language === 'ar' ? 'من الشهر الماضي' : 'from last month' %>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Total Analyses -->
+                <div class="stat-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold" id="totalAnalyses">-</h3>
+                            <p class="text-gold/70"><%= language === 'ar' ? 'إجمالي التحليلات' : 'Total Analyses' %></p>
+                        </div>
+                        <div class="stat-icon text-3xl text-gold/40">
+                            <i class="icon-chart"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-sm text-green-400" id="analysesGrowth">+0%</span>
+                        <span class="text-gold/60 text-sm">
+                            <%= language === 'ar' ? 'من الشهر الماضي' : 'from last month' %>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Monthly Revenue -->
+                <div class="stat-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold" id="monthlyRevenue">-</h3>
+                            <p class="text-gold/70"><%= language === 'ar' ? 'الإيرادات الشهرية' : 'Monthly Revenue' %></p>
+                        </div>
+                        <div class="stat-icon text-3xl text-gold/40">
+                            <i class="icon-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-sm text-green-400" id="revenueGrowth">+0%</span>
+                        <span class="text-gold/60 text-sm">
+                            <%= language === 'ar' ? 'من الشهر الماضي' : 'from last month' %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Charts -->
+        <div class="charts-section p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- User Growth Chart -->
+                <div class="chart-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'نمو المستخدمين' : 'User Growth' %>
+                    </h3>
+                    <div class="chart-container h-64">
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Revenue Chart -->
+                <div class="chart-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'الإيرادات الشهرية' : 'Monthly Revenue' %>
+                    </h3>
+                    <div class="chart-container h-64">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Analysis Types Distribution -->
+                <div class="chart-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'توزيع أنواع التحليل' : 'Analysis Types Distribution' %>
+                    </h3>
+                    <div class="chart-container h-64">
+                        <canvas id="analysisTypesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Subscription Plans -->
+                <div class="chart-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'خطط الاشتراك' : 'Subscription Plans' %>
+                    </h3>
+                    <div class="chart-container h-64">
+                        <canvas id="subscriptionPlansChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- User Activity -->
+                <div class="chart-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'نشاط المستخدمين' : 'User Activity' %>
+                    </h3>
+                    <div class="chart-container h-64">
+                        <canvas id="userActivityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="activity-section p-6">
+            <h2 class="text-2xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'النشاط الأخير' : 'Recent Activity' %>
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Recent Users -->
+                <div class="activity-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'المستخدمين الجدد' : 'New Users' %>
+                    </h3>
+                    <div id="recentUsers" class="space-y-3">
+                        <div class="loading text-gold/60">
+                            <%= language === 'ar' ? 'جاري التحميل...' : 'Loading...' %>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Analyses -->
+                <div class="activity-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'التحليلات الأخيرة' : 'Recent Analyses' %>
+                    </h3>
+                    <div id="recentAnalyses" class="space-y-3">
+                        <div class="loading text-gold/60">
+                            <%= language === 'ar' ? 'جاري التحميل...' : 'Loading...' %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Health -->
+        <div class="system-section p-6">
+            <h2 class="text-2xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'حالة النظام' : 'System Health' %>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Server Status -->
+                <div class="health-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'حالة الخادم' : 'Server Status' %>
+                        </h3>
+                        <div class="status-indicator bg-green-500 w-3 h-3 rounded-full"></div>
+                    </div>
+                    <p class="text-sm text-gold/70">
+                        <%= language === 'ar' ? 'يعمل بشكل طبيعي' : 'Running normally' %>
+                    </p>
+                </div>
+
+                <!-- Database Status -->
+                <div class="health-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'قاعدة البيانات' : 'Database' %>
+                        </h3>
+                        <div class="status-indicator bg-green-500 w-3 h-3 rounded-full"></div>
+                    </div>
+                    <p class="text-sm text-gold/70">
+                        <%= language === 'ar' ? 'متصلة' : 'Connected' %>
+                    </p>
+                </div>
+
+                <!-- AI Services -->
+                <div class="health-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'خدمات الذكاء الاصطناعي' : 'AI Services' %>
+                        </h3>
+                        <div class="status-indicator bg-green-500 w-3 h-3 rounded-full"></div>
+                    </div>
+                    <p class="text-sm text-gold/70">
+                        <%= language === 'ar' ? 'نشطة' : 'Active' %>
+                    </p>
+                </div>
+
+                <!-- Payment Gateway -->
+                <div class="health-card bg-gradient-to-br from-black to-gold/5 border border-gold/20 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'بوابة الدفع' : 'Payment Gateway' %>
+                        </h3>
+                        <div class="status-indicator bg-green-500 w-3 h-3 rounded-full"></div>
+                    </div>
+                    <p class="text-sm text-gold/70">
+                        <%= language === 'ar' ? 'متاحة' : 'Available' %>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="actions-section p-6 pb-12">
+            <h2 class="text-2xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'إجراءات سريعة' : 'Quick Actions' %>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <button onclick="addNewUser()" class="action-btn bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 rounded-lg p-6 hover:from-gold/30 hover:to-gold/20 transition-all">
+                    <div class="text-center">
+                        <i class="icon-user-plus text-3xl text-gold mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'إضافة مستخدم' : 'Add User' %>
+                        </h3>
+                    </div>
+                </button>
+
+                <button onclick="sendAnnouncement()" class="action-btn bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 rounded-lg p-6 hover:from-gold/30 hover:to-gold/20 transition-all">
+                    <div class="text-center">
+                        <i class="icon-megaphone text-3xl text-gold mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'إرسال إعلان' : 'Send Announcement' %>
+                        </h3>
+                    </div>
+                </button>
+
+                <button onclick="generateReport()" class="action-btn bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 rounded-lg p-6 hover:from-gold/30 hover:to-gold/20 transition-all">
+                    <div class="text-center">
+                        <i class="icon-file-text text-3xl text-gold mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'تقرير شامل' : 'Generate Report' %>
+                        </h3>
+                    </div>
+                </button>
+
+                <button onclick="systemMaintenance()" class="action-btn bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 rounded-lg p-6 hover:from-gold/30 hover:to-gold/20 transition-all">
+                    <div class="text-center">
+                        <i class="icon-tools text-3xl text-gold mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gold">
+                            <%= language === 'ar' ? 'صيانة النظام' : 'System Maintenance' %>
+                        </h3>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Admin Dashboard JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAdminDashboard();
+            initializeCharts();
+        });
+
+        async function loadAdminDashboard() {
+            try {
+                // Load admin statistics
+                const statsResponse = await fetch('/api/admin/stats');
+                const statsData = await statsResponse.json();
+
+                if (statsData.success) {
+                    updateAdminStats(statsData.data);
+                }
+
+                // Load recent activity
+                loadRecentActivity();
+
+            } catch (error) {
+                console.error('Error loading admin dashboard:', error);
+            }
+        }
+
+        function updateAdminStats(stats) {
+            document.getElementById('totalUsers').textContent = stats.total_users || 0;
+            document.getElementById('activeSubscriptions').textContent = stats.active_subscriptions || 0;
+            document.getElementById('totalAnalyses').textContent = stats.total_analyses || 0;
+            document.getElementById('monthlyRevenue').textContent = `${stats.monthly_revenue || 0} SAR`;
+
+            // Update growth percentages
+            document.getElementById('usersGrowth').textContent = `+${stats.users_growth || 0}%`;
+            document.getElementById('subscriptionsGrowth').textContent = `+${stats.subscriptions_growth || 0}%`;
+            document.getElementById('analysesGrowth').textContent = `+${stats.analyses_growth || 0}%`;
+            document.getElementById('revenueGrowth').textContent = `+${stats.revenue_growth || 0}%`;
+        }
+
+        function initializeCharts() {
+            // User Growth Chart
+            const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+            new Chart(userGrowthCtx, {
+                type: 'line',
+                data: {
+                    labels: getLast12Months(),
+                    datasets: [{
+                        label: '<%= language === "ar" ? "المستخدمين الجدد" : "New Users" %>',
+                        data: generateMockData(12, 10, 100),
+                        borderColor: '#B48500',
+                        backgroundColor: 'rgba(180, 133, 0, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#B48500' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#B48500' }, grid: { color: 'rgba(180, 133, 0, 0.1)' } },
+                        y: { ticks: { color: '#B48500' }, grid: { color: 'rgba(180, 133, 0, 0.1)' } }
+                    }
+                }
+            });
+
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'bar',
+                data: {
+                    labels: getLast12Months(),
+                    datasets: [{
+                        label: '<%= language === "ar" ? "الإيرادات (ريال)" : "Revenue (SAR)" %>',
+                        data: generateMockData(12, 50000, 500000),
+                        backgroundColor: 'rgba(180, 133, 0, 0.8)',
+                        borderColor: '#B48500',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#B48500' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#B48500' }, grid: { color: 'rgba(180, 133, 0, 0.1)' } },
+                        y: { ticks: { color: '#B48500' }, grid: { color: 'rgba(180, 133, 0, 0.1)' } }
+                    }
+                }
+            });
+
+            // Analysis Types Chart
+            const analysisTypesCtx = document.getElementById('analysisTypesChart').getContext('2d');
+            new Chart(analysisTypesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '<%= language === "ar" ? "الأساسية التقليدية" : "Classical Foundational" %>',
+                        '<%= language === "ar" ? "التطبيقية المتوسطة" : "Applied Intermediate" %>',
+                        '<%= language === "ar" ? "المتقدمة" : "Advanced" %>'
+                    ],
+                    datasets: [{
+                        data: [106, 21, 53],
+                        backgroundColor: ['#B48500', '#FFD700', '#FFA500']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#B48500' }
+                        }
+                    }
+                }
+            });
+
+            // Subscription Plans Chart
+            const subscriptionPlansCtx = document.getElementById('subscriptionPlansChart').getContext('2d');
+            new Chart(subscriptionPlansCtx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        '<%= language === "ar" ? "شهري" : "Monthly" %>',
+                        '<%= language === "ar" ? "سنوي" : "Yearly" %>',
+                        '<%= language === "ar" ? "ضيف" : "Guest" %>'
+                    ],
+                    datasets: [{
+                        data: [60, 35, 5],
+                        backgroundColor: ['#B48500', '#FFD700', '#FFA500']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#B48500' }
+                        }
+                    }
+                }
+            });
+
+            // User Activity Chart
+            const userActivityCtx = document.getElementById('userActivityChart').getContext('2d');
+            new Chart(userActivityCtx, {
+                type: 'line',
+                data: {
+                    labels: getLast7Days(),
+                    datasets: [{
+                        label: '<%= language === "ar" ? "المستخدمين النشطين" : "Active Users" %>',
+                        data: generateMockData(7, 50, 200),
+                        borderColor: '#B48500',
+                        backgroundColor: 'rgba(180, 133, 0, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#B48500' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#B48500' }, grid: { color: 'rgba(180, 133, 0, 0.1)' } },
+                        y: { ticks: { color: '#B48500' }, grid: { color: 'rgba(180, 133, 0, 0.1)' } }
+                    }
+                }
+            });
+        }
+
+        async function loadRecentActivity() {
+            // Load recent users
+            try {
+                const usersResponse = await fetch('/api/admin/users/recent');
+                const usersData = await usersResponse.json();
+
+                if (usersData.success) {
+                    renderRecentUsers(usersData.data);
+                }
+            } catch (error) {
+                console.error('Error loading recent users:', error);
+            }
+
+            // Load recent analyses
+            try {
+                const analysesResponse = await fetch('/api/admin/analyses/recent');
+                const analysesData = await analysesResponse.json();
+
+                if (analysesData.success) {
+                    renderRecentAnalyses(analysesData.data);
+                }
+            } catch (error) {
+                console.error('Error loading recent analyses:', error);
+            }
+        }
+
+        function renderRecentUsers(users) {
+            const container = document.getElementById('recentUsers');
+
+            if (!users || users.length === 0) {
+                container.innerHTML = '<p class="text-gold/60"><%= language === "ar" ? "لا يوجد مستخدمين جدد" : "No new users" %></p>';
+                return;
+            }
+
+            const usersHTML = users.map(user => `
+                <div class="flex items-center justify-between p-3 bg-black/30 rounded-lg border border-gold/10">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-gold/20 rounded-full flex items-center justify-center">
+                            <i class="icon-user text-gold text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-gold font-medium">${user.first_name} ${user.last_name}</p>
+                            <p class="text-gold/60 text-sm">${user.email}</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-gold/60 text-sm">${formatDate(user.created_at)}</p>
+                        <span class="text-xs px-2 py-1 bg-gold/20 text-gold rounded">${user.role}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = usersHTML;
+        }
+
+        function renderRecentAnalyses(analyses) {
+            const container = document.getElementById('recentAnalyses');
+
+            if (!analyses || analyses.length === 0) {
+                container.innerHTML = '<p class="text-gold/60"><%= language === "ar" ? "لا يوجد تحليلات حديثة" : "No recent analyses" %></p>';
+                return;
+            }
+
+            const analysesHTML = analyses.map(analysis => `
+                <div class="flex items-center justify-between p-3 bg-black/30 rounded-lg border border-gold/10">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-gold/20 rounded-full flex items-center justify-center">
+                            <i class="icon-chart text-gold text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-gold font-medium">${analysis.analysis_name}</p>
+                            <p class="text-gold/60 text-sm">${analysis.company_name}</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-gold/60 text-sm">${formatDate(analysis.created_at)}</p>
+                        <span class="text-xs px-2 py-1 bg-${getStatusColor(analysis.status)}/20 text-${getStatusColor(analysis.status)} rounded">
+                            ${getStatusText(analysis.status)}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = analysesHTML;
+        }
+
+        // Helper functions
+        function getLast12Months() {
+            const months = [];
+            const currentDate = new Date();
+
+            for (let i = 11; i >= 0; i--) {
+                const date = new Date(currentDate.getFullYear(), currentDate.getMonth() - i, 1);
+                months.push(date.toLocaleDateString('<%= language %>', { month: 'short' }));
+            }
+
+            return months;
+        }
+
+        function getLast7Days() {
+            const days = [];
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                days.push(date.toLocaleDateString('<%= language %>', { month: 'short', day: 'numeric' }));
+            }
+            return days;
+        }
+
+        function generateMockData(length, min, max) {
+            return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('<%= language %>', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'pending': 'yellow',
+                'processing': 'blue',
+                'completed': 'green',
+                'error': 'red'
+            };
+            return colors[status] || 'gray';
+        }
+
+        function getStatusText(status) {
+            const texts = {
+                'pending': '<%= language === "ar" ? "معلق" : "Pending" %>',
+                'processing': '<%= language === "ar" ? "جاري المعالجة" : "Processing" %>',
+                'completed': '<%= language === "ar" ? "مكتمل" : "Completed" %>',
+                'error': '<%= language === "ar" ? "خطأ" : "Error" %>'
+            };
+            return texts[status] || status;
+        }
+
+        // Quick action functions
+        function addNewUser() {
+            window.location.href = '/admin/users/new';
+        }
+
+        function sendAnnouncement() {
+            window.location.href = '/admin/announcements/new';
+        }
+
+        function generateReport() {
+            window.location.href = '/admin/reports/generate';
+        }
+
+        function systemMaintenance() {
+            window.location.href = '/admin/maintenance';
+        }
+    </script>
+</body>
+</html>

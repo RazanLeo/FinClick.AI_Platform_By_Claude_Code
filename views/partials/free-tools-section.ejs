@@ -1,0 +1,415 @@
+<!-- Free Tools Section - الأدوات المجانية -->
+<section class="py-20 relative">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'الأدوات المجانية' : 'Free Tools' %>
+            </h2>
+            <p class="text-xl text-gold/70 max-w-4xl mx-auto">
+                <%= language === 'ar' ?
+                'مجموعة شاملة من الأدوات المجانية لخدمة المهتمين بالتحليل المالي - احصل على بيانات مالية مباشرة، حاسبات متقدمة، وتحليلات تفاعلية' :
+                'A comprehensive suite of free tools for financial analysis enthusiasts - Get live financial data, advanced calculators, and interactive analytics'
+                %>
+            </p>
+        </div>
+
+        <!-- Tools Grid -->
+        <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
+            <!-- Economic Calendar -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-6 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-4 mx-auto glow-effect">
+                        <i class="fas fa-calendar-alt text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gold mb-3">
+                        <%= language === 'ar' ? 'التقويم الاقتصادي' : 'Economic Calendar' %>
+                    </h3>
+                    <p class="text-gold/80 text-sm mb-4">
+                        <%= language === 'ar' ?
+                        'أحدث الأخبار والأحداث الاقتصادية المهمة مباشرة من investing.com' :
+                        'Latest economic news and important events directly from investing.com'
+                        %>
+                    </p>
+                </div>
+                <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10 min-h-[200px]">
+                    <div id="economic-calendar" class="text-xs text-gold/70">
+                        <div class="animate-pulse">
+                            <div class="h-4 bg-gold/20 rounded mb-2"></div>
+                            <div class="h-4 bg-gold/20 rounded mb-2"></div>
+                            <div class="h-4 bg-gold/20 rounded mb-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Financial News -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-6 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-4 mx-auto glow-effect">
+                        <i class="fas fa-newspaper text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gold mb-3">
+                        <%= language === 'ar' ? 'الأخبار المالية المباشرة' : 'Live Financial News' %>
+                    </h3>
+                    <p class="text-gold/80 text-sm mb-4">
+                        <%= language === 'ar' ?
+                        'آخر الأخبار المالية والاقتصادية من مصادر موثقة عالمياً' :
+                        'Latest financial and economic news from globally trusted sources'
+                        %>
+                    </p>
+                </div>
+                <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10 min-h-[200px] overflow-y-auto">
+                    <div id="financial-news" class="text-xs text-gold/70">
+                        <div class="animate-pulse">
+                            <div class="h-3 bg-gold/20 rounded mb-2"></div>
+                            <div class="h-3 bg-gold/20 rounded mb-2"></div>
+                            <div class="h-3 bg-gold/20 rounded mb-2"></div>
+                            <div class="h-3 bg-gold/20 rounded mb-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Calculators -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-6 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-4 mx-auto glow-effect">
+                        <i class="fas fa-calculator text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gold mb-3">
+                        <%= language === 'ar' ? 'الحاسبات المالية' : 'Financial Calculators' %>
+                    </h3>
+                    <p class="text-gold/80 text-sm mb-4">
+                        <%= language === 'ar' ?
+                        'حاسبات مالية تلقائية للقيمة العادلة، العائد على الاستثمار، ونسبة السعر للربح' :
+                        'Automatic financial calculators for fair value, ROI, and P/E ratio'
+                        %>
+                    </p>
+                </div>
+                <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10">
+                    <div class="space-y-3">
+                        <button class="w-full px-3 py-2 bg-gold/10 text-gold text-sm rounded-lg hover:bg-gold/20 smooth-transition" onclick="showCalculator('fair-value')">
+                            <%= language === 'ar' ? 'حاسبة القيمة العادلة' : 'Fair Value Calculator' %>
+                        </button>
+                        <button class="w-full px-3 py-2 bg-gold/10 text-gold text-sm rounded-lg hover:bg-gold/20 smooth-transition" onclick="showCalculator('roi')">
+                            <%= language === 'ar' ? 'حاسبة العائد على الاستثمار' : 'ROI Calculator' %>
+                        </button>
+                        <button class="w-full px-3 py-2 bg-gold/10 text-gold text-sm rounded-lg hover:bg-gold/20 smooth-transition" onclick="showCalculator('pe-ratio')">
+                            <%= language === 'ar' ? 'حاسبة نسبة السعر للربح' : 'P/E Ratio Calculator' %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPT Financial Bot -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-6 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-4 mx-auto glow-effect">
+                        <i class="fas fa-robot text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gold mb-3">
+                        <%= language === 'ar' ? 'المساعد المالي الذكي' : 'GPT Financial Bot' %>
+                    </h3>
+                    <p class="text-gold/80 text-sm mb-4">
+                        <%= language === 'ar' ?
+                        'مساعد ذكي يجيب على استفساراتك المالية باستخدام الذكاء الاصطناعي' :
+                        'Intelligent assistant that answers your financial questions using AI'
+                        %>
+                    </p>
+                </div>
+                <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-4 border border-gold/10">
+                    <div class="space-y-3">
+                        <div id="chat-messages" class="h-32 overflow-y-auto text-xs text-gold/70 space-y-2">
+                            <div class="bg-gold/10 p-2 rounded">
+                                <strong><%= language === 'ar' ? 'المساعد:' : 'Assistant:' %></strong>
+                                <%= language === 'ar' ? 'مرحباً! اسأل أي سؤال مالي' : 'Hello! Ask any financial question' %>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                            <input type="text" id="chat-input" placeholder="<%= language === 'ar' ? 'اكتب سؤالك هنا...' : 'Type your question here...' %>"
+                                   class="flex-1 px-3 py-2 bg-black/50 border border-gold/20 rounded-lg text-gold text-xs focus:outline-none focus:border-gold">
+                            <button onclick="sendMessage()" class="px-3 py-2 bg-gold text-black text-xs rounded-lg hover:bg-yellow-400 smooth-transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Sentiment Indicator -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-6 mx-auto glow-effect">
+                        <i class="fas fa-chart-line text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gold mb-4">
+                        <%= language === 'ar' ? 'مؤشر المشاعر السوقية التفاعلي' : 'Interactive Market Sentiment Indicator' %>
+                    </h3>
+                    <p class="text-gold/80 mb-6">
+                        <%= language === 'ar' ?
+                        'تتبع مشاعر السوق في الوقت الفعلي من خلال تحليل البيانات والأخبار المالية' :
+                        'Track market sentiment in real-time through analysis of financial data and news'
+                        %>
+                    </p>
+                </div>
+
+                <!-- Sentiment Gauge -->
+                <div class="relative mb-8">
+                    <div class="w-64 h-32 mx-auto relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-t-full opacity-30"></div>
+                        <div id="sentiment-needle" class="absolute bottom-0 left-1/2 w-1 h-24 bg-gold origin-bottom transform -translate-x-1/2 rotate-0 transition-transform duration-1000"></div>
+                        <div class="absolute bottom-0 left-1/2 w-4 h-4 bg-gold rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gold/70 mt-4 max-w-64 mx-auto">
+                        <span><%= language === 'ar' ? 'خوف' : 'Fear' %></span>
+                        <span><%= language === 'ar' ? 'محايد' : 'Neutral' %></span>
+                        <span><%= language === 'ar' ? 'جشع' : 'Greed' %></span>
+                    </div>
+                </div>
+
+                <!-- Current Sentiment Value -->
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gold mb-2" id="sentiment-value">72</div>
+                    <div class="text-gold/80 text-lg" id="sentiment-label">
+                        <%= language === 'ar' ? 'جشع' : 'Greed' %>
+                    </div>
+                    <div class="text-gold/60 text-sm mt-2">
+                        <%= language === 'ar' ? 'آخر تحديث: منذ دقائق' : 'Last updated: minutes ago' %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Stock Prices Widget -->
+        <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'أسعار الأسهم المباشرة' : 'Live Stock Prices' %>
+                </h3>
+                <p class="text-gold/80">
+                    <%= language === 'ar' ?
+                    'تتبع أسعار الأسهم الرئيسية في الوقت الفعلي من الأسواق العالمية' :
+                    'Track major stock prices in real-time from global markets'
+                    %>
+                </p>
+            </div>
+
+            <!-- Stock Ticker -->
+            <div class="bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-6 border border-gold/10">
+                <div id="stock-ticker" class="overflow-hidden">
+                    <div class="flex animate-scroll space-x-8 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                        <div class="flex-shrink-0 text-center">
+                            <div class="text-gold font-semibold">AAPL</div>
+                            <div class="text-green-400">$175.25</div>
+                            <div class="text-green-400 text-xs">+2.15%</div>
+                        </div>
+                        <div class="flex-shrink-0 text-center">
+                            <div class="text-gold font-semibold">MSFT</div>
+                            <div class="text-red-400">$312.89</div>
+                            <div class="text-red-400 text-xs">-1.23%</div>
+                        </div>
+                        <div class="flex-shrink-0 text-center">
+                            <div class="text-gold font-semibold">GOOGL</div>
+                            <div class="text-green-400">$142.56</div>
+                            <div class="text-green-400 text-xs">+0.87%</div>
+                        </div>
+                        <div class="flex-shrink-0 text-center">
+                            <div class="text-gold font-semibold">TSLA</div>
+                            <div class="text-red-400">$198.43</div>
+                            <div class="text-red-400 text-xs">-3.45%</div>
+                        </div>
+                        <div class="flex-shrink-0 text-center">
+                            <div class="text-gold font-semibold">NVDA</div>
+                            <div class="text-green-400">$421.78</div>
+                            <div class="text-green-400 text-xs">+4.56%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-16">
+            <div class="bg-gradient-to-r from-gold/10 to-gold/5 border border-gold/20 rounded-2xl p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'هل تحتاج تحليل أعمق؟' : 'Need Deeper Analysis?' %>
+                </h3>
+                <p class="text-gold/80 mb-6">
+                    <%= language === 'ar' ?
+                    'احصل على تحليل مالي شامل ومفصل مع أكثر من 180 نوع تحليل مالي' :
+                    'Get comprehensive and detailed financial analysis with over 180 types of financial analysis'
+                    %>
+                </p>
+                <a href="/register" class="inline-flex items-center px-8 py-4 bg-gold text-black text-lg font-bold rounded-xl hover:bg-yellow-400 smooth-transition glow-effect pulse-gold">
+                    <i class="fas fa-chart-pie <%= language === 'ar' ? 'ml-3' : 'mr-3' %>"></i>
+                    <%= language === 'ar' ? 'ابدأ التحليل المتقدم' : 'Start Advanced Analysis' %>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Free Tools JavaScript -->
+<script>
+// Economic Calendar and News Simulation
+function loadEconomicData() {
+    const calendar = document.getElementById('economic-calendar');
+    const news = document.getElementById('financial-news');
+
+    // Simulate economic calendar data
+    const calendarData = [
+        { time: '09:30', event: '<%= language === "ar" ? "بيانات التضخم الأمريكية" : "US Inflation Data" %>', impact: 'high' },
+        { time: '11:00', event: '<%= language === "ar" ? "قرار الفائدة الأوروبية" : "European Interest Rate Decision" %>', impact: 'medium' },
+        { time: '14:30', event: '<%= language === "ar" ? "مبيعات التجزئة" : "Retail Sales" %>', impact: 'low' }
+    ];
+
+    const newsData = [
+        '<%= language === "ar" ? "الأسواق الآسيوية تسجل مكاسب قوية..." : "Asian markets record strong gains..." %>',
+        '<%= language === "ar" ? "البنك المركزي الأمريكي يبقي على الفائدة..." : "Fed keeps interest rates unchanged..." %>',
+        '<%= language === "ar" ? "أرباح شركات التكنولوجيا تفوق التوقعات..." : "Tech companies earnings beat expectations..." %>',
+        '<%= language === "ar" ? "أسعار النفط ترتفع بنسبة 2%..." : "Oil prices rise by 2%..." %>'
+    ];
+
+    // Update calendar
+    calendar.innerHTML = calendarData.map(item =>
+        `<div class="flex justify-between items-center mb-2">
+            <span>${item.time}</span>
+            <span class="flex-1 px-2 text-gold/90">${item.event}</span>
+            <span class="w-2 h-2 rounded-full ${item.impact === 'high' ? 'bg-red-500' : item.impact === 'medium' ? 'bg-yellow-500' : 'bg-green-500'}"></span>
+        </div>`
+    ).join('');
+
+    // Update news
+    news.innerHTML = newsData.map(item =>
+        `<div class="border-b border-gold/10 pb-2 mb-2 last:border-b-0">${item}</div>`
+    ).join('');
+}
+
+// Calculator Functions
+function showCalculator(type) {
+    let content = '';
+
+    switch(type) {
+        case 'fair-value':
+            content = `
+                <div class="space-y-3">
+                    <input type="number" placeholder="<%= language === 'ar' ? 'السعر الحالي' : 'Current Price' %>" class="w-full px-3 py-2 bg-black/50 border border-gold/20 rounded text-gold text-sm">
+                    <input type="number" placeholder="<%= language === 'ar' ? 'الأرباح السنوية' : 'Annual Earnings' %>" class="w-full px-3 py-2 bg-black/50 border border-gold/20 rounded text-gold text-sm">
+                    <button class="w-full px-3 py-2 bg-gold text-black text-sm rounded font-semibold"><%= language === 'ar' ? 'احسب القيمة العادلة' : 'Calculate Fair Value' %></button>
+                </div>`;
+            break;
+        case 'roi':
+            content = `
+                <div class="space-y-3">
+                    <input type="number" placeholder="<%= language === 'ar' ? 'الاستثمار الأولي' : 'Initial Investment' %>" class="w-full px-3 py-2 bg-black/50 border border-gold/20 rounded text-gold text-sm">
+                    <input type="number" placeholder="<%= language === 'ar' ? 'القيمة الحالية' : 'Current Value' %>" class="w-full px-3 py-2 bg-black/50 border border-gold/20 rounded text-gold text-sm">
+                    <button class="w-full px-3 py-2 bg-gold text-black text-sm rounded font-semibold"><%= language === 'ar' ? 'احسب العائد' : 'Calculate ROI' %></button>
+                </div>`;
+            break;
+        case 'pe-ratio':
+            content = `
+                <div class="space-y-3">
+                    <input type="number" placeholder="<%= language === 'ar' ? 'سعر السهم' : 'Stock Price' %>" class="w-full px-3 py-2 bg-black/50 border border-gold/20 rounded text-gold text-sm">
+                    <input type="number" placeholder="<%= language === 'ar' ? 'ربحية السهم' : 'Earnings Per Share' %>" class="w-full px-3 py-2 bg-black/50 border border-gold/20 rounded text-gold text-sm">
+                    <button class="w-full px-3 py-2 bg-gold text-black text-sm rounded font-semibold"><%= language === 'ar' ? 'احسب نسبة P/E' : 'Calculate P/E Ratio' %></button>
+                </div>`;
+            break;
+    }
+
+    // Find the calculator container and update it
+    const calculatorSection = event.target.closest('.bg-black\\/40').querySelector('.bg-gradient-to-r');
+    calculatorSection.innerHTML = content;
+}
+
+// Chat Bot Function
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const messages = document.getElementById('chat-messages');
+
+    if (input.value.trim()) {
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'bg-gold/20 p-2 rounded';
+        userMessage.innerHTML = `<strong><%= language === 'ar' ? 'أنت:' : 'You:' %></strong> ${input.value}`;
+        messages.appendChild(userMessage);
+
+        // Simulate bot response
+        setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'bg-gold/10 p-2 rounded';
+            botMessage.innerHTML = `<strong><%= language === 'ar' ? 'المساعد:' : 'Assistant:' %></strong> <%= language === 'ar' ? 'شكراً لسؤالك. هذا مثال على رد المساعد الذكي.' : 'Thank you for your question. This is an example of the intelligent assistant response.' %>`;
+            messages.appendChild(botMessage);
+            messages.scrollTop = messages.scrollHeight;
+        }, 1000);
+
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+    }
+}
+
+// Market Sentiment Updater
+function updateSentiment() {
+    const needle = document.getElementById('sentiment-needle');
+    const value = document.getElementById('sentiment-value');
+    const label = document.getElementById('sentiment-label');
+
+    // Generate random sentiment value (0-100)
+    const sentimentValue = Math.floor(Math.random() * 100);
+    const rotation = (sentimentValue / 100) * 180 - 90; // -90 to +90 degrees
+
+    needle.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+    value.textContent = sentimentValue;
+
+    if (sentimentValue < 30) {
+        label.textContent = '<%= language === "ar" ? "خوف شديد" : "Extreme Fear" %>';
+        label.className = 'text-red-400 text-lg';
+    } else if (sentimentValue < 45) {
+        label.textContent = '<%= language === "ar" ? "خوف" : "Fear" %>';
+        label.className = 'text-red-300 text-lg';
+    } else if (sentimentValue < 55) {
+        label.textContent = '<%= language === "ar" ? "محايد" : "Neutral" %>';
+        label.className = 'text-gold/80 text-lg';
+    } else if (sentimentValue < 75) {
+        label.textContent = '<%= language === "ar" ? "جشع" : "Greed" %>';
+        label.className = 'text-green-300 text-lg';
+    } else {
+        label.textContent = '<%= language === "ar" ? "جشع شديد" : "Extreme Greed" %>';
+        label.className = 'text-green-400 text-lg';
+    }
+}
+
+// Initialize free tools
+document.addEventListener('DOMContentLoaded', function() {
+    loadEconomicData();
+    updateSentiment();
+
+    // Update data every 30 seconds
+    setInterval(() => {
+        loadEconomicData();
+        updateSentiment();
+    }, 30000);
+
+    // Enter key for chat
+    document.getElementById('chat-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+});
+
+// Scrolling animation for stock ticker
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes scroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+    .animate-scroll {
+        animation: scroll 30s linear infinite;
+    }
+`;
+document.head.appendChild(style);
+</script>

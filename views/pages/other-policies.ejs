@@ -1,0 +1,241 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'السياسات الأخرى' : 'Other Policies' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: أغسطس 2025' : 'Last updated: August 2025' %>
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <% if (language === 'ar') { %>
+            <!-- Arabic Content -->
+
+            <!-- سياسة نقل البيانات خارج المملكة العربية السعودية -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">سياسة نقل البيانات خارج المملكة العربية السعودية</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>نقل البيانات:</strong> يتم نقل بعض البيانات للخوادم الآمنة خارج المملكة لأغراض المعالجة والتحليل فقط مع ضمان أعلى معايير الأمان.</p>
+                    <p><strong>الحماية:</strong> جميع البيانات المنقولة محمية بتشفير قوي ومتوافقة مع لوائح الخصوصية الدولية ولوائح هيئة البيانات والذكاء الاصطناعي السعودية.</p>
+                    <p><strong>الغرض:</strong> النقل محدود للضرورة التقنية فقط لتوفير خدمات التحليل المالي المتقدم والذكاء الاصطناعي.</p>
+                    <p><strong>الشركاء:</strong> نتعامل فقط مع مقدمي خدمات معتمدين يلتزمون بأعلى معايير الأمان والخصوصية مثل AWS وMicrosoft Azure.</p>
+                </div>
+            </div>
+
+            <!-- سياسة ملفات تعريف الارتباط -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">سياسة ملفات تعريف الارتباط</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>الاستخدام:</strong> نستخدم ملفات تعريف الارتباط الضرورية لتشغيل المنصة وتحسين تجربة المستخدم وحفظ تفضيلات اللغة وجلسة تسجيل الدخول.</p>
+                    <p><strong>الأنواع:</strong> ملفات أساسية (جلسة العمل)، وظيفية (التفضيلات)، تحليلية (لتحسين الخدمة) - لا نستخدم ملفات إعلانية.</p>
+                    <p><strong>التحكم:</strong> يمكن للمستخدم إدارة ملفات تعريف الارتباط من إعدادات المتصفح، لكن إيقافها قد يؤثر على وظائف المنصة.</p>
+                    <p><strong>الشفافية:</strong> نعرض إشعار الموافقة عند الزيارة الأولى ونوضح الغرض من كل نوع من الملفات المستخدمة.</p>
+                </div>
+            </div>
+
+            <!-- سياسة الاستخدام المقبول -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">سياسة الاستخدام المقبول</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>الاستخدام المشروع:</strong> المنصة للأغراض المالية المشروعة فقط - تحليل الشركات، دراسة الاستثمارات، إعداد التقارير المالية.</p>
+                    <p><strong>المحظور:</strong> استخدام المعلومات للتلاعب بالأسواق، غسل الأموال، الاحتيال المالي، أو أي أنشطة مخالفة للقوانين.</p>
+                    <p><strong>المسؤولية:</strong> المستخدم مسؤول عن التأكد من قانونية استخدامه للمعلومات في دولته ومجال عمله.</p>
+                    <p><strong>الرقابة:</strong> نحتفظ بحق مراقبة الاستخدام وإيقاف الحسابات المشبوهة أو المخالفة للسياسة فوراً.</p>
+                </div>
+            </div>
+
+            <!-- سياسة المحتوى الحساس -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">سياسة المحتوى الحساس</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>التعريف:</strong> المعلومات المالية السرية للشركات، البيانات الداخلية، المعلومات غير المعلنة، استراتيجيات الاستثمار الخاصة.</p>
+                    <p><strong>الحماية:</strong> تشفير متقدم، إدارة صلاحيات متعددة المستويات، تسجيل شامل للعمليات، مراقبة الوصول المشبوه.</p>
+                    <p><strong>الوصول المحدود:</strong> المحتوى الحساس متاح فقط لأصحاب الصلاحية مع نظام مصادقة قوي ومراجعة دورية للصلاحيات.</p>
+                    <p><strong>الإبلاغ:</strong> آلية سريعة للإبلاغ عن أي تسريب أو استخدام غير مصرح للمحتوى الحساس مع استجابة فورية.</p>
+                </div>
+            </div>
+
+            <!-- سياسة السرية وعدم الإفصاح -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">سياسة السرية وعدم الإفصاح</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>التزام FinClick.AI:</strong> سرية مطلقة لجميع البيانات والتحليلات والمعلومات المالية للعملاء مع عدم إفصاح لأي طرف ثالث.</p>
+                    <p><strong>الموظفون:</strong> جميع الموظفين يوقعون اتفاقيات سرية صارمة مع تدريب مستمر على أهمية حماية معلومات العملاء.</p>
+                    <p><strong>الاستثناءات:</strong> الإفصاح فقط بأمر قضائي أو لجهات رقابية مخولة قانونياً مع إشعار العميل عند الإمكان.</p>
+                    <p><strong>مدة الالتزام:</strong> التزام السرية مستمر حتى بعد انتهاء الخدمة أو العلاقة مع العميل، دون حد زمني للانتهاء.</p>
+                </div>
+            </div>
+
+            <!-- السياسات القانونية -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">السياسات القانونية</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>القانون المطبق:</strong> جميع الخدمات خاضعة للقوانين السعودية ولوائح هيئة السوق المالية والبنك المركزي السعودي.</p>
+                    <p><strong>حل النزاعات:</strong> أي نزاع يُحل عبر التحكيم في المملكة العربية السعودية باللغة العربية وفقاً للأنظمة السعودية.</p>
+                    <p><strong>الاختصاص:</strong> المحاكم السعودية هي صاحبة الاختصاص الحصري لأي دعاوى قانونية متعلقة بالخدمة.</p>
+                    <p><strong>التحديثات:</strong> تحديث دوري للسياسات حسب التغييرات في القوانين مع إشعار العملاء بأي تعديلات هامة.</p>
+                </div>
+            </div>
+
+            <% } else { %>
+            <!-- English Content -->
+
+            <!-- Data Transfer Outside Saudi Arabia Policy -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">Data Transfer Outside Saudi Arabia Policy</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>Data Transfer:</strong> Some data is transferred to secure servers outside the Kingdom for processing and analysis purposes only with the highest security standards guaranteed.</p>
+                    <p><strong>Protection:</strong> All transferred data is protected by strong encryption and complies with international privacy regulations and Saudi Data and AI Authority regulations.</p>
+                    <p><strong>Purpose:</strong> Transfer is limited to technical necessity only to provide advanced financial analysis and artificial intelligence services.</p>
+                    <p><strong>Partners:</strong> We only deal with certified service providers who adhere to the highest security and privacy standards such as AWS and Microsoft Azure.</p>
+                </div>
+            </div>
+
+            <!-- Cookie Policy -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">Cookie Policy</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>Usage:</strong> We use necessary cookies to operate the platform, improve user experience, save language preferences and login sessions.</p>
+                    <p><strong>Types:</strong> Essential cookies (session), functional (preferences), analytical (service improvement) - we do not use advertising cookies.</p>
+                    <p><strong>Control:</strong> Users can manage cookies from browser settings, but disabling them may affect platform functionality.</p>
+                    <p><strong>Transparency:</strong> We display consent notice on first visit and explain the purpose of each type of cookie used.</p>
+                </div>
+            </div>
+
+            <!-- Acceptable Use Policy -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">Acceptable Use Policy</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>Legitimate Use:</strong> Platform is for legitimate financial purposes only - company analysis, investment studies, financial reporting.</p>
+                    <p><strong>Prohibited:</strong> Using information for market manipulation, money laundering, financial fraud, or any activities violating laws.</p>
+                    <p><strong>Responsibility:</strong> User is responsible for ensuring the legality of their use of information in their country and field of work.</p>
+                    <p><strong>Monitoring:</strong> We reserve the right to monitor usage and immediately suspend suspicious or policy-violating accounts.</p>
+                </div>
+            </div>
+
+            <!-- Sensitive Content Policy -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">Sensitive Content Policy</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>Definition:</strong> Confidential financial information of companies, internal data, undisclosed information, private investment strategies.</p>
+                    <p><strong>Protection:</strong> Advanced encryption, multi-level permission management, comprehensive operation logging, suspicious access monitoring.</p>
+                    <p><strong>Limited Access:</strong> Sensitive content available only to authorized personnel with strong authentication system and periodic permission review.</p>
+                    <p><strong>Reporting:</strong> Quick mechanism to report any leakage or unauthorized use of sensitive content with immediate response.</p>
+                </div>
+            </div>
+
+            <!-- Confidentiality and Non-Disclosure Policy -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">Confidentiality and Non-Disclosure Policy</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>FinClick.AI Commitment:</strong> Absolute confidentiality for all client data, analyses and financial information with no disclosure to third parties.</p>
+                    <p><strong>Employees:</strong> All employees sign strict confidentiality agreements with continuous training on the importance of protecting client information.</p>
+                    <p><strong>Exceptions:</strong> Disclosure only by court order or to legally authorized regulatory bodies with client notification when possible.</p>
+                    <p><strong>Duration:</strong> Confidentiality commitment continues even after service or client relationship ends, with no time limit for expiration.</p>
+                </div>
+            </div>
+
+            <!-- Legal Policies -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gold">Legal Policies</h2>
+                </div>
+                <div class="text-gold/80 space-y-3">
+                    <p><strong>Applicable Law:</strong> All services are subject to Saudi laws and regulations of the Capital Market Authority and Saudi Central Bank.</p>
+                    <p><strong>Dispute Resolution:</strong> Any dispute is resolved through arbitration in Saudi Arabia in Arabic according to Saudi regulations.</p>
+                    <p><strong>Jurisdiction:</strong> Saudi courts have exclusive jurisdiction over any legal claims related to the service.</p>
+                    <p><strong>Updates:</strong> Regular policy updates according to legal changes with client notification of any significant modifications.</p>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+
+        <!-- Navigation -->
+        <div class="text-center mt-12 pt-8 border-t border-gold/20">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/50">
+                    <i class="fas fa-home mr-2 <%= language === 'ar' ? 'ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'الصفحة الرئيسية' : 'Home' %>
+                </a>
+                <a href="/privacy" class="flex items-center text-gold hover:text-yellow-400 transition-colors px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/50">
+                    <i class="fas fa-shield-alt mr-2 <%= language === 'ar' ? 'ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+                </a>
+                <a href="/terms-of-use" class="flex items-center text-gold hover:text-yellow-400 transition-colors px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/50">
+                    <i class="fas fa-file-contract mr-2 <%= language === 'ar' ? 'ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Use' %>
+                </a>
+                <a href="/contact" class="flex items-center text-gold hover:text-yellow-400 transition-colors px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/50">
+                    <i class="fas fa-envelope mr-2 <%= language === 'ar' ? 'ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'اتصل بنا' : 'Contact Us' %>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

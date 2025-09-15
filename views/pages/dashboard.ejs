@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= t('dashboard.title') %> - FinClick.AI</title>
+    <title><%= language === 'ar' ? 'لوحة التحكم' : 'User Dashboard' %> - FinClick.AI</title>
 
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/dashboard.css">
@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
 </head>
-<body class="dashboard-body">
+<body class="dashboard-body bg-black text-gold">
     <!-- Navigation -->
     <nav class="dashboard-nav">
         <div class="nav-container">

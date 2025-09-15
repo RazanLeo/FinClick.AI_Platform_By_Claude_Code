@@ -6,7 +6,11 @@
       "Bash(npm install:*)",
       "Bash(grep:*)",
       "Bash(tree:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npm test)",
+      "Bash(npm start)",
+      "Bash(curl:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,41 +1,87 @@
-<%- include('../layouts/main') %>
+<!-- Neural Background Pattern -->
+<div class="fixed inset-0 bg-neural-pattern neural-bg pointer-events-none"></div>
 
 <!-- Header -->
-<header class="fixed top-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-sm border-b border-gold/20">
-    <div class="container mx-auto px-4">
-        <!-- Top Stock Ticker -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gold/20">
+    <div class="container mx-auto">
+        <!-- Global Stock Market Indices -->
         <div class="border-b border-gold/10 py-2 overflow-hidden">
-            <div id="stock-ticker" class="whitespace-nowrap animate-scroll">
-                <span class="inline-block mx-8 text-sm">
-                    <span class="text-gold font-semibold">TASI:</span>
-                    <span id="tasi-price" class="text-green-400">12,458.50</span>
+            <div class="whitespace-nowrap animate-scroll text-sm">
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">تاسي TASI:</span>
+                    <span class="text-green-400 font-medium">12,458.50</span>
                     <span class="text-green-400 text-xs">+0.85%</span>
                 </span>
-                <span class="inline-block mx-8 text-sm">
+                <span class="inline-block mx-6">
                     <span class="text-gold font-semibold">S&P 500:</span>
-                    <span id="sp500-price" class="text-green-400">4,567.23</span>
+                    <span class="text-green-400 font-medium">4,567.23</span>
                     <span class="text-green-400 text-xs">+1.23%</span>
                 </span>
-                <span class="inline-block mx-8 text-sm">
+                <span class="inline-block mx-6">
                     <span class="text-gold font-semibold">NASDAQ:</span>
-                    <span id="nasdaq-price" class="text-green-400">14,234.56</span>
+                    <span class="text-green-400 font-medium">14,234.56</span>
                     <span class="text-green-400 text-xs">+2.1%</span>
                 </span>
-                <span class="inline-block mx-8 text-sm">
-                    <span class="text-gold font-semibold">DXY:</span>
-                    <span id="dxy-price" class="text-red-400">103.45</span>
-                    <span class="text-red-400 text-xs">-0.34%</span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">DJI:</span>
+                    <span class="text-green-400 font-medium">33,876.21</span>
+                    <span class="text-green-400 text-xs">+0.92%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">FTSE 100:</span>
+                    <span class="text-red-400 font-medium">7,234.12</span>
+                    <span class="text-red-400 text-xs">-0.45%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">DAX:</span>
+                    <span class="text-green-400 font-medium">15,678.90</span>
+                    <span class="text-green-400 text-xs">+0.76%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">CAC 40:</span>
+                    <span class="text-green-400 font-medium">7,156.34</span>
+                    <span class="text-green-400 text-xs">+0.58%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">Nikkei 225:</span>
+                    <span class="text-green-400 font-medium">32,145.67</span>
+                    <span class="text-green-400 text-xs">+1.12%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">Hang Seng:</span>
+                    <span class="text-red-400 font-medium">18,756.43</span>
+                    <span class="text-red-400 text-xs">-1.25%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">Shanghai:</span>
+                    <span class="text-green-400 font-medium">3,234.87</span>
+                    <span class="text-green-400 text-xs">+0.67%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">BSE Sensex:</span>
+                    <span class="text-green-400 font-medium">65,432.18</span>
+                    <span class="text-green-400 text-xs">+1.45%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">TSX:</span>
+                    <span class="text-green-400 font-medium">20,567.89</span>
+                    <span class="text-green-400 text-xs">+0.34%</span>
+                </span>
+                <span class="inline-block mx-6">
+                    <span class="text-gold font-semibold">ASX 200:</span>
+                    <span class="text-red-400 font-medium">7,089.45</span>
+                    <span class="text-red-400 text-xs">-0.23%</span>
                 </span>
             </div>
         </div>
 
         <!-- Main Navigation -->
-        <nav class="py-4">
+        <nav class="px-4 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center glow-effect">
-                        <span class="text-black font-bold text-xl">F</span>
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <div class="w-12 h-12 glow-effect rounded-full flex items-center justify-center">
+                        <img src="/images/logo.png" alt="FinClick.AI Logo" class="w-10 h-10 object-contain pulse-gold">
                     </div>
                     <div>
                         <h1 class="text-xl font-bold text-gold">FinClick.AI</h1>
@@ -49,602 +95,474 @@
                 <div class="hidden md:flex flex-1 max-w-md mx-8">
                     <div class="relative w-full">
                         <input type="text"
-                               placeholder="<%= language === 'ar' ? 'ابحث...' : 'Search...' %>"
-                               class="w-full px-4 py-2 bg-gray-900/50 border border-gold/30 rounded-full text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold">
-                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gold/70 hover:text-gold">
+                               placeholder="<%= language === 'ar' ? 'ابحث في النظام...' : 'Search the system...' %>"
+                               class="w-full px-4 py-2.5 bg-black border border-gold/30 rounded-full text-gold placeholder-gold/50 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 smooth-transition">
+                        <button class="absolute <%= language === 'ar' ? 'left-4' : 'right-4' %> top-1/2 transform -translate-y-1/2 text-gold/70 hover:text-gold smooth-transition glow-effect p-2 rounded-full">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Language Toggle & Auth Buttons -->
-                <div class="flex items-center space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                <!-- Right Section -->
+                <div class="flex items-center space-x-3 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
                     <!-- Language Toggle -->
-                    <div class="relative">
-                        <button class="flex items-center space-x-2 <%= language === 'ar' ? 'space-x-reverse' : '' %> px-3 py-2 rounded-lg bg-gray-900/50 border border-gold/30 hover:border-gold transition-colors">
-                            <img src="/images/flags/<%= language === 'ar' ? 'sa' : 'us' %>.png" alt="" class="w-4 h-4">
-                            <span class="text-sm font-medium"><%= language === 'ar' ? 'AR' : 'EN' %></span>
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                    </div>
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-2 <%= language === 'ar' ? 'space-x-reverse' : '' %> px-3 py-2 rounded-lg bg-black border border-gold/30 hover:border-gold hover-glow smooth-transition">
+                        <img src="/images/flags/<%= language === 'ar' ? 'sa' : 'us' %>.png" alt="<%= language === 'ar' ? 'Saudi Arabia' : 'United States' %>" class="w-4 h-4 rounded-sm">
+                        <span class="text-sm font-medium text-gold"><%= language === 'ar' ? 'العربية' : 'English' %></span>
+                        <i class="fas fa-globe text-gold/70"></i>
+                    </button>
 
                     <!-- Notifications -->
-                    <button class="relative p-2 text-gold/70 hover:text-gold transition-colors">
-                        <i class="fas fa-bell"></i>
-                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                    <button class="relative p-3 text-gold/70 hover:text-gold hover-glow rounded-full smooth-transition">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center pulse-gold">3</span>
                     </button>
 
                     <!-- Auth Buttons -->
                     <% if (user) { %>
                     <div class="flex items-center space-x-3 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
-                        <span class="text-sm"><%= language === 'ar' ? 'مرحباً' : 'Welcome' %>, <strong><%= user.firstName %></strong></span>
-                        <a href="/dashboard" class="px-4 py-2 bg-gold text-black rounded-lg font-medium hover:bg-yellow-400 transition-colors">
+                        <div class="text-sm">
+                            <span class="text-gold/70"><%= language === 'ar' ? 'مرحباً،' : 'Welcome,' %></span>
+                            <span class="font-medium text-gold"><%= user.firstName %></span>
+                        </div>
+                        <a href="/dashboard" class="px-4 py-2 bg-gold text-black rounded-lg font-medium hover:bg-yellow-400 smooth-transition glow-effect">
                             <%= language === 'ar' ? 'لوحة التحكم' : 'Dashboard' %>
                         </a>
-                        <a href="/logout" class="px-4 py-2 border border-gold/50 text-gold rounded-lg font-medium hover:border-gold hover:bg-gold/10 transition-colors">
+                        <a href="/api/auth/logout" class="px-4 py-2 border border-gold/50 text-gold rounded-lg font-medium hover:border-gold hover:bg-gold/10 smooth-transition">
                             <%= language === 'ar' ? 'تسجيل خروج' : 'Logout' %>
                         </a>
                     </div>
                     <% } else { %>
                     <div class="flex items-center space-x-3 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
-                        <a href="/login" class="px-4 py-2 border border-gold/50 text-gold rounded-lg font-medium hover:border-gold hover:bg-gold/10 transition-colors">
+                        <a href="/login" class="px-4 py-2 border border-gold/50 text-gold rounded-lg font-medium hover:border-gold hover:bg-gold/10 smooth-transition">
                             <%= language === 'ar' ? 'تسجيل الدخول' : 'Login' %>
                         </a>
-                        <a href="/register" class="px-4 py-2 bg-gold text-black rounded-lg font-medium hover:bg-yellow-400 transition-colors pulse-gold">
-                            <%= language === 'ar' ? 'إنشاء حساب' : 'Sign Up' %>
+                        <a href="/register" class="px-4 py-2 bg-gold text-black rounded-lg font-medium hover:bg-yellow-400 smooth-transition pulse-gold">
+                            <%= language === 'ar' ? 'إنشاء حساب' : 'Create Account' %>
                         </a>
                     </div>
                     <% } %>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
-                <button class="md:hidden text-gold" id="mobile-menu-toggle">
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gold hover:text-yellow-400 smooth-transition">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 p-4 bg-gray-900/95 rounded-lg border border-gold/20">
-                <div class="space-y-4">
-                    <a href="#features" class="block py-2 text-gold hover:text-yellow-400 transition-colors">
-                        <%= language === 'ar' ? 'المميزات' : 'Features' %>
-                    </a>
-                    <a href="#analysis-types" class="block py-2 text-gold hover:text-yellow-400 transition-colors">
-                        <%= language === 'ar' ? 'أنواع التحليل' : 'Analysis Types' %>
-                    </a>
-                    <a href="#pricing" class="block py-2 text-gold hover:text-yellow-400 transition-colors">
-                        <%= language === 'ar' ? 'الأسعار' : 'Pricing' %>
-                    </a>
-                    <a href="#contact" class="block py-2 text-gold hover:text-yellow-400 transition-colors">
-                        <%= language === 'ar' ? 'التواصل' : 'Contact' %>
-                    </a>
-                </div>
+            <!-- Navigation Menu -->
+            <div class="hidden md:flex items-center justify-center mt-4 space-x-8 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                <a href="#home" class="text-gold/80 hover:text-gold smooth-transition relative group">
+                    <i class="fas fa-home <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'الرئيسية' : 'Home' %>
+                    <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full smooth-transition"></div>
+                </a>
+                <a href="#features" class="text-gold/80 hover:text-gold smooth-transition relative group">
+                    <i class="fas fa-star <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'مميزات النظام' : 'Features' %>
+                    <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full smooth-transition"></div>
+                </a>
+                <a href="#analysis-types" class="text-gold/80 hover:text-gold smooth-transition relative group">
+                    <i class="fas fa-chart-line <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'أنواع التحليل' : 'Analysis Types' %>
+                    <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full smooth-transition"></div>
+                </a>
+                <a href="#free-tools" class="text-gold/80 hover:text-gold smooth-transition relative group">
+                    <i class="fas fa-tools <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'أدوات مجانية' : 'Free Tools' %>
+                    <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full smooth-transition"></div>
+                </a>
+                <a href="#pricing" class="text-gold/80 hover:text-gold smooth-transition relative group">
+                    <i class="fas fa-tags <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'الاشتراكات' : 'Pricing' %>
+                    <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full smooth-transition"></div>
+                </a>
+                <a href="#contact" class="text-gold/80 hover:text-gold smooth-transition relative group">
+                    <i class="fas fa-envelope <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'التواصل' : 'Contact' %>
+                    <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full smooth-transition"></div>
+                </a>
             </div>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gold/20 py-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="px-4 py-2 text-gold/80 hover:text-gold hover:bg-gold/10 rounded-lg smooth-transition">
+                    <i class="fas fa-home <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'الرئيسية' : 'Home' %>
+                </a>
+                <a href="#features" class="px-4 py-2 text-gold/80 hover:text-gold hover:bg-gold/10 rounded-lg smooth-transition">
+                    <i class="fas fa-star <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'مميزات النظام' : 'Features' %>
+                </a>
+                <a href="#analysis-types" class="px-4 py-2 text-gold/80 hover:text-gold hover:bg-gold/10 rounded-lg smooth-transition">
+                    <i class="fas fa-chart-line <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'أنواع التحليل' : 'Analysis Types' %>
+                </a>
+                <a href="#free-tools" class="px-4 py-2 text-gold/80 hover:text-gold hover:bg-gold/10 rounded-lg smooth-transition">
+                    <i class="fas fa-tools <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'أدوات مجانية' : 'Free Tools' %>
+                </a>
+                <a href="#pricing" class="px-4 py-2 text-gold/80 hover:text-gold hover:bg-gold/10 rounded-lg smooth-transition">
+                    <i class="fas fa-tags <%= language === 'ar' ? 'ml-2' : 'mr-2' %>"></i>
+                    <%= language === 'ar' ? 'الاشتراكات' : 'Pricing' %>
+                </a>
+            </div>
+        </div>
     </div>
 </header>
 
 <!-- Hero Section -->
-<section class="pt-32 pb-20 relative overflow-hidden">
-    <div class="container mx-auto px-4 text-center">
-        <!-- Hero Content -->
-        <div class="max-w-6xl mx-auto">
-            <!-- Main Logo Animation -->
-            <div class="mb-8 animate__animated animate__fadeInDown">
-                <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gold via-yellow-400 to-gold rounded-full flex items-center justify-center glow-effect pulse-gold">
-                    <span class="text-black font-bold text-6xl">F</span>
-                </div>
+<section id="home" class="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden">
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <!-- Large Interactive Logo -->
+        <div class="mb-12">
+            <div class="w-48 h-48 mx-auto mb-8 glow-effect rounded-full flex items-center justify-center bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 hover:scale-110 smooth-transition cursor-pointer group">
+                <img src="/images/logo.png" alt="FinClick.AI" class="w-40 h-40 object-contain pulse-gold group-hover:animate-spin" style="animation-duration: 2s;">
             </div>
-
-            <!-- Hero Title -->
-            <h1 class="hero-title text-5xl md:text-7xl font-bold mb-6 text-gradient animate__animated animate__fadeInUp animate__delay-1s">
-                FinClick.AI
-            </h1>
-
-            <!-- Hero Subtitle -->
-            <h2 class="hero-subtitle text-xl md:text-2xl font-semibold mb-8 text-gold/90 animate__animated animate__fadeInUp animate__delay-2s">
-                <%= language === 'ar' ?
-                'منصة التحليل المالي الذكية والثورية' :
-                'Revolutionary Intelligent Financial Analysis Platform' %>
-            </h2>
-
-            <!-- Hero Description -->
-            <p class="text-lg md:text-xl mb-12 max-w-4xl mx-auto leading-relaxed text-gold/80 animate__animated animate__fadeInUp animate__delay-3s">
-                <%= language === 'ar' ?
-                'ثورة ونقلة نوعية في عالم التحليل المالي. يقدم جميع أنواع التحليل المالي المعروفة في العالم (١٨٠+ تحليل مالي) بضغطة زر واحدة في ثوان معدودة بأعلى دقة وجودة باستخدام الذكاء الاصطناعي المتقدم' :
-                'A revolutionary breakthrough in financial analysis. Provides all known types of financial analysis in the world (180+ financial analyses) with one click in seconds with the highest accuracy and quality using advanced artificial intelligence' %>
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center animate__animated animate__fadeInUp animate__delay-4s">
-                <% if (user) { %>
-                <a href="/dashboard" class="px-12 py-4 bg-gradient-to-r from-gold to-yellow-400 text-black rounded-full font-bold text-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 hover-glow shadow-lg">
-                    <%= language === 'ar' ? 'ابدأ التحليل الآن' : 'Start Analysis Now' %>
-                </a>
-                <% } else { %>
-                <a href="/register" class="px-12 py-4 bg-gradient-to-r from-gold to-yellow-400 text-black rounded-full font-bold text-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 hover-glow shadow-lg">
-                    <%= language === 'ar' ? 'ابدأ مجاناً' : 'Start Free Trial' %>
-                </a>
-                <a href="#demo" class="px-8 py-4 border-2 border-gold text-gold rounded-full font-medium text-lg hover:bg-gold hover:text-black transition-all duration-300 transform hover:scale-105">
-                    <%= language === 'ar' ? 'مشاهدة العرض التوضيحي' : 'Watch Demo' %>
-                </a>
-                <% } %>
-            </div>
-
-            <!-- Key Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate__animated animate__fadeInUp animate__delay-5s">
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2">180+</div>
-                    <div class="text-sm text-gold/70">
-                        <%= language === 'ar' ? 'نوع تحليل مالي' : 'Financial Analysis Types' %>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2">99%</div>
-                    <div class="text-sm text-gold/70">
-                        <%= language === 'ar' ? 'دقة التحليل' : 'Analysis Accuracy' %>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2">&lt;60</div>
-                    <div class="text-sm text-gold/70">
-                        <%= language === 'ar' ? 'ثانية' : 'Seconds' %>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2">24/7</div>
-                    <div class="text-sm text-gold/70">
-                        <%= language === 'ar' ? 'متاح دائماً' : 'Always Available' %>
-                    </div>
+            <div class="space-y-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-gold mb-6 leading-tight hover:scale-105 smooth-transition cursor-pointer group text-gradient hover:animate-pulse">
+                    FinClick.AI
+                </h1>
+                <p class="text-xl md:text-2xl text-gold/80 mb-8 max-w-4xl mx-auto">
+                    <%= language === 'ar' ? 'منصة التحليل المالي الذكية والثورية - ثورة ونقلة نوعية في عالم التحليل المالي' : 'Revolutionary Intelligent Financial Analysis Platform - A Revolution in Financial Analysis' %>
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-8">
+                    <a href="/register" class="px-8 py-4 bg-gold text-black text-lg font-bold rounded-xl hover:bg-yellow-400 smooth-transition glow-effect pulse-gold">
+                        <%= language === 'ar' ? 'ابدأ التحليل الآن' : 'Start Analysis Now' %>
+                    </a>
+                    <a href="#features" class="px-8 py-4 border border-gold text-gold text-lg font-medium rounded-xl hover:bg-gold/10 smooth-transition">
+                        <%= language === 'ar' ? 'اكتشف المميزات' : 'Discover Features' %>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-10 w-2 h-2 bg-gold/30 rounded-full animate-ping"></div>
+        <div class="absolute top-1/3 right-20 w-1 h-1 bg-gold/20 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-3 h-3 border border-gold/20 rounded-full animate-spin" style="animation-duration: 8s;"></div>
+        <div class="absolute bottom-1/3 right-1/3 w-2 h-2 bg-gold/10 rounded-full animate-bounce" style="animation-delay: 2s;"></div>
+    </div>
 </section>
 
-<!-- Features Section -->
-<section id="features" class="py-20 bg-gray-900/30">
+<!-- Main Content: System Features -->
+<section id="features" class="py-20 relative">
     <div class="container mx-auto px-4">
         <!-- Section Header -->
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6">
                 <%= language === 'ar' ? 'لماذا FinClick.AI؟' : 'Why FinClick.AI?' %>
             </h2>
+            <p class="text-xl text-gold/70 max-w-4xl mx-auto">
+                <%= language === 'ar' ? 'ثورة ونقلة نوعية في عالم التحليل المالي - نظام يقلب الدنيا رأساً على عقب ويقلب كل الموازين' : 'A revolution and qualitative leap in the world of financial analysis - a system that turns the world upside down' %>
+            </p>
         </div>
 
         <!-- Features Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Feature 1 -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mb-6 glow-effect">
-                    <i class="fas fa-rocket text-black text-2xl"></i>
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-brain text-black text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'ثورة ونقلة نوعية في عالم التحليل المالي' : 'Revolutionary Breakthrough in Financial Analysis' %>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'يقوم على الذكاء الاصطناعي' : 'AI-Powered Analysis' %>
                 </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'نظام يقلب الدنيا رأسا على عقب ويقلب كل الموازين. ثورة يعجز أمامها جميع متخصصين وخبراء التحليل المالي العالميين. تقديم موقع إلكتروني يعمل كمنصة ونظام كامل شامل يغنيك عن أي مدير أو محلل أو خبير مالي.' :
-                    'A system that turns the world upside down and changes all the rules. A revolution that amazes all global financial analysis specialists and experts. A website that works as a complete comprehensive platform and system that replaces any financial manager, analyst, or expert.' %>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'نظام متطور يستخدم أحدث تقنيات الذكاء الاصطناعي لتقديم تحليل مالي دقيق وشامل' : 'Advanced system using cutting-edge AI technologies for accurate and comprehensive financial analysis' %>
                 </p>
             </div>
 
             <!-- Feature 2 -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mb-6 glow-effect">
-                    <i class="fas fa-users text-black text-2xl"></i>
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-chart-line text-black text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'يخدم كل مستفيدي التحليل المالي' : 'Serves All Financial Analysis Beneficiaries' %>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? '180+ تحليل مالي' : '180+ Financial Analyses' %>
                 </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'يخدم كل مستفيدي التحليل المالي وكل أغراض التحليل المالي (أفراد، مؤسسات، شركات، منظمات) في جميع القطاعات والأنشطة.' :
-                    'Serves all financial analysis beneficiaries and all financial analysis purposes (individuals, institutions, companies, organizations) across all sectors and activities.' %>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'يقدم جميع أنواع التحليل المالي المعروفة في العالم من الكلاسيكية إلى المعقدة جداً' : 'Provides all known types of financial analysis in the world, from classical to highly complex' %>
                 </p>
             </div>
 
             <!-- Feature 3 -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mb-6 glow-effect">
-                    <i class="fas fa-brain text-black text-2xl"></i>
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-clock text-black text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'يقوم على الذكاء الاصطناعي' : 'Powered by Artificial Intelligence' %>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'السرعة الفائقة' : 'Lightning Speed' %>
                 </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'منصة قائمة على الذكاء الاصطناعي وتكامل وكلاء الذكاء الاصطناعي ونماذج وتقنيات الذكاء الاصطناعي المتقدمة.' :
-                    'Platform based on artificial intelligence and integration of AI agents and advanced AI models and technologies.' %>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'احصل على التحليل المالي الشامل في ثوانٍ معدودة بضغطة زر واحدة' : 'Get comprehensive financial analysis in seconds with just one click' %>
                 </p>
             </div>
 
             <!-- Feature 4 -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mb-6 glow-effect">
-                    <i class="fas fa-chart-line text-black text-2xl"></i>
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-shield-alt text-black text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? '١٨٠+ تحليل مالي' : '180+ Financial Analysis Types' %>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'دقة عالية (99%)' : 'High Accuracy (99%)' %>
                 </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'يقدم جميع أنواع التحليل المالي المعروفة في العالم. ١٨٠+ تحليل مالي من الكلاسيكية إلى المتقدمة والمعقدة.' :
-                    'Provides all known types of financial analysis in the world. 180+ financial analyses from classical to advanced and complex.' %>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'دقة وكفاءة متناهية تصل إلى 99% في جميع أنواع التحليلات المالية' : 'Unparalleled accuracy and efficiency reaching 99% in all types of financial analyses' %>
                 </p>
             </div>
 
             <!-- Feature 5 -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mb-6 glow-effect">
-                    <i class="fas fa-cloud text-black text-2xl"></i>
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-users text-black text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'بيئة سحابية' : 'Cloud Environment' %>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'يخدم جميع المستفيدين' : 'Serves All Users' %>
                 </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'بيئة سحابية تستطيع فتحها من أي مكان وأي وقت وعلى أي متصفح وعلى أي جهاز.' :
-                    'Cloud environment that you can access from anywhere, anytime, on any browser, and on any device.' %>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'يخدم كل مستفيدي التحليل المالي: أفراد، مؤسسات، شركات، منظمات' : 'Serves all financial analysis beneficiaries: individuals, institutions, companies, organizations' %>
                 </p>
             </div>
 
             <!-- Feature 6 -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mb-6 glow-effect">
-                    <i class="fas fa-tachometer-alt text-black text-2xl"></i>
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-cloud text-black text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'السرعة والدقة' : 'Speed and Accuracy' %>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'بيئة سحابية' : 'Cloud-Based Platform' %>
                 </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'أحصل على التحليل في ثواني معدودة بضغطة زر. السهولة - ٣ خطوات. الدقة والكفاءة المتناهية (دقة بنسبة ٩٩٪).' :
-                    'Get analysis in seconds with one click. Simplicity - 3 steps. Ultimate accuracy and efficiency (99% accuracy).' %>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'استخدم النظام من أي مكان وأي وقت على أي متصفح وأي جهاز' : 'Use the system from anywhere, anytime, on any browser and any device' %>
+                </p>
+            </div>
+
+            <!-- Feature 7 -->
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-mouse-pointer text-black text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'السهولة الفائقة' : 'Ultimate Simplicity' %>
+                </h3>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? '3 خطوات فقط: أرفق قوائمك - حدد خيارات التحليل - اضغط زر التحليل' : 'Only 3 steps: Upload statements - Select analysis options - Click analyze' %>
+                </p>
+            </div>
+
+            <!-- Feature 8 -->
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-file-alt text-black text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'تقارير تفصيلية' : 'Detailed Reports' %>
+                </h3>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'تقارير شاملة وعروض تقديمية احترافية جاهزة للاستخدام' : 'Comprehensive reports and professional presentations ready for use' %>
+                </p>
+            </div>
+
+            <!-- Feature 9 -->
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition group">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 smooth-transition">
+                    <i class="fas fa-globe text-black text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'مقارنات عالمية' : 'Global Comparisons' %>
+                </h3>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'مقارنات على جميع مستويات العالم وجودة عالمية في التحليل' : 'Comparisons at all global levels with world-class analysis quality' %>
+                </p>
+            </div>
+        </div>
+
+        <!-- Additional Features Text -->
+        <div class="mt-16 text-center">
+            <div class="max-w-4xl mx-auto space-y-6">
+                <p class="text-lg text-gold/80">
+                    <%= language === 'ar' ? '"ثورة يعجز أمامها جميع متخصصين وخبراء التحليل المالي العالميين"' : '"A revolution that amazes all global financial analysis specialists and experts"' %>
+                </p>
+                <p class="text-lg text-gold/80">
+                    <%= language === 'ar' ? 'تقديم موقع إلكتروني يعمل كمنصة ونظام كامل شامل يغنيك عن أي مدير أو محلل أو خبير مالي' : 'Providing a website that works as a complete comprehensive platform and system that eliminates the need for any financial manager, analyst, or expert' %>
+                </p>
+                <p class="text-lg text-gold/80">
+                    <%= language === 'ar' ? 'محلل مالي خارق يساعد كل شخص يتخذ القرارات المالية اللحظية' : 'A super financial analyst that helps everyone make instant financial decisions' %>
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- How it Works Section -->
-<section class="py-20">
-    <div class="container mx-auto px-4">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                <%= language === 'ar' ? 'خطوات النظام' : 'How It Works' %>
-            </h2>
-            <p class="text-xl text-gold/80 max-w-3xl mx-auto">
-                <%= language === 'ar' ?
-                '٣ خطوات بسيطة للحصول على تحليل مالي شامل ومفصل' :
-                '3 simple steps to get comprehensive and detailed financial analysis' %>
-            </p>
-        </div>
+<!-- Beneficiaries and Purposes Section -->
+<%- include('../partials/beneficiaries-section') %>
 
-        <!-- Steps -->
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Step 1 -->
-            <div class="text-center group">
-                <div class="relative mb-8">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center glow-effect group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-upload text-black text-3xl"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center font-bold">1</div>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'أرفق قوائمك' : 'Upload Your Statements' %>
-                </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'أرفق القوائم المالية أو موازين المراجعة أو أدخل البيانات يدوياً. يدعم جميع الصيغ (PDF, Excel, Word, الصور)' :
-                    'Upload financial statements or trial balances, or enter data manually. Supports all formats (PDF, Excel, Word, Images)' %>
-                </p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="text-center group">
-                <div class="relative mb-8">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center glow-effect group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-cog text-black text-3xl"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center font-bold">2</div>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'حدد خيارات التحليل' : 'Configure Analysis Options' %>
-                </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'حدد القطاع، النشاط، نوع المقارنة، عدد السنوات، واللغة من القوائم المنسدلة' :
-                    'Select sector, activity, comparison type, number of years, and language from dropdown menus' %>
-                </p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="text-center group">
-                <div class="relative mb-8">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center glow-effect group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-play text-black text-3xl"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center font-bold">3</div>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'اضغط زر التحليل' : 'Start Analysis' %>
-                </h3>
-                <p class="text-gold/80 leading-relaxed">
-                    <%= language === 'ar' ?
-                    'اضغط زر واحد واحصل على تحليل شامل مع التقارير والعروض التقديمية في ثوان' :
-                    'Click one button and get comprehensive analysis with reports and presentations in seconds' %>
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Free Tools Section -->
-<section class="py-20 bg-gray-900/30">
-    <div class="container mx-auto px-4">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                <%= language === 'ar' ? 'الأدوات المجانية' : 'Free Tools' %>
-            </h2>
-            <p class="text-xl text-gold/80 max-w-3xl mx-auto">
-                <%= language === 'ar' ?
-                'استفد من مجموعة من الأدوات المالية المجانية المتاحة لجميع الزوار' :
-                'Take advantage of a collection of free financial tools available to all visitors' %>
-            </p>
-        </div>
-
-        <!-- Free Tools Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <!-- Economic Calendar -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-calendar-alt text-black"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-2 text-gold">
-                    <%= language === 'ar' ? 'التقويم الاقتصادي' : 'Economic Calendar' %>
-                </h3>
-                <p class="text-sm text-gold/70 mb-4">
-                    <%= language === 'ar' ?
-                    'تابع الأحداث الاقتصادية المهمة' :
-                    'Track important economic events' %>
-                </p>
-                <button class="w-full py-2 bg-gold/20 text-gold rounded-lg hover:bg-gold/30 transition-colors" onclick="openEconomicCalendar()">
-                    <%= language === 'ar' ? 'عرض التقويم' : 'View Calendar' %>
-                </button>
-            </div>
-
-            <!-- Stock Fair Price Calculator -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-calculator text-black"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-2 text-gold">
-                    <%= language === 'ar' ? 'حاسبة السعر العادل' : 'Fair Price Calculator' %>
-                </h3>
-                <p class="text-sm text-gold/70 mb-4">
-                    <%= language === 'ar' ?
-                    'احسب السعر العادل للأسهم' :
-                    'Calculate fair stock price' %>
-                </p>
-                <button class="w-full py-2 bg-gold/20 text-gold rounded-lg hover:bg-gold/30 transition-colors" onclick="openFairPriceCalculator()">
-                    <%= language === 'ar' ? 'افتح الحاسبة' : 'Open Calculator' %>
-                </button>
-            </div>
-
-            <!-- Market Sentiment -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-chart-line text-black"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-2 text-gold">
-                    <%= language === 'ar' ? 'مؤشر مزاج السوق' : 'Market Sentiment' %>
-                </h3>
-                <p class="text-sm text-gold/70 mb-4">
-                    <%= language === 'ar' ?
-                    'تتبع مزاج السوق الحالي' :
-                    'Track current market sentiment' %>
-                </p>
-                <button class="w-full py-2 bg-gold/20 text-gold rounded-lg hover:bg-gold/30 transition-colors" onclick="openMarketSentiment()">
-                    <%= language === 'ar' ? 'عرض المؤشر' : 'View Indicator' %>
-                </button>
-            </div>
-
-            <!-- AI Financial Bot -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-robot text-black"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-2 text-gold">
-                    <%= language === 'ar' ? 'بوت الذكاء الاصطناعي المالي' : 'AI Financial Bot' %>
-                </h3>
-                <p class="text-sm text-gold/70 mb-4">
-                    <%= language === 'ar' ?
-                    'اسأل أي سؤال مالي' :
-                    'Ask any financial question' %>
-                </p>
-                <button class="w-full py-2 bg-gold/20 text-gold rounded-lg hover:bg-gold/30 transition-colors" onclick="openAIBot()">
-                    <%= language === 'ar' ? 'ابدأ المحادثة' : 'Start Chat' %>
-                </button>
-            </div>
-        </div>
-
-        <!-- Embedded Free Tools -->
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Economic Calendar Widget -->
-            <div id="economic-calendar-widget" class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hidden">
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'التقويم الاقتصادي' : 'Economic Calendar' %>
-                </h3>
-                <div class="h-96 bg-gray-800/50 rounded-lg p-4">
-                    <!-- Economic calendar content will be loaded here -->
-                    <p class="text-gold/70 text-center mt-16">
-                        <%= language === 'ar' ? 'جاري تحميل التقويم الاقتصادي...' : 'Loading economic calendar...' %>
-                    </p>
-                </div>
-            </div>
-
-            <!-- News Feed -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20">
-                <h3 class="text-xl font-bold mb-4 text-gold">
-                    <%= language === 'ar' ? 'الأخبار المالية' : 'Financial News' %>
-                </h3>
-                <div class="space-y-4 h-96 overflow-y-auto">
-                    <div class="p-3 bg-gray-800/50 rounded-lg border-l-4 border-gold/50">
-                        <p class="text-sm text-gold/90 mb-1">
-                            <%= language === 'ar' ?
-                            'البنك المركزي السعودي يرفع أسعار الفائدة بنسبة 0.25%' :
-                            'Saudi Central Bank raises interest rates by 0.25%' %>
-                        </p>
-                        <p class="text-xs text-gold/60">منذ ساعتين</p>
-                    </div>
-                    <div class="p-3 bg-gray-800/50 rounded-lg border-l-4 border-green-500/50">
-                        <p class="text-sm text-gold/90 mb-1">
-                            <%= language === 'ar' ?
-                            'مؤشر تاسي يرتفع 2.3% في جلسة اليوم' :
-                            'TASI index rises 2.3% in today\'s session' %>
-                        </p>
-                        <p class="text-xs text-gold/60">منذ 3 ساعات</p>
-                    </div>
-                    <div class="p-3 bg-gray-800/50 rounded-lg border-l-4 border-blue-500/50">
-                        <p class="text-sm text-gold/90 mb-1">
-                            <%= language === 'ar' ?
-                            'أرامكو تعلن عن نتائج الربع الثالث المالية' :
-                            'Aramco announces Q3 financial results' %>
-                        </p>
-                        <p class="text-xs text-gold/60">منذ 5 ساعات</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- System Steps Section -->
+<%- include('../partials/steps-section') %>
 
 <!-- Analysis Types Section -->
-<section id="analysis-types" class="py-20">
+<section id="analysis-types" class="py-20 bg-gradient-to-b from-gray-900/50 to-black relative">
     <div class="container mx-auto px-4">
         <!-- Section Header -->
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6">
                 <%= language === 'ar' ? 'أنواع التحليل' : 'Analysis Types' %>
             </h2>
-            <p class="text-xl text-gold/80 max-w-3xl mx-auto">
-                <%= language === 'ar' ?
-                '١٨٠+ نوع تحليل مالي شامل من الأساسي إلى المتقدم' :
-                '180+ comprehensive financial analysis types from basic to advanced' %>
+            <p class="text-xl text-gold/70 max-w-4xl mx-auto">
+                <%= language === 'ar' ? '180+ نوع من التحليل المالي مقسمة إلى تصنيفات أساسية وفرعية لتغطي جميع احتياجات التحليل المالي' : '180+ types of financial analysis divided into basic and sub-classifications to cover all financial analysis needs' %>
             </p>
         </div>
 
         <!-- Analysis Categories -->
         <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Basic Classical Analysis -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="mb-6">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-4 glow-effect">
+            <!-- Classical Analysis -->
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-4 glow-effect">
                         <i class="fas fa-chart-bar text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gold mb-2">
-                        <%= language === 'ar' ? 'التحليل الأساسي الكلاسيكي' : 'Basic Classical Analysis' %>
+                        <%= language === 'ar' ? 'التحليل الكلاسيكي' : 'Classical Analysis' %>
                     </h3>
-                    <div class="text-3xl font-bold text-blue-400 mb-4">106 <%= language === 'ar' ? 'تحليل' : 'Analyses' %></div>
+                    <div class="text-3xl font-bold text-green-400 mb-4">106 <%= language === 'ar' ? 'تحليل' : 'Analyses' %></div>
                 </div>
 
-                <div class="space-y-4">
-                    <!-- Structural Analysis -->
+                <div class="space-y-4 max-h-64 overflow-y-auto">
+                    <!-- Liquidity Ratios -->
                     <div class="border border-gold/10 rounded-lg p-4">
                         <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'التحليل الهيكلي للقوائم المالية (13 نوع)' : 'Financial Statement Structural Analysis (13 types)' %>
+                            <%= language === 'ar' ? 'نسب السيولة (15 تحليل)' : 'Liquidity Ratios (15 analyses)' %>
                         </h4>
                         <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'التحليل الرأسي والأفقي' : 'Vertical and Horizontal Analysis' %></p>
-                            <p>• <%= language === 'ar' ? 'تحليل الاتجاه والتغيرات النسبية' : 'Trend Analysis and Relative Changes' %></p>
-                            <p>• <%= language === 'ar' ? 'تحليل الأرقام القياسية' : 'Index Numbers Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة التداول' : 'Current Ratio' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة السيولة السريعة' : 'Quick Ratio' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة السيولة النقدية' : 'Cash Ratio' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة رأس المال العامل' : 'Working Capital Ratio' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة الأصول المتداولة' : 'Current Assets Ratio' %></p>
                         </div>
                     </div>
 
-                    <!-- Financial Ratios -->
+                    <!-- Profitability Ratios -->
                     <div class="border border-gold/10 rounded-lg p-4">
                         <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'تحليل النسب المالية (75 نسبة)' : 'Financial Ratios Analysis (75 ratios)' %>
+                            <%= language === 'ar' ? 'نسب الربحية (18 تحليل)' : 'Profitability Ratios (18 analyses)' %>
                         </h4>
                         <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'نسب السيولة (10 نسب)' : 'Liquidity Ratios (10 ratios)' %></p>
-                            <p>• <%= language === 'ar' ? 'نسب النشاط والكفاءة (15 نسبة)' : 'Activity & Efficiency Ratios (15 ratios)' %></p>
-                            <p>• <%= language === 'ar' ? 'نسب الربحية (20 نسبة)' : 'Profitability Ratios (20 ratios)' %></p>
-                            <p>• <%= language === 'ar' ? 'نسب المديونية (15 نسبة)' : 'Leverage Ratios (15 ratios)' %></p>
-                            <p>• <%= language === 'ar' ? 'نسب السوق (15 نسبة)' : 'Market Ratios (15 ratios)' %></p>
+                            <p>• <%= language === 'ar' ? 'هامش الربح الإجمالي' : 'Gross Profit Margin' %></p>
+                            <p>• <%= language === 'ar' ? 'هامش الربح التشغيلي' : 'Operating Profit Margin' %></p>
+                            <p>• <%= language === 'ar' ? 'هامش الربح الصافي' : 'Net Profit Margin' %></p>
+                            <p>• <%= language === 'ar' ? 'العائد على الأصول' : 'Return on Assets' %></p>
+                            <p>• <%= language === 'ar' ? 'العائد على الاستثمار' : 'Return on Investment' %></p>
+                        </div>
+                    </div>
+
+                    <!-- Activity Ratios -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'نسب النشاط (20 تحليل)' : 'Activity Ratios (20 analyses)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'معدل دوران المخزون' : 'Inventory Turnover' %></p>
+                            <p>• <%= language === 'ar' ? 'معدل دوران الذمم' : 'Receivables Turnover' %></p>
+                            <p>• <%= language === 'ar' ? 'معدل دوران الأصول' : 'Asset Turnover' %></p>
+                            <p>• <%= language === 'ar' ? 'فترة التحصيل' : 'Collection Period' %></p>
+                            <p>• <%= language === 'ar' ? 'فترة السداد' : 'Payment Period' %></p>
+                        </div>
+                    </div>
+
+                    <!-- Leverage Ratios -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'نسب الرافعة المالية (25 تحليل)' : 'Leverage Ratios (25 analyses)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'نسبة الدين إلى حقوق الملكية' : 'Debt to Equity' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة الدين إلى الأصول' : 'Debt to Assets' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة تغطية الفوائد' : 'Interest Coverage' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة الرافعة المالية' : 'Financial Leverage' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة التمويل الذاتي' : 'Equity Financing' %></p>
+                        </div>
+                    </div>
+
+                    <!-- Market Ratios -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'نسب السوق (28 تحليل)' : 'Market Ratios (28 analyses)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'نسبة السعر إلى الأرباح' : 'Price to Earnings' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة السعر إلى القيمة الدفترية' : 'Price to Book' %></p>
+                            <p>• <%= language === 'ar' ? 'نسبة السعر إلى المبيعات' : 'Price to Sales' %></p>
+                            <p>• <%= language === 'ar' ? 'عائد السهم' : 'Earnings Per Share' %></p>
+                            <p>• <%= language === 'ar' ? 'توزيعات الأرباح' : 'Dividend Yield' %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intermediate Analysis -->
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4 glow-effect">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gold mb-2">
+                        <%= language === 'ar' ? 'التحليل المتوسط' : 'Intermediate Analysis' %>
+                    </h3>
+                    <div class="text-3xl font-bold text-blue-400 mb-4">21 <%= language === 'ar' ? 'تحليل' : 'Analyses' %></div>
+                </div>
+
+                <div class="space-y-4 max-h-64 overflow-y-auto">
+                    <!-- Trend Analysis -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'التحليل الاتجاهي (8 تحليلات)' : 'Trend Analysis (8 analyses)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'تحليل الاتجاه الزمني' : 'Time Trend Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'التحليل الأفقي' : 'Horizontal Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'التحليل العمودي' : 'Vertical Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'تحليل النمو' : 'Growth Analysis' %></p>
+                        </div>
+                    </div>
+
+                    <!-- Comparative Analysis -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'التحليل المقارن (7 تحليلات)' : 'Comparative Analysis (7 analyses)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'مقارنة القطاع' : 'Industry Comparison' %></p>
+                            <p>• <%= language === 'ar' ? 'مقارنة المنافسين' : 'Competitor Comparison' %></p>
+                            <p>• <%= language === 'ar' ? 'مقارنة الأداء التاريخي' : 'Historical Performance' %></p>
+                            <p>• <%= language === 'ar' ? 'معايير الصناعة' : 'Industry Benchmarks' %></p>
                         </div>
                     </div>
 
                     <!-- Cash Flow Analysis -->
                     <div class="border border-gold/10 rounded-lg p-4">
                         <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'تحليلات التدفق والحركة (18 تحليل)' : 'Cash Flow & Movement Analysis (18 analyses)' %>
+                            <%= language === 'ar' ? 'تحليل التدفقات النقدية (6 تحليلات)' : 'Cash Flow Analysis (6 analyses)' %>
                         </h4>
                         <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'تحليل التدفقات النقدية الحرة' : 'Free Cash Flow Analysis' %></p>
-                            <p>• <%= language === 'ar' ? 'تحليل دوبونت الثلاثي والخماسي' : 'DuPont Analysis (3 & 5 factor)' %></p>
-                            <p>• <%= language === 'ar' ? 'القيمة المضافة الاقتصادية EVA' : 'Economic Value Added (EVA)' %></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Applied Intermediate Analysis -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="mb-6">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mb-4 glow-effect">
-                        <i class="fas fa-chart-line text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gold mb-2">
-                        <%= language === 'ar' ? 'التحليل التطبيقي المتوسط' : 'Applied Intermediate Analysis' %>
-                    </h3>
-                    <div class="text-3xl font-bold text-green-400 mb-4">21 <%= language === 'ar' ? 'تحليل' : 'Analyses' %></div>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- Advanced Comparison -->
-                    <div class="border border-gold/10 rounded-lg p-4">
-                        <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'تحليلات المقارنة المتقدمة (3 تحليلات)' : 'Advanced Comparison Analysis (3 analyses)' %>
-                        </h4>
-                        <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'التحليل المقارن الصناعي' : 'Industry Comparative Analysis' %></p>
-                            <p>• <%= language === 'ar' ? 'التحليل المقارن مع الأقران' : 'Peer Comparison Analysis' %></p>
-                        </div>
-                    </div>
-
-                    <!-- Valuation & Investment -->
-                    <div class="border border-gold/10 rounded-lg p-4">
-                        <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'تحليلات التقييم والاستثمار (13 تحليل)' : 'Valuation & Investment Analysis (13 analyses)' %>
-                        </h4>
-                        <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'تحليل صافي القيمة الحالية NPV' : 'Net Present Value (NPV) Analysis' %></p>
-                            <p>• <%= language === 'ar' ? 'التدفقات النقدية المخصومة DCF' : 'Discounted Cash Flow (DCF)' %></p>
-                            <p>• <%= language === 'ar' ? 'نموذج خصم الأرباح DDM' : 'Dividend Discount Model (DDM)' %></p>
-                        </div>
-                    </div>
-
-                    <!-- Performance & Efficiency -->
-                    <div class="border border-gold/10 rounded-lg p-4">
-                        <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'تحليلات الأداء والكفاءة (5 تحليلات)' : 'Performance & Efficiency Analysis (5 analyses)' %>
-                        </h4>
-                        <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'تحليل الكفاءة التشغيلية' : 'Operating Efficiency Analysis' %></p>
-                            <p>• <%= language === 'ar' ? 'تحليل الحساسية المتقدم' : 'Advanced Sensitivity Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'التدفق النقدي التشغيلي' : 'Operating Cash Flow' %></p>
+                            <p>• <%= language === 'ar' ? 'التدفق النقدي الحر' : 'Free Cash Flow' %></p>
+                            <p>• <%= language === 'ar' ? 'نسب التدفق النقدي' : 'Cash Flow Ratios' %></p>
+                            <p>• <%= language === 'ar' ? 'جودة الأرباح' : 'Earnings Quality' %></p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Advanced Complex Analysis -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="mb-6">
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mb-4 glow-effect">
+            <div class="bg-black/50 border border-gold/20 rounded-2xl p-8 hover-glow smooth-transition">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-2xl flex items-center justify-center mx-auto mb-4 glow-effect">
                         <i class="fas fa-brain text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gold mb-2">
@@ -653,7 +571,33 @@
                     <div class="text-3xl font-bold text-red-400 mb-4">53 <%= language === 'ar' ? 'تحليل' : 'Analyses' %></div>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-4 max-h-64 overflow-y-auto">
+                    <!-- Valuation Models -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'نماذج التقييم (15 نموذج)' : 'Valuation Models (15 models)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'نموذج التدفقات النقدية المخصومة' : 'DCF Model' %></p>
+                            <p>• <%= language === 'ar' ? 'نموذج جوردون للنمو' : 'Gordon Growth Model' %></p>
+                            <p>• <%= language === 'ar' ? 'تحليل الشركات المشابهة' : 'Comparable Company Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'التقييم بالمضاعفات' : 'Multiple Valuation' %></p>
+                        </div>
+                    </div>
+
+                    <!-- Risk Analysis -->
+                    <div class="border border-gold/10 rounded-lg p-4">
+                        <h4 class="font-semibold text-gold mb-2">
+                            <%= language === 'ar' ? 'تحليل المخاطر (12 تحليل)' : 'Risk Analysis (12 analyses)' %>
+                        </h4>
+                        <div class="text-sm text-gold/70 space-y-1">
+                            <p>• <%= language === 'ar' ? 'قيمة المخاطر (VaR)' : 'Value at Risk (VaR)' %></p>
+                            <p>• <%= language === 'ar' ? 'مخاطر الائتمان' : 'Credit Risk' %></p>
+                            <p>• <%= language === 'ar' ? 'مخاطر السوق' : 'Market Risk' %></p>
+                            <p>• <%= language === 'ar' ? 'مخاطر السيولة' : 'Liquidity Risk' %></p>
+                        </div>
+                    </div>
+
                     <!-- AI & ML Models -->
                     <div class="border border-gold/10 rounded-lg p-4">
                         <h4 class="font-semibold text-gold mb-2">
@@ -662,529 +606,47 @@
                         <div class="text-sm text-gold/70 space-y-1">
                             <p>• <%= language === 'ar' ? 'تحليل مونت كارلو' : 'Monte Carlo Analysis' %></p>
                             <p>• <%= language === 'ar' ? 'تحليل السيناريوهات المتقدم' : 'Advanced Scenario Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'النماذج التنبؤية' : 'Predictive Models' %></p>
+                            <p>• <%= language === 'ar' ? 'التحليل الكمي' : 'Quantitative Analysis' %></p>
                         </div>
                     </div>
 
                     <!-- Statistical Analysis -->
                     <div class="border border-gold/10 rounded-lg p-4">
                         <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'التحليل الإحصائي والكمي (16 تحليل)' : 'Statistical & Quantitative Analysis (16 analyses)' %>
+                            <%= language === 'ar' ? 'التحليل الإحصائي والكمي (15 تحليل)' : 'Statistical & Quantitative Analysis (15 analyses)' %>
                         </h4>
                         <div class="text-sm text-gold/70 space-y-1">
                             <p>• <%= language === 'ar' ? 'نماذج ARIMA و GARCH' : 'ARIMA & GARCH Models' %></p>
                             <p>• <%= language === 'ar' ? 'تحليل السلاسل الزمنية المتقدم' : 'Advanced Time Series Analysis' %></p>
-                        </div>
-                    </div>
-
-                    <!-- Risk Management -->
-                    <div class="border border-gold/10 rounded-lg p-4">
-                        <h4 class="font-semibold text-gold mb-2">
-                            <%= language === 'ar' ? 'تحليلات المخاطر الكمية (25 تحليل)' : 'Quantitative Risk Analysis (25 analyses)' %>
-                        </h4>
-                        <div class="text-sm text-gold/70 space-y-1">
-                            <p>• <%= language === 'ar' ? 'القيمة المعرضة للخطر VaR' : 'Value at Risk (VaR)' %></p>
-                            <p>• <%= language === 'ar' ? 'اختبارات الإجهاد' : 'Stress Testing' %></p>
+                            <p>• <%= language === 'ar' ? 'التحليل العاملي' : 'Factor Analysis' %></p>
+                            <p>• <%= language === 'ar' ? 'الانحدار المتعدد' : 'Multiple Regression' %></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- View All Analysis Types Button -->
+        <!-- View All Button -->
         <div class="text-center mt-12">
-            <button class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-400 text-black rounded-full font-bold text-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 hover-glow" onclick="showAllAnalysisTypes()">
-                <%= language === 'ar' ? 'عرض جميع أنواع التحليل' : 'View All Analysis Types' %>
+            <button onclick="showAllAnalysisTypes()" class="px-8 py-4 bg-gold text-black text-lg font-bold rounded-xl hover:bg-yellow-400 smooth-transition glow-effect">
+                <%= language === 'ar' ? 'عرض جميع الأنواع (180+)' : 'View All Types (180+)' %>
             </button>
         </div>
     </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="py-20 bg-gray-900/30">
-    <div class="container mx-auto px-4">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                <%= language === 'ar' ? 'ماذا يقول عملاؤنا' : 'What Our Clients Say' %>
-            </h2>
-        </div>
+<!-- Include Free Tools Section -->
+<%- include('../partials/free-tools-section') %>
 
-        <!-- Testimonials Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="flex mb-4">
-                    <% for(let i = 0; i < 5; i++) { %>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <% } %>
-                </div>
-                <p class="text-gold/80 mb-4 italic">
-                    "<%= language === 'ar' ?
-                    'نظام شامل ومتكامل ساعدني على أن أفهم أداء شركتي بسرعة ودقة وسهولة. إنه نظام رائع يقدم كل أنواع التحليل المالي كما يقدم مقارنات على جميع المستويات ويولد تقارير وعروض تقديمية. أنصح كل الشركات به.' :
-                    'A comprehensive and integrated system that helped me understand my company\'s performance quickly, accurately and easily. It\'s an amazing system that provides all types of financial analysis and comparisons at all levels and generates reports and presentations. I recommend it to all companies.' %>"
-                </p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mr-4">
-                        <span class="text-black font-bold">أ</span>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gold">
-                            <%= language === 'ar' ? 'أحمد السعيد' : 'Ahmed Al-Saeed' %>
-                        </p>
-                        <p class="text-sm text-gold/60">
-                            <%= language === 'ar' ? 'الرئيس التنفيذي، شركة النماء التجارية' : 'CEO, Al-Nama Trading Company' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
+<!-- Include Testimonials Section -->
+<%- include('../partials/testimonials-section') %>
 
-            <!-- Testimonial 2 -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="flex mb-4">
-                    <% for(let i = 0; i < 5; i++) { %>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <% } %>
-                </div>
-                <p class="text-gold/80 mb-4 italic">
-                    "<%= language === 'ar' ?
-                    'أنا كمدير ومحلل مالي لم أعد بحاجة لتضييع وقتي في الحسابات الطويلة بالساعات والأسابيع وصار كل عملي أسهل واجتماعاتي أكثر احترافية.' :
-                    'As a financial manager and analyst, I no longer need to waste my time on lengthy calculations for hours and weeks. All my work has become easier and my meetings more professional.' %>"
-                </p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mr-4">
-                        <span class="text-black font-bold">ف</span>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gold">
-                            <%= language === 'ar' ? 'فاطمة المحمد' : 'Fatima Al-Mohammed' %>
-                        </p>
-                        <p class="text-sm text-gold/60">
-                            <%= language === 'ar' ? 'مديرة مالية، مجموعة الخليج الاستثمارية' : 'Financial Manager, Gulf Investment Group' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
+<!-- Include Pricing Section -->
+<%- include('../partials/pricing-section') %>
 
-            <!-- Testimonial 3 -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="flex mb-4">
-                    <% for(let i = 0; i < 5; i++) { %>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <% } %>
-                </div>
-                <p class="text-gold/80 mb-4 italic">
-                    "<%= language === 'ar' ?
-                    'أنا كمستثمر صرت أستطيع اتخاذ قرارات استثمارية لحظية وتحديد أسهم الشركات التي أود أن أستثمر فيها بثقة. نشكركم على هذا النظام الذكي. نشكركم أيضا على حاسبة السعر العادل للسهم المجانية.' :
-                    'As an investor, I can now make instant investment decisions and identify company stocks I want to invest in with confidence. Thank you for this smart system. Thank you also for the free stock fair price calculator.' %>"
-                </p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mr-4">
-                        <span class="text-black font-bold">م</span>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gold">
-                            <%= language === 'ar' ? 'محمد العتيبي' : 'Mohammed Al-Otaibi' %>
-                        </p>
-                        <p class="text-sm text-gold/60">
-                            <%= language === 'ar' ? 'مستثمر' : 'Investor' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 4 -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="flex mb-4">
-                    <% for(let i = 0; i < 5; i++) { %>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <% } %>
-                </div>
-                <p class="text-gold/80 mb-4 italic">
-                    "<%= language === 'ar' ?
-                    'بحكم عملي كموظف مسؤول عن عمليات التمويل والإقراض لقد أفادني النظام لتقييم الشركات بشكل سريع ودقيق واتخاذ قرار التمويل والإقراض بسرعة وحكمة.' :
-                    'In my work as an employee responsible for financing and lending operations, the system has helped me evaluate companies quickly and accurately and make financing and lending decisions quickly and wisely.' %>"
-                </p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mr-4">
-                        <span class="text-black font-bold">س</span>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gold">
-                            <%= language === 'ar' ? 'سارة الزهراني' : 'Sarah Al-Zahrani' %>
-                        </p>
-                        <p class="text-sm text-gold/60">
-                            <%= language === 'ar' ? 'مسؤولة التمويل، البنك الأهلي السعودي' : 'Financing Officer, National Bank of Saudi Arabia' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 5 -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="flex mb-4">
-                    <% for(let i = 0; i < 5; i++) { %>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <% } %>
-                </div>
-                <p class="text-gold/80 mb-4 italic">
-                    "<%= language === 'ar' ?
-                    'منصة FinClick.AI ثورة حقيقية في عالم التحليل المالي. الدقة والسرعة والشمولية التي يوفرها النظام لا مثيل لها. أصبح بإمكاننا اتخاذ قرارات استراتيجية مدروسة في دقائق بدلاً من أسابيع.' :
-                    'FinClick.AI platform is a real revolution in the world of financial analysis. The accuracy, speed and comprehensiveness provided by the system is unparalleled. We can now make informed strategic decisions in minutes instead of weeks.' %>"
-                </p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mr-4">
-                        <span class="text-black font-bold">ع</span>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gold">
-                            <%= language === 'ar' ? 'عبدالله الرشيد' : 'Abdullah Al-Rasheed' %>
-                        </p>
-                        <p class="text-sm text-gold/60">
-                            <%= language === 'ar' ? 'مدير الاستثمار، صندوق الاستثمارات العامة' : 'Investment Manager, Public Investment Fund' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 6 -->
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="flex mb-4">
-                    <% for(let i = 0; i < 5; i++) { %>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <% } %>
-                </div>
-                <p class="text-gold/80 mb-4 italic">
-                    "<%= language === 'ar' ?
-                    'كاستشاري مالي معتمد، أستطيع القول بثقة أن FinClick.AI يوفر تحليلات مالية تنافس أفضل الخبراء العالميين. النظام لا يوفر الوقت والجهد فحسب، بل يقدم رؤى عميقة ودقيقة لا يمكن الحصول عليها بسهولة.' :
-                    'As a certified financial consultant, I can confidently say that FinClick.AI provides financial analysis that competes with the best global experts. The system not only saves time and effort, but provides deep and accurate insights that cannot be easily obtained.' %>"
-                </p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center mr-4">
-                        <span class="text-black font-bold">ن</span>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gold">
-                            <%= language === 'ar' ? 'نورا الفيصل' : 'Nora Al-Faisal' %>
-                        </p>
-                        <p class="text-sm text-gold/60">
-                            <%= language === 'ar' ? 'استشارية مالية معتمدة' : 'Certified Financial Consultant' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Pricing Section -->
-<section id="pricing" class="py-20">
-    <div class="container mx-auto px-4">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                <%= language === 'ar' ? 'الأسعار والاشتراكات' : 'Pricing & Subscriptions' %>
-            </h2>
-            <p class="text-xl text-gold/80 max-w-3xl mx-auto">
-                <%= language === 'ar' ?
-                'اختر الخطة التي تناسب احتياجاتك' :
-                'Choose the plan that suits your needs' %>
-            </p>
-        </div>
-
-        <!-- Pricing Cards -->
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Monthly Plan -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all duration-300 hover-glow">
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gold mb-4">
-                        <%= language === 'ar' ? 'خطة شهرية' : 'Monthly Plan' %>
-                    </h3>
-                    <div class="text-4xl font-bold text-gold mb-2">
-                        5,000 <%= language === 'ar' ? 'ر.س' : 'SAR' %>
-                    </div>
-                    <p class="text-gold/60 mb-8">
-                        <%= language === 'ar' ? 'شهرياً' : 'per month' %>
-                    </p>
-
-                    <div class="space-y-4 mb-8 text-left">
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? '180+ نوع تحليل مالي' : '180+ Financial Analysis Types' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'تقارير وعروض تقديمية لا محدودة' : 'Unlimited Reports & Presentations' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'مقارنات معيارية عالمية' : 'Global Benchmark Comparisons' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'دعم فني 24/7' : '24/7 Technical Support' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'رفع ملفات غير محدود' : 'Unlimited File Uploads' %>
-                            </span>
-                        </div>
-                    </div>
-
-                    <% if (user && user.subscription && user.subscription.type === 'monthly') { %>
-                    <button class="w-full py-3 bg-gray-600 text-gray-300 rounded-lg cursor-not-allowed">
-                        <%= language === 'ar' ? 'الخطة الحالية' : 'Current Plan' %>
-                    </button>
-                    <% } else { %>
-                    <a href="/subscribe/monthly" class="block w-full py-3 bg-gold text-black rounded-lg font-bold hover:bg-yellow-400 transition-colors text-center">
-                        <%= language === 'ar' ? 'اشترك شهرياً' : 'Subscribe Monthly' %>
-                    </a>
-                    <% } %>
-                </div>
-            </div>
-
-            <!-- Yearly Plan -->
-            <div class="bg-gray-900/50 p-8 rounded-2xl border-2 border-gold hover:border-yellow-400 transition-all duration-300 hover-glow relative">
-                <!-- Popular Badge -->
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span class="bg-gradient-to-r from-gold to-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold">
-                        <%= language === 'ar' ? 'الأكثر شعبية' : 'Most Popular' %>
-                    </span>
-                </div>
-
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gold mb-4">
-                        <%= language === 'ar' ? 'خطة سنوية' : 'Yearly Plan' %>
-                    </h3>
-                    <div class="text-4xl font-bold text-gold mb-2">
-                        <span class="line-through text-2xl text-gold/50">60,000</span>
-                        54,000 <%= language === 'ar' ? 'ر.س' : 'SAR' %>
-                    </div>
-                    <p class="text-gold/60 mb-2">
-                        <%= language === 'ar' ? 'سنوياً' : 'per year' %>
-                    </p>
-                    <p class="text-green-400 text-sm font-semibold mb-8">
-                        <%= language === 'ar' ? 'وفر 6,000 ريال (خصم 10%)' : 'Save 6,000 SAR (10% discount)' %>
-                    </p>
-
-                    <div class="space-y-4 mb-8 text-left">
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'جميع مميزات الخطة الشهرية' : 'All Monthly Plan Features' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'خصم 10% - وفر 6,000 ريال' : '10% Discount - Save 6,000 SAR' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'أولوية في الدعم الفني' : 'Priority Technical Support' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'وصول مبكر للمميزات الجديدة' : 'Early Access to New Features' %>
-                            </span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span class="text-gold/80">
-                                <%= language === 'ar' ? 'استشارة مجانية شهرياً' : 'Free Monthly Consultation' %>
-                            </span>
-                        </div>
-                    </div>
-
-                    <% if (user && user.subscription && user.subscription.type === 'yearly') { %>
-                    <button class="w-full py-3 bg-gray-600 text-gray-300 rounded-lg cursor-not-allowed">
-                        <%= language === 'ar' ? 'الخطة الحالية' : 'Current Plan' %>
-                    </button>
-                    <% } else { %>
-                    <a href="/subscribe/yearly" class="block w-full py-3 bg-gradient-to-r from-gold to-yellow-400 text-black rounded-lg font-bold hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 text-center pulse-gold">
-                        <%= language === 'ar' ? 'اشترك سنوياً' : 'Subscribe Yearly' %>
-                    </a>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-
-        <!-- Payment Methods -->
-        <div class="text-center mt-12">
-            <p class="text-gold/60 mb-4">
-                <%= language === 'ar' ? 'طرق الدفع المتاحة:' : 'Available Payment Methods:' %>
-            </p>
-            <div class="flex flex-wrap justify-center items-center gap-6">
-                <div class="flex items-center space-x-2">
-                    <img src="/images/payment/mada.png" alt="MADA" class="h-8">
-                    <span class="text-gold/80">MADA</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/payment/visa.png" alt="Visa" class="h-8">
-                    <span class="text-gold/80">Visa</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/payment/mastercard.png" alt="Mastercard" class="h-8">
-                    <span class="text-gold/80">Mastercard</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/payment/paypal.png" alt="PayPal" class="h-8">
-                    <span class="text-gold/80">PayPal</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/payment/apple-pay.png" alt="Apple Pay" class="h-8">
-                    <span class="text-gold/80">Apple Pay</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900/80 border-t border-gold/20 py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-            <!-- Company Info -->
-            <div class="lg:col-span-1">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center glow-effect">
-                        <span class="text-black font-bold text-xl">F</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gold">FinClick.AI</h3>
-                        <p class="text-sm text-gold/70">
-                            <%= language === 'ar' ? 'منصة التحليل المالي الذكية والثورية' : 'Revolutionary Intelligent Financial Analysis Platform' %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Information -->
-            <div>
-                <h4 class="text-lg font-semibold text-gold mb-4">
-                    <%= language === 'ar' ? 'التواصل والدعم' : 'Contact & Support' %>
-                </h4>
-                <div class="space-y-3 text-gold/80">
-                    <p>
-                        <i class="fas fa-map-marker-alt mr-2"></i>
-                        <%= language === 'ar' ? 'المملكة العربية السعودية، جدة' : 'Kingdom of Saudi Arabia, Jeddah' %>
-                    </p>
-                    <p>
-                        <i class="fas fa-envelope mr-2"></i>
-                        <a href="mailto:finclick.ai@gmail.com" class="hover:text-gold transition-colors">finclick.ai@gmail.com</a>
-                    </p>
-                    <p>
-                        <i class="fas fa-phone mr-2"></i>
-                        <a href="tel:+966544827213" class="hover:text-gold transition-colors">+966 544 827 213</a>
-                    </p>
-                    <p>
-                        <i class="fab fa-whatsapp mr-2"></i>
-                        <a href="https://wa.me/966544827213" class="hover:text-gold transition-colors">+966 544 827 213</a>
-                    </p>
-                    <p>
-                        <i class="fab fa-telegram mr-2"></i>
-                        <a href="https://t.me/+966544827213" class="hover:text-gold transition-colors">+966 544 827 213</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Legal Policies -->
-            <div>
-                <h4 class="text-lg font-semibold text-gold mb-4">
-                    <%= language === 'ar' ? 'السياسات القانونية' : 'Legal Policies' %>
-                </h4>
-                <div class="space-y-2">
-                    <a href="/privacy" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
-                    </a>
-                    <a href="/terms" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Use' %>
-                    </a>
-                    <a href="/security" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'الأمان' : 'Security' %>
-                    </a>
-                    <a href="/compliance" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'الامتثال' : 'Compliance' %>
-                    </a>
-                </div>
-            </div>
-
-            <!-- System Information -->
-            <div>
-                <h4 class="text-lg font-semibold text-gold mb-4">
-                    <%= language === 'ar' ? 'النظام' : 'System' %>
-                </h4>
-                <div class="space-y-2">
-                    <a href="#features" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'مميزات النظام' : 'System Features' %>
-                    </a>
-                    <a href="#analysis-types" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'أنواع التحليل' : 'Analysis Types' %>
-                    </a>
-                    <a href="#pricing" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'الاشتراكات والأسعار' : 'Subscriptions & Pricing' %>
-                    </a>
-                    <a href="/user-guide" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'كتيب النظام' : 'User Guide' %>
-                    </a>
-                    <a href="/faq" class="block text-gold/80 hover:text-gold transition-colors">
-                        <%= language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ' %>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Social Media & Copyright -->
-        <div class="border-t border-gold/20 mt-12 pt-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex space-x-6 mb-4 md:mb-0">
-                    <a href="#" class="text-gold/60 hover:text-gold transition-colors">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gold/60 hover:text-gold transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gold/60 hover:text-gold transition-colors">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gold/60 hover:text-gold transition-colors">
-                        <i class="fab fa-telegram text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gold/60 hover:text-gold transition-colors">
-                        <i class="fab fa-snapchat text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gold/60 hover:text-gold transition-colors">
-                        <i class="fab fa-tiktok text-xl"></i>
-                    </a>
-                </div>
-
-                <div class="text-center md:text-right">
-                    <p class="text-gold/60 mb-1">
-                        © 2025 FinClick.AI - <%= language === 'ar' ? 'جميع الحقوق محفوظة' : 'All Rights Reserved' %>
-                    </p>
-                    <p class="text-gold/60 flex items-center justify-center md:justify-end">
-                        <%= language === 'ar' ? 'صُنع بـ' : 'Made with' %>
-                        <i class="fas fa-heart text-red-400 mx-1"></i>
-                        <%= language === 'ar' ? 'في المملكة العربية السعودية' : 'in Saudi Arabia' %>
-                        🇸🇦
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<!-- Include Footer -->
+<%- include('../partials/footer') %>
 
 <style>
 @keyframes scroll {
@@ -1198,210 +660,20 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
-</style>
-
-<script>
-// Free tools functionality
-function openEconomicCalendar() {
-    const widget = document.getElementById('economic-calendar-widget');
-    widget.classList.toggle('hidden');
-
-    if (!widget.classList.contains('hidden')) {
-        // Load economic calendar data
-        loadEconomicCalendar();
+    .animate-scroll {
+        animation-duration: 30s;
     }
 }
 
-function openFairPriceCalculator() {
-    // Open fair price calculator modal
-    Swal.fire({
-        title: '<%= language === "ar" ? "حاسبة السعر العادل" : "Fair Price Calculator" %>',
-        html: `
-            <div class="space-y-4 text-left">
-                <div>
-                    <label class="block text-sm font-medium mb-2">
-                        <%= language === "ar" ? "رمز السهم أو اسم الشركة:" : "Stock Symbol or Company Name:" %>
-                    </label>
-                    <input type="text" id="stock-symbol" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="<%= language === 'ar' ? 'مثال: 2222.SR أو أرامكو' : 'e.g., 2222.SR or Aramco' %>">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">
-                        <%= language === "ar" ? "معدل النمو المتوقع (%):" : "Expected Growth Rate (%):" %>
-                    </label>
-                    <input type="number" id="growth-rate" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="15">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">
-                        <%= language === "ar" ? "معدل الخصم (%):" : "Discount Rate (%):" %>
-                    </label>
-                    <input type="number" id="discount-rate" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="10">
-                </div>
-                <div id="calculation-result" class="p-4 bg-gray-100 rounded-md hidden">
-                    <h4 class="font-bold mb-2"><%= language === "ar" ? "النتيجة:" : "Result:" %></h4>
-                    <p id="fair-price-result"></p>
-                </div>
-            </div>
-        `,
-        showCancelButton: true,
-        confirmButtonText: '<%= language === "ar" ? "احسب السعر العادل" : "Calculate Fair Price" %>',
-        cancelButtonText: '<%= language === "ar" ? "إلغاء" : "Cancel" %>',
-        confirmButtonColor: '#B48500',
-        width: '500px',
-        preConfirm: () => {
-            const symbol = document.getElementById('stock-symbol').value;
-            const growthRate = parseFloat(document.getElementById('growth-rate').value);
-            const discountRate = parseFloat(document.getElementById('discount-rate').value);
+/* Language toggle functionality */
+function toggleLanguage() {
+    const currentUrl = window.location.href;
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentLang = urlParams.get('lang') || 'en';
+    const newLang = currentLang === 'ar' ? 'en' : 'ar';
 
-            if (!symbol || !growthRate || !discountRate) {
-                Swal.showValidationMessage('<%= language === "ar" ? "يرجى ملء جميع الحقول" : "Please fill all fields" %>');
-                return false;
-            }
-
-            return { symbol, growthRate, discountRate };
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            calculateFairPrice(result.value);
-        }
-    });
-}
-
-function openMarketSentiment() {
-    // Display market sentiment
-    const sentiment = Math.random() > 0.5 ? 'bullish' : 'bearish';
-    const percentage = Math.floor(Math.random() * 40) + 30;
-
-    Swal.fire({
-        title: '<%= language === "ar" ? "مؤشر مزاج السوق" : "Market Sentiment Indicator" %>',
-        html: `
-            <div class="text-center">
-                <div class="text-6xl mb-4">
-                    ${sentiment === 'bullish' ? '📈' : '📉'}
-                </div>
-                <h3 class="text-2xl font-bold mb-2 ${sentiment === 'bullish' ? 'text-green-600' : 'text-red-600'}">
-                    ${sentiment === 'bullish' ?
-                        '<%= language === "ar" ? "صاعد" : "Bullish" %>' :
-                        '<%= language === "ar" ? "هابط" : "Bearish" %>'}
-                </h3>
-                <p class="text-lg">${percentage}%</p>
-                <p class="text-sm text-gray-600 mt-4">
-                    <%= language === "ar" ? "مبني على تحليل البيانات الحالية للسوق" : "Based on current market data analysis" %>
-                </p>
-            </div>
-        `,
-        confirmButtonText: '<%= language === "ar" ? "موافق" : "OK" %>',
-        confirmButtonColor: '#B48500'
-    });
-}
-
-function openAIBot() {
-    // Open AI Financial Bot
-    Swal.fire({
-        title: '<%= language === "ar" ? "بوت الذكاء الاصطناعي المالي" : "AI Financial Bot" %>',
-        html: `
-            <div class="text-left">
-                <div class="bg-gray-100 p-4 rounded-lg mb-4 max-h-60 overflow-y-auto" id="chat-messages">
-                    <div class="mb-2 p-2 bg-blue-100 rounded-lg">
-                        <strong>AI Bot:</strong> <%= language === "ar" ? "مرحباً! كيف يمكنني مساعدتك في التحليل المالي اليوم؟" : "Hello! How can I help you with financial analysis today?" %>
-                    </div>
-                </div>
-                <div class="flex gap-2">
-                    <input type="text" id="chat-input" class="flex-1 px-3 py-2 border border-gray-300 rounded-md" placeholder="<%= language === 'ar' ? 'اكتب سؤالك هنا...' : 'Type your question here...' %>">
-                    <button onclick="sendMessage()" class="px-4 py-2 bg-blue-600 text-white rounded-md"><%= language === "ar" ? "إرسال" : "Send" %></button>
-                </div>
-            </div>
-        `,
-        showConfirmButton: false,
-        showCloseButton: true,
-        width: '600px'
-    });
-}
-
-function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const messages = document.getElementById('chat-messages');
-    const message = input.value.trim();
-
-    if (message) {
-        // Add user message
-        const userMsg = document.createElement('div');
-        userMsg.className = 'mb-2 p-2 bg-green-100 rounded-lg text-right';
-        userMsg.innerHTML = `<strong><%= language === "ar" ? "أنت:" : "You:" %></strong> ${message}`;
-        messages.appendChild(userMsg);
-
-        // Add bot response (simulated)
-        setTimeout(() => {
-            const botMsg = document.createElement('div');
-            botMsg.className = 'mb-2 p-2 bg-blue-100 rounded-lg';
-            botMsg.innerHTML = `<strong>AI Bot:</strong> <%= language === "ar" ? "شكراً لسؤالك. هذا سؤال ممتاز حول التحليل المالي. لمزيد من التفاصيل، أنصحك بالاشتراك في منصة FinClick.AI للحصول على تحليل شامل ومفصل." : "Thank you for your question. This is an excellent question about financial analysis. For more details, I recommend subscribing to FinClick.AI platform for comprehensive and detailed analysis." %>`;
-            messages.appendChild(botMsg);
-            messages.scrollTop = messages.scrollHeight;
-        }, 1000);
-
-        input.value = '';
-        messages.scrollTop = messages.scrollHeight;
-    }
-}
-
-function calculateFairPrice(data) {
-    // Simulated fair price calculation
-    const fairPrice = Math.random() * 200 + 50;
-
-    Swal.fire({
-        title: '<%= language === "ar" ? "نتيجة السعر العادل" : "Fair Price Result" %>',
-        html: `
-            <div class="text-center">
-                <div class="text-4xl font-bold text-green-600 mb-4">
-                    ${fairPrice.toFixed(2)} SAR
-                </div>
-                <p class="mb-2"><strong><%= language === "ar" ? "الشركة:" : "Company:" %></strong> ${data.symbol}</p>
-                <p class="mb-2"><strong><%= language === "ar" ? "معدل النمو:" : "Growth Rate:" %></strong> ${data.growthRate}%</p>
-                <p class="mb-4"><strong><%= language === "ar" ? "معدل الخصم:" : "Discount Rate:" %></strong> ${data.discountRate}%</p>
-                <div class="text-sm text-gray-600">
-                    <p><%= language === "ar" ? "* هذا تقدير تقريبي للسعر العادل" : "* This is an approximate fair price estimate" %></p>
-                    <p><%= language === "ar" ? "* للحصول على تحليل مفصل ادخل لمنصة FinClick.AI" : "* For detailed analysis, visit FinClick.AI platform" %></p>
-                </div>
-            </div>
-        `,
-        confirmButtonText: '<%= language === "ar" ? "موافق" : "OK" %>',
-        confirmButtonColor: '#B48500'
-    });
-}
-
-function loadEconomicCalendar() {
-    // Load economic calendar (placeholder)
-    setTimeout(() => {
-        const widget = document.querySelector('#economic-calendar-widget .h-96');
-        widget.innerHTML = `
-            <div class="space-y-2">
-                <div class="flex justify-between p-3 bg-gray-700 rounded-lg">
-                    <span class="text-gold">GDP Growth Rate</span>
-                    <span class="text-green-400">+2.1%</span>
-                </div>
-                <div class="flex justify-between p-3 bg-gray-700 rounded-lg">
-                    <span class="text-gold">Inflation Rate</span>
-                    <span class="text-yellow-400">3.2%</span>
-                </div>
-                <div class="flex justify-between p-3 bg-gray-700 rounded-lg">
-                    <span class="text-gold">Interest Rate Decision</span>
-                    <span class="text-blue-400">5.50%</span>
-                </div>
-            </div>
-        `;
-    }, 2000);
+    urlParams.set('lang', newLang);
+    window.location.href = `${window.location.pathname}?${urlParams.toString()}`;
 }
 
 // Mobile menu toggle
@@ -1410,21 +682,138 @@ document.getElementById('mobile-menu-toggle').addEventListener('click', function
     mobileMenu.classList.toggle('hidden');
 });
 
-// Initialize stock ticker with real-time updates
-function updateStockTicker() {
-    // Simulate real-time updates
-    const tasi = document.getElementById('tasi-price');
-    const sp500 = document.getElementById('sp500-price');
-    const nasdaq = document.getElementById('nasdaq-price');
-    const dxy = document.getElementById('dxy-price');
+// Add interactive effects for better user experience
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🎉 FinClick.AI Platform Loaded Successfully!');
+    console.log('📊 180 Financial Analysis Types Ready');
+    console.log('💎 Developed by: Razan Ahmed Tawfik');
 
-    if (tasi) {
-        const change = (Math.random() - 0.5) * 50;
-        const newPrice = parseFloat(tasi.textContent.replace(',', '')) + change;
-        tasi.textContent = newPrice.toFixed(2);
+    // Add parallax effect to neural background
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.neural-bg');
+        if (parallax) {
+            parallax.style.transform = `translateY(${scrolled * 0.2}px)`;
+        }
+    });
+
+    // Add hover effects to buttons and cards
+    const interactiveElements = document.querySelectorAll('a[href], button, .hover-glow');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.transition = 'all 0.3s ease';
+        });
+
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Add click effect to hero logo and title
+    const heroLogo = document.querySelector('.w-48.h-48');
+    const heroTitle = document.querySelector('h1');
+
+    if (heroLogo) {
+        heroLogo.addEventListener('click', function() {
+            // Create sparkle effect
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.style.position = 'absolute';
+                    sparkle.style.width = '4px';
+                    sparkle.style.height = '4px';
+                    sparkle.style.backgroundColor = '#B48500';
+                    sparkle.style.borderRadius = '50%';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.zIndex = '1000';
+
+                    const rect = this.getBoundingClientRect();
+                    sparkle.style.left = (rect.left + rect.width/2) + 'px';
+                    sparkle.style.top = (rect.top + rect.height/2) + 'px';
+
+                    document.body.appendChild(sparkle);
+
+                    const angle = (i * 30) * Math.PI / 180;
+                    const distance = 100;
+
+                    sparkle.animate([
+                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                        { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, opacity: 0 }
+                    ], {
+                        duration: 800,
+                        easing: 'ease-out'
+                    }).onfinish = () => sparkle.remove();
+                }, i * 50);
+            }
+        });
     }
-}
 
-// Update ticker every 30 seconds
-setInterval(updateStockTicker, 30000);
-</script>
+    // Add click effect to hero title
+    if (heroTitle) {
+        heroTitle.addEventListener('click', function() {
+            // Create glowing text effect
+            this.style.textShadow = '0 0 20px #B48500, 0 0 40px #B48500, 0 0 60px #B48500';
+            this.style.transform = 'scale(1.05)';
+
+            // Reset effect after animation
+            setTimeout(() => {
+                this.style.textShadow = '';
+                this.style.transform = '';
+            }, 800);
+
+            // Create floating letters effect
+            const letters = this.textContent.split('');
+            const originalText = this.textContent;
+            this.innerHTML = '';
+
+            letters.forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.style.display = 'inline-block';
+                span.style.transition = 'all 0.5s ease';
+                this.appendChild(span);
+
+                setTimeout(() => {
+                    span.style.transform = `translateY(-${Math.random() * 20 + 10}px) rotate(${Math.random() * 20 - 10}deg)`;
+                    span.style.color = '#FFD700';
+                }, index * 50);
+
+                setTimeout(() => {
+                    span.style.transform = '';
+                    span.style.color = '';
+                }, 1000 + index * 50);
+            });
+
+            // Restore original text after animation
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 2000);
+        });
+
+        // Add hover effect to title
+        heroTitle.addEventListener('mouseenter', function() {
+            this.style.textShadow = '0 0 10px #B48500';
+        });
+
+        heroTitle.addEventListener('mouseleave', function() {
+            this.style.textShadow = '';
+        });
+    }
+
+    // Add smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+</style>

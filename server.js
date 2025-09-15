@@ -234,6 +234,78 @@ app.get('/security', (req, res) => {
   });
 });
 
+app.get('/terms-of-use', (req, res) => {
+  res.render('pages/terms-of-use', {
+    title: 'Terms of Use - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/security-policy', (req, res) => {
+  res.render('pages/security-policy', {
+    title: 'Security Policy - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/compliance-policy', (req, res) => {
+  res.render('pages/compliance-policy', {
+    title: 'Compliance Policy - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/ip-policy', (req, res) => {
+  res.render('pages/ip-policy', {
+    title: 'Intellectual Property Policy - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/payment-policy', (req, res) => {
+  res.render('pages/payment-policy', {
+    title: 'Payment Policy - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/company-info', (req, res) => {
+  res.render('pages/company-info', {
+    title: 'Company Information - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/user-guide', (req, res) => {
+  res.render('pages/user-guide', {
+    title: 'User Guide - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
+app.get('/other-policies', (req, res) => {
+  res.render('pages/other-policies', {
+    title: 'Other Policies - FinClick.AI',
+    user: req.user,
+    language: req.language || 'en',
+    t: req.t
+  });
+});
+
 // Error handling middleware
 app.use(errorHandler);
 

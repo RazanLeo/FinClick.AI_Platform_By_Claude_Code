@@ -1,0 +1,181 @@
+<%- include('../layouts/main') %>
+
+<div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.png" alt="FinClick.AI Logo" class="h-16 w-auto mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gold mb-4">
+                <%= language === 'ar' ? 'سياسة الأمان' : 'Security Policy' %>
+            </h1>
+            <p class="text-gold/70">
+                <%= language === 'ar' ? 'آخر تحديث: أغسطس 2025' : 'Last updated: August 2025' %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gold/20 rounded-xl p-8">
+            <div class="prose prose-gold max-w-none" dir="<%= language === 'ar' ? 'rtl' : 'ltr' %>">
+
+                <% if (language === 'ar') { %>
+                <!-- Arabic Content -->
+                <div class="space-y-8">
+                    <!-- حماية البيانات -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">حماية البيانات:</h2>
+                                <p class="text-gold/80">نستخدم بروتوكولات التشفير المتقدمة (SSL/TLS) لحماية جميع البيانات المرسلة عبر المنصة، مع تطبيق أعلى معايير الأمان الدولية.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- أمان الحسابات -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">أمان الحسابات:</h2>
+                                <p class="text-gold/80">المصادقة الثنائية إجبارية لجميع الحسابات، مع نظام كشف تسجيل دخول مشبوه وإشعارات فورية للنشاط غير المعتاد.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- النسخ الاحتياطي -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">النسخ الاحتياطي:</h2>
+                                <p class="text-gold/80">نسخ احتياطية تلقائية كل 6 ساعات مع تخزين آمن في مراكز بيانات متعددة وإمكانية استرداد فوري للبيانات.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- مراقبة الأمان -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">مراقبة الأمان:</h2>
+                                <p class="text-gold/80">نظام مراقبة 24/7 لكشف التهديدات السيبرانية والحماية من الهجمات الإلكترونية مع فريق أمان متخصص.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الامتثال -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الامتثال:</h2>
+                                <p class="text-gold/80">المنصة متوافقة مع معايير ISO 27001 ولوائح حماية البيانات السعودية والعالمية مع مراجعات أمان دورية.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- الإبلاغ عن المشاكل -->
+                    <section>
+                        <div class="flex items-start space-x-4 space-x-reverse mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">الإبلاغ عن المشاكل:</h2>
+                                <p class="text-gold/80">يمكن الإبلاغ عن أي مشاكل أمنية عبر security@finclick.ai مع ضمان الرد خلال 24 ساعة والمعالجة الفورية.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <% } else { %>
+                <!-- English Content -->
+                <div class="space-y-8">
+                    <!-- Data Protection -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Data Protection:</h2>
+                                <p class="text-gold/80">We use advanced encryption protocols (SSL/TLS) to protect all data transmitted through the platform, implementing the highest international security standards.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Account Security -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Account Security:</h2>
+                                <p class="text-gold/80">Two-factor authentication is mandatory for all accounts, with suspicious login detection system and instant notifications for unusual activity.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Backup -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Backup:</h2>
+                                <p class="text-gold/80">Automatic backups every 6 hours with secure storage in multiple data centers and instant data recovery capability.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Security Monitoring -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Security Monitoring:</h2>
+                                <p class="text-gold/80">24/7 monitoring system to detect cyber threats and protect against electronic attacks with specialized security team.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Compliance -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Compliance:</h2>
+                                <p class="text-gold/80">The platform complies with ISO 27001 standards and Saudi and international data protection regulations with periodic security reviews.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Issue Reporting -->
+                    <section>
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-gold text-black rounded-full flex items-center justify-center text-sm font-bold mt-1">Þ</div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gold mb-2">Issue Reporting:</h2>
+                                <p class="text-gold/80">Security issues can be reported via security@finclick.ai with guaranteed response within 24 hours and immediate processing.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <% } %>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gold/20">
+                <a href="/" class="flex items-center text-gold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2 <%= language === 'ar' ? 'transform rotate-180 ml-2 mr-0' : '' %>"></i>
+                    <%= language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home' %>
+                </a>
+                <div class="flex space-x-4 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <a href="/privacy" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' %>
+                    </a>
+                    <span class="text-gold/40">|</span>
+                    <a href="/terms" class="text-gold hover:text-yellow-400">
+                        <%= language === 'ar' ? 'شروط الاستخدام' : 'Terms of Use' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,253 @@
+<!-- Customer Testimonials Section - آراء العملاء -->
+<section class="py-20 bg-gradient-to-b from-black to-gray-900/50 relative">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6">
+                <%= language === 'ar' ? 'آراء العملاء' : 'Customer Testimonials' %>
+            </h2>
+            <p class="text-xl text-gold/70 max-w-3xl mx-auto">
+                <%= language === 'ar' ?
+                'اكتشف تجارب عملائنا وكيف ساعدتهم منصة FinClick.AI في تحقيق نتائج مذهلة في التحليل المالي' :
+                'Discover our customers experiences and how FinClick.AI platform helped them achieve amazing results in financial analysis'
+                %>
+            </p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Testimonial 1 - أحمد محمد -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect">
+                        <%= language === 'ar' ? 'أ.م' : 'A.M' %>
+                    </div>
+                    <div class="<%= language === 'ar' ? 'mr-4' : 'ml-4' %>">
+                        <h4 class="text-lg font-bold text-gold">
+                            <%= language === 'ar' ? 'أحمد محمد' : 'Ahmed Mohammed' %>
+                        </h4>
+                        <p class="text-gold/70 text-sm">
+                            <%= language === 'ar' ? 'مدير مالي، شركة النهضة التجارية' : 'Financial Manager, Al Nahda Trading Company' %>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-1 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    '"FinClick.AI غيّرت طريقة عملنا بالكامل. ما كان يستغرق أسابيع من التحليل المالي المعقد أصبح يتم في دقائق معدودة. النظام دقيق ومفصل ويوفر رؤى عميقة لم نكن نحصل عليها من قبل. أنصح بشدة كل المتخصصين في المجال المالي بتجربة هذه المنصة الثورية."' :
+                    '"FinClick.AI completely changed the way we work. What used to take weeks of complex financial analysis is now done in minutes. The system is accurate, detailed, and provides deep insights we never had before. I highly recommend all financial professionals to try this revolutionary platform."'
+                    %>
+                </p>
+            </div>
+
+            <!-- Testimonial 2 - فاطمة السالم -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect">
+                        <%= language === 'ar' ? 'ف.س' : 'F.S' %>
+                    </div>
+                    <div class="<%= language === 'ar' ? 'mr-4' : 'ml-4' %>">
+                        <h4 class="text-lg font-bold text-gold">
+                            <%= language === 'ar' ? 'فاطمة السالم' : 'Fatima Al-Salem' %>
+                        </h4>
+                        <p class="text-gold/70 text-sm">
+                            <%= language === 'ar' ? 'محاسبة قانونية، مكتب السالم للاستشارات المالية' : 'CPA, Al-Salem Financial Consulting' %>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-1 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    '"كوني محاسبة قانونية، أحتاج لأدوات تحليل دقيقة وموثوقة. FinClick.AI تجاوزت كل توقعاتي. النظام يغطي كل أنواع التحليل المالي التي أحتاجها، من التحليل الأساسي إلى الأكثر تعقيداً. الواجهة سهلة الاستخدام والنتائج احترافية ومفصلة. توفر علي ساعات كثيرة من العمل اليدوي."' :
+                    '"As a CPA, I need accurate and reliable analysis tools. FinClick.AI exceeded all my expectations. The system covers all types of financial analysis I need, from basic to the most complex. The interface is user-friendly and the results are professional and detailed. It saves me many hours of manual work."'
+                    %>
+                </p>
+            </div>
+
+            <!-- Testimonial 3 - خالد العتيبي -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect">
+                        <%= language === 'ar' ? 'خ.ع' : 'K.A' %>
+                    </div>
+                    <div class="<%= language === 'ar' ? 'mr-4' : 'ml-4' %>">
+                        <h4 class="text-lg font-bold text-gold">
+                            <%= language === 'ar' ? 'خالد العتيبي' : 'Khalid Al-Otaibi' %>
+                        </h4>
+                        <p class="text-gold/70 text-sm">
+                            <%= language === 'ar' ? 'مستثمر، مجموعة العتيبي الاستثمارية' : 'Investor, Al-Otaibi Investment Group' %>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-1 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    '"كمستثمر، أحتاج لاتخاذ قرارات سريعة ومدروسة. FinClick.AI تمنحني القدرة على تحليل الشركات والاستثمارات في ثوانٍ معدودة. التحاليل عميقة ودقيقة، والمقارنات مع متوسطات الصناعة مفيدة جداً. هذه المنصة أصبحت أداتي الأساسية لاتخاذ القرارات الاستثمارية."' :
+                    '"As an investor, I need to make quick and informed decisions. FinClick.AI gives me the ability to analyze companies and investments in seconds. The analyses are deep and accurate, and the comparisons with industry averages are very useful. This platform has become my main tool for making investment decisions."'
+                    %>
+                </p>
+            </div>
+
+            <!-- Testimonial 4 - سارة الحربي -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect">
+                        <%= language === 'ar' ? 'س.ح' : 'S.H' %>
+                    </div>
+                    <div class="<%= language === 'ar' ? 'mr-4' : 'ml-4' %>">
+                        <h4 class="text-lg font-bold text-gold">
+                            <%= language === 'ar' ? 'سارة الحربي' : 'Sarah Al-Harbi' %>
+                        </h4>
+                        <p class="text-gold/70 text-sm">
+                            <%= language === 'ar' ? 'محللة ائتمان، البنك الأهلي السعودي' : 'Credit Analyst, National Commercial Bank' %>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-1 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    '"في عملي كمحللة ائتمان، أحتاج لتقييم الشركات بدقة عالية قبل الموافقة على القروض. FinClick.AI جعلت هذه المهمة أسهل وأكثر دقة. النظام يوفر تحليل شامل لجميع النسب المالية ومؤشرات الأداء. التقارير المفصلة تساعدني كثيراً في تقديم التوصيات للإدارة."' :
+                    '"In my work as a credit analyst, I need to evaluate companies with high accuracy before approving loans. FinClick.AI made this task easier and more accurate. The system provides comprehensive analysis of all financial ratios and performance indicators. The detailed reports help me a lot in providing recommendations to management."'
+                    %>
+                </p>
+            </div>
+
+            <!-- Testimonial 5 - محمد القحطاني -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect">
+                        <%= language === 'ar' ? 'م.ق' : 'M.Q' %>
+                    </div>
+                    <div class="<%= language === 'ar' ? 'mr-4' : 'ml-4' %>">
+                        <h4 class="text-lg font-bold text-gold">
+                            <%= language === 'ar' ? 'محمد القحطاني' : 'Mohammed Al-Qahtani' %>
+                        </h4>
+                        <p class="text-gold/70 text-sm">
+                            <%= language === 'ar' ? 'مدير عام، شركة التطوير العقاري المتقدم' : 'General Manager, Advanced Real Estate Development Company' %>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-1 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    '"كمدير عام لشركة عقارية، أحتاج لمتابعة الأداء المالي بشكل مستمر. FinClick.AI تساعدني في فهم وضع الشركة المالي بوضوح تام. التحاليل المقارنة مع الشركات الأخرى في القطاع العقاري مفيدة جداً في اتخاذ القرارات الاستراتيجية. النظام سهل الاستخدام حتى لغير المتخصصين في المحاسبة."' :
+                    '"As a general manager of a real estate company, I need to monitor financial performance continuously. FinClick.AI helps me understand the company\'s financial position with complete clarity. The comparative analyses with other companies in the real estate sector are very useful in making strategic decisions. The system is easy to use even for non-accounting specialists."'
+                    %>
+                </p>
+            </div>
+
+            <!-- Testimonial 6 - نورا الشهري -->
+            <div class="bg-black/40 border border-gold/20 rounded-3xl p-8 hover-glow smooth-transition">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xl glow-effect">
+                        <%= language === 'ar' ? 'ن.ش' : 'N.S' %>
+                    </div>
+                    <div class="<%= language === 'ar' ? 'mr-4' : 'ml-4' %>">
+                        <h4 class="text-lg font-bold text-gold">
+                            <%= language === 'ar' ? 'نورا الشهري' : 'Nora Al-Shahri' %>
+                        </h4>
+                        <p class="text-gold/70 text-sm">
+                            <%= language === 'ar' ? 'استشارية مالية، مجموعة الشهري للاستشارات' : 'Financial Consultant, Al-Shahri Consulting Group' %>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-1 <%= language === 'ar' ? 'space-x-reverse' : '' %>">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gold/80 leading-relaxed">
+                    <%= language === 'ar' ?
+                    '"FinClick.AI أحدثت نقلة نوعية في عملي كاستشارية مالية. أستطيع الآن تقديم تحاليل مفصلة وشاملة لعملائي في وقت قياسي. النظام يغطي كل احتياجاتي من التحليل المالي، وخاصة التحاليل المقارنة والتنبؤية. عملائي معجبون جداً بجودة التقارير التي أقدمها لهم باستخدام هذه المنصة."' :
+                    '"FinClick.AI brought a qualitative leap to my work as a financial consultant. I can now provide detailed and comprehensive analyses to my clients in record time. The system covers all my financial analysis needs, especially comparative and predictive analyses. My clients are very impressed with the quality of reports I provide them using this platform."'
+                    %>
+                </p>
+            </div>
+        </div>
+
+        <!-- Statistics Row -->
+        <div class="grid md:grid-cols-4 gap-8 mb-16">
+            <div class="text-center bg-black/40 border border-gold/20 rounded-2xl p-6 hover-glow smooth-transition">
+                <div class="text-4xl font-bold text-gold mb-2">10,000+</div>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'عميل راضٍ' : 'Satisfied Clients' %>
+                </p>
+            </div>
+            <div class="text-center bg-black/40 border border-gold/20 rounded-2xl p-6 hover-glow smooth-transition">
+                <div class="text-4xl font-bold text-gold mb-2">500,000+</div>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'تحليل مكتمل' : 'Completed Analyses' %>
+                </p>
+            </div>
+            <div class="text-center bg-black/40 border border-gold/20 rounded-2xl p-6 hover-glow smooth-transition">
+                <div class="text-4xl font-bold text-gold mb-2">98%</div>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'معدل الرضا' : 'Satisfaction Rate' %>
+                </p>
+            </div>
+            <div class="text-center bg-black/40 border border-gold/20 rounded-2xl p-6 hover-glow smooth-transition">
+                <div class="text-4xl font-bold text-gold mb-2">24/7</div>
+                <p class="text-gold/70">
+                    <%= language === 'ar' ? 'دعم فني' : 'Technical Support' %>
+                </p>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+            <div class="bg-gradient-to-r from-gold/10 to-gold/5 border border-gold/20 rounded-2xl p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-gold mb-4">
+                    <%= language === 'ar' ? 'انضم إلى آلاف العملاء الراضين' : 'Join Thousands of Satisfied Clients' %>
+                </h3>
+                <p class="text-gold/80 mb-6">
+                    <%= language === 'ar' ?
+                    'ابدأ رحلتك في التحليل المالي الذكي اليوم واكتشف لماذا يثق بنا أكثر من 10,000 عميل حول العالم' :
+                    'Start your intelligent financial analysis journey today and discover why over 10,000 clients worldwide trust us'
+                    %>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/register" class="inline-flex items-center px-8 py-4 bg-gold text-black text-lg font-bold rounded-xl hover:bg-yellow-400 smooth-transition glow-effect pulse-gold">
+                        <i class="fas fa-user-plus <%= language === 'ar' ? 'ml-3' : 'mr-3' %>"></i>
+                        <%= language === 'ar' ? 'ابدأ مجاناً الآن' : 'Start Free Now' %>
+                    </a>
+                    <a href="#free-tools" class="inline-flex items-center px-8 py-4 border border-gold text-gold text-lg font-medium rounded-xl hover:bg-gold/10 smooth-transition">
+                        <i class="fas fa-tools <%= language === 'ar' ? 'ml-3' : 'mr-3' %>"></i>
+                        <%= language === 'ar' ? 'جرب الأدوات المجانية' : 'Try Free Tools' %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
