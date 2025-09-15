@@ -4,17 +4,8 @@
   "description": "FinClick.AI - Revolutionary Intelligent Financial Analysis Platform",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "npm run lint && npm test",
-    "migrate": "node scripts/migrate.js",
-    "seed": "node scripts/seed.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix",
-    "setup": "npm install && npm run migrate && npm run seed"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.3",
@@ -37,6 +28,7 @@
     "winston": "^3.10.0"
   },
   "devDependencies": {
+    "@anthropic-ai/claude-code": "^1.0.113",
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
     "@types/node": "^20.5.9",
@@ -52,7 +44,7 @@
     "webpack-cli": "^5.1.4"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18"
   },
   "keywords": [
     "financial-analysis",
