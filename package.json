@@ -4,8 +4,8 @@
   "description": "FinClick.AI - Revolutionary Intelligent Financial Analysis Platform",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js"
+    "dev": "node start.js",
+    "start": "node start.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.3",

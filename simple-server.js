@@ -299,13 +299,7 @@ app.get('/api/analysis-types', (req, res) => {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    memory: process.memoryUsage(),
-    version: '1.0.0'
-  });
+  res.json({ ok: true, ts: Date.now() });
 });
 
 // 404 handler
@@ -324,26 +318,6 @@ app.use((error, req, res, next) => {
     success: false,
     message: error.message || 'خطأ في الخادم',
     ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
-  });
-});
-
-// Start server
-app.listen(PORT, () => {
-  logger.info(`🚀 FinClick.AI Server running on port ${PORT}`);
-  logger.info(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-  logger.info(`🌐 Access: http://localhost:${PORT}`);
-  logger.info(`🔗 Dashboard: http://localhost:${PORT}/dashboard`);
-  logger.info(`👨‍💼 Admin: http://localhost:${PORT}/admin`);
-  logger.info(`👤 Guest: http://localhost:${PORT}/guest`);
-  logger.info(`🧪 API Test: http://localhost:${PORT}/api/test`);
-  logger.info(`💡 180 Financial Analysis Types Ready!`);
-});
-
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM signal received: closing HTTP server');
-  app.close(() => {
-    logger.info('HTTP server closed');
   });
 });
 
