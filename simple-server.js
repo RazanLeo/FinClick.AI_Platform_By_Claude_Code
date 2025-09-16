@@ -321,4 +321,14 @@ app.use((error, req, res, next) => {
   });
 });
 
+// Export for Vercel
 module.exports = app;
+
+// Start server if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  const PORT = process.env.PORT || 3002;
+  app.listen(PORT, () => {
+    logger.info(`🚀 FinClick.AI Server running on port ${PORT}`);
+    logger.info(`📱 Local: http://localhost:${PORT}`);
+  });
+}

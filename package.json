@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "node start.js",
-    "start": "node start.js"
+    "start": "node simple-server.js",
+    "build": "echo 'Build complete'",
+    "vercel-build": "echo 'Vercel build complete'"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.3",
@@ -44,7 +46,7 @@
     "webpack-cli": "^5.1.4"
   },
   "engines": {
-    "node": ">=18"
+    "node": "18.x"
   },
   "keywords": [
     "financial-analysis",
