@@ -5,7 +5,8 @@
       "src": "simple-server.js",
       "use": "@vercel/node",
       "config": {
-        "maxLambdaSize": "50mb"
+        "maxLambdaSize": "50mb",
+        "runtime": "nodejs18.x"
       }
     }
   ],
@@ -14,8 +15,5 @@
       "src": "/(.*)",
       "dest": "simple-server.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
