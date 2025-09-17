@@ -48,6 +48,14 @@ app.use(compression());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
+// Block access to environment files
+app.use((req, res, next) => {
+  if (req.path.match(/\.env/)) {
+    return res.status(404).send('Not Found');
+  }
+  next();
+});
+
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -67,11 +75,17 @@ app.get('/', (req, res) => {
     });
   } catch (error) {
     logger.error('Error rendering homepage:', error);
-    res.status(500).json({
-      success: false,
-      message: 'خطأ في الخادم',
-      error: 'Internal server error'
-    });
+    res.status(500).send(`
+      <html>
+        <head><title>FinClick.AI - خطأ مؤقت</title></head>
+        <body style="font-family: Arial; text-align: center; padding: 50px;">
+          <h1>🚀 FinClick.AI</h1>
+          <h2>المنصة قيد التحضير</h2>
+          <p>نعمل على إصلاح مشكلة مؤقتة. سيتم تشغيل المنصة قريباً.</p>
+          <p><strong>Error:</strong> ${error.message}</p>
+        </body>
+      </html>
+    `);
   }
 });
 
@@ -299,7 +313,37 @@ app.get('/api/analysis-types', (req, res) => {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ ok: true, ts: Date.now() });
+  res.json({
+    ok: true,
+    ts: Date.now(),
+    app: 'FinClick.AI',
+    version: '1.0.0',
+    node: process.version,
+    env: process.env.NODE_ENV || 'development'
+  });
+});
+
+// Simple test endpoint
+app.get('/test', (req, res) => {
+  res.send(`
+    <html>
+      <head>
+        <title>FinClick.AI - Test Page</title>
+        <meta charset="utf-8">
+      </head>
+      <body style="font-family: Arial; text-align: center; padding: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h1>🚀 FinClick.AI</h1>
+        <h2>منصة التحليل المالي الذكي</h2>
+        <p>الخادم يعمل بشكل صحيح!</p>
+        <p><strong>الوقت:</strong> ${new Date().toLocaleString('ar-SA')}</p>
+        <p><strong>Node.js:</strong> ${process.version}</p>
+        <p><strong>البيئة:</strong> ${process.env.NODE_ENV || 'development'}</p>
+        <hr style="margin: 30px 0;">
+        <a href="/" style="color: #fff; text-decoration: underline;">الصفحة الرئيسية</a> |
+        <a href="/health" style="color: #fff; text-decoration: underline;">فحص الحالة</a>
+      </body>
+    </html>
+  `);
 });
 
 // 404 handler
@@ -325,7 +369,7 @@ app.use((error, req, res, next) => {
 module.exports = app;
 
 // Start server if not in Vercel environment
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+if (!process.env.VERCEL) {
   const PORT = process.env.PORT || 3002;
   app.listen(PORT, () => {
     logger.info(`🚀 FinClick.AI Server running on port ${PORT}`);
