@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - FinClick.AI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .sidebar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-right: 3px solid #FFD700;
+        }
+
+        .nav-link.active {
+            background: rgba(255, 215, 0, 0.2);
+            border-right: 3px solid #FFD700;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .analysis-type {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .analysis-type:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .loading.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="fixed right-0 top-0 h-full w-64 sidebar z-50">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 space-x-reverse mb-8">
+                <div class="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chart-line text-black font-bold"></i>
+                </div>
+                <h1 class="text-xl font-bold gradient-text">FinClick.AI</h1>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="#dashboard" class="nav-link active flex items-center space-x-3 space-x-reverse p-3 rounded-lg">
+                    <i class="fas fa-tachometer-alt text-yellow-400"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="#analysis" class="nav-link flex items-center space-x-3 space-x-reverse p-3 rounded-lg">
+                    <i class="fas fa-chart-bar text-yellow-400"></i>
+                    <span>تحليل جديد</span>
+                </a>
+                <a href="#reports" class="nav-link flex items-center space-x-3 space-x-reverse p-3 rounded-lg">
+                    <i class="fas fa-file-alt text-yellow-400"></i>
+                    <span>التقارير</span>
+                </a>
+                <a href="#history" class="nav-link flex items-center space-x-3 space-x-reverse p-3 rounded-lg">
+                    <i class="fas fa-history text-yellow-400"></i>
+                    <span>السجلات</span>
+                </a>
+                <a href="#settings" class="nav-link flex items-center space-x-3 space-x-reverse p-3 rounded-lg">
+                    <i class="fas fa-cog text-yellow-400"></i>
+                    <span>الإعدادات</span>
+                </a>
+                <a href="/index.html" class="nav-link flex items-center space-x-3 space-x-reverse p-3 rounded-lg">
+                    <i class="fas fa-home text-yellow-400"></i>
+                    <span>الصفحة الرئيسية</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- User Profile -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-yellow-500/30">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-white"></i>
+                </div>
+                <div>
+                    <div class="font-semibold">مستخدم تجريبي</div>
+                    <div class="text-sm text-gray-400">حساب مميز</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="mr-64 min-h-screen">
+        <!-- Header -->
+        <header class="bg-black/30 backdrop-blur-md border-b border-yellow-500/30 p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold gradient-text">مرحباً بك في لوحة التحكم</h1>
+                    <p class="text-gray-300 mt-2">ابدأ تحليلك المالي الذكي الآن</p>
+                </div>
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="btn-primary">
+                        <i class="fas fa-plus mr-2"></i>
+                        تحليل جديد
+                    </button>
+                    <div class="relative">
+                        <i class="fas fa-bell text-yellow-400 text-xl"></i>
+                        <div class="absolute -top-2 -left-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="p-6">
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="glass-card stat-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">تحليلات مكتملة</h3>
+                            <p class="text-2xl font-bold gradient-text">147</p>
+                            <p class="text-xs text-green-400">+12% من الشهر الماضي</p>
+                        </div>
+                        <i class="fas fa-chart-line text-3xl text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card stat-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">تقارير مُولدة</h3>
+                            <p class="text-2xl font-bold gradient-text">89</p>
+                            <p class="text-xs text-green-400">+8% من الشهر الماضي</p>
+                        </div>
+                        <i class="fas fa-file-alt text-3xl text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card stat-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">معدل الدقة</h3>
+                            <p class="text-2xl font-bold gradient-text">99.2%</p>
+                            <p class="text-xs text-green-400">+0.3% تحسن</p>
+                        </div>
+                        <i class="fas fa-bullseye text-3xl text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card stat-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">وقت التحليل المتوسط</h3>
+                            <p class="text-2xl font-bold gradient-text">28s</p>
+                            <p class="text-xs text-green-400">-5s تحسن</p>
+                        </div>
+                        <i class="fas fa-stopwatch text-3xl text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Types -->
+            <div class="glass-card mb-8">
+                <h2 class="text-2xl font-bold gradient-text mb-6">أنواع التحليل المتاحة</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="analysis-type" onclick="startAnalysis('classical')">
+                        <i class="fas fa-chart-bar text-3xl text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">التحليل الكلاسيكي</h3>
+                        <p class="text-sm text-gray-400 mb-4">106 نوع تحليل أساسي</p>
+                        <div class="text-xs text-gray-500">
+                            نسب السيولة • نسب الرافعة • نسب النشاط • نسب الربحية
+                        </div>
+                    </div>
+
+                    <div class="analysis-type" onclick="startAnalysis('intermediate')">
+                        <i class="fas fa-chart-line text-3xl text-green-400 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">التحليل المتوسط</h3>
+                        <p class="text-sm text-gray-400 mb-4">21 نوع تحليل متقدم</p>
+                        <div class="text-xs text-gray-500">
+                            تحليل التدفقات النقدية • تحليل العائد • تحليل الكفاءة
+                        </div>
+                    </div>
+
+                    <div class="analysis-type" onclick="startAnalysis('advanced')">
+                        <i class="fas fa-brain text-3xl text-purple-400 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">التحليل المتقدم</h3>
+                        <p class="text-sm text-gray-400 mb-4">53 نوع تحليل ذكي</p>
+                        <div class="text-xs text-gray-500">
+                            نماذج التقييم • نماذج المخاطر • التحليل التنبؤي
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="glass-card">
+                    <h3 class="text-xl font-bold gradient-text mb-4">النشاط الأخير</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 space-x-reverse p-3 bg-black/20 rounded-lg">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <div>
+                                <p class="font-semibold">تحليل شركة الراجحي</p>
+                                <p class="text-sm text-gray-400">تم منذ 2 ساعات</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse p-3 bg-black/20 rounded-lg">
+                            <i class="fas fa-file-pdf text-red-400"></i>
+                            <div>
+                                <p class="font-semibold">تقرير PDF - Q4 2024</p>
+                                <p class="text-sm text-gray-400">تم منذ 5 ساعات</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse p-3 bg-black/20 rounded-lg">
+                            <i class="fas fa-chart-pie text-blue-400"></i>
+                            <div>
+                                <p class="font-semibold">تحليل محفظة استثمارية</p>
+                                <p class="text-sm text-gray-400">تم منذ يوم</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3 class="text-xl font-bold gradient-text mb-4">الرسم البياني التفاعلي</h3>
+                    <div class="chart-container">
+                        <div class="text-center">
+                            <i class="fas fa-chart-area text-6xl text-yellow-400 pulse mb-4"></i>
+                            <p class="text-gray-400">اختر نوع التحليل لعرض الرسم البياني</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Modal -->
+            <div id="loadingModal" class="loading fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                <div class="glass-card text-center max-w-md">
+                    <div class="pulse mb-4">
+                        <i class="fas fa-cog fa-spin text-4xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">جاري التحليل...</h3>
+                    <p class="text-gray-400 mb-4">يتم تشغيل 7 وكلاء ذكيين لتحليل بياناتك</p>
+                    <div class="bg-gray-700 rounded-full h-2 mb-2">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full" style="width: 0%; animation: progress 3s ease-in-out forwards;"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">هذا قد يستغرق حتى 30 ثانية</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 60%; }
+            100% { width: 100%; }
+        }
+    </style>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+
+        // Analysis functionality
+        function startAnalysis(type) {
+            const modal = document.getElementById('loadingModal');
+            modal.classList.add('active');
+
+            // Simulate analysis process
+            setTimeout(() => {
+                modal.classList.remove('active');
+
+                // Show success message
+                showNotification('تم التحليل بنجاح! يمكنك تحميل التقرير الآن.', 'success');
+            }, 3000);
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 left-4 z-50 p-4 rounded-lg text-white transform transition-all duration-300 translate-x-full`;
+
+            if (type === 'success') {
+                notification.classList.add('bg-green-500');
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-500');
+            } else {
+                notification.classList.add('bg-blue-500');
+            }
+
+            notification.innerHTML = `
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'times' : 'info'}-circle"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Show notification
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Hide notification
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 5000);
+        }
+
+        // Add smooth page load animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Welcome notification
+        setTimeout(() => {
+            showNotification('مرحباً بك في لوحة التحكم! ابدأ تحليلك الأول الآن.', 'info');
+        }, 1000);
+    </script>
+</body>
+</html>

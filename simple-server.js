@@ -68,21 +68,36 @@ app.set('views', path.join(__dirname, 'views'));
 // Basic routes
 app.get('/', (req, res) => {
   try {
-    res.render('pages/index', {
-      title: 'FinClick.AI - منصة التحليل المالي الذكي',
-      language: 'ar',
-      user: null
-    });
+    // Redirect to static HTML page for now
+    res.redirect('/index.html');
   } catch (error) {
-    logger.error('Error rendering homepage:', error);
+    logger.error('Error serving homepage:', error);
     res.status(500).send(`
       <html>
-        <head><title>FinClick.AI - خطأ مؤقت</title></head>
-        <body style="font-family: Arial; text-align: center; padding: 50px;">
-          <h1>🚀 FinClick.AI</h1>
-          <h2>المنصة قيد التحضير</h2>
-          <p>نعمل على إصلاح مشكلة مؤقتة. سيتم تشغيل المنصة قريباً.</p>
-          <p><strong>Error:</strong> ${error.message}</p>
+        <head>
+          <title>FinClick.AI - خطأ مؤقت</title>
+          <meta charset="UTF-8">
+          <style>
+            body { font-family: 'Arial', sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #000428 0%, #004e92 100%); color: white; min-height: 100vh; }
+            .container { max-width: 600px; margin: 0 auto; }
+            h1 { color: #FFD700; font-size: 3rem; margin-bottom: 1rem; }
+            h2 { color: #FFA500; margin-bottom: 2rem; }
+            p { font-size: 1.2rem; margin-bottom: 1rem; }
+            .error { background: rgba(255,0,0,0.1); padding: 1rem; border-radius: 10px; margin-top: 2rem; }
+            .btn { background: linear-gradient(45deg, #FFD700, #FFA500); color: black; padding: 1rem 2rem; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block; margin: 1rem; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>🚀 FinClick.AI</h1>
+            <h2>المنصة قيد التحضير</h2>
+            <p>نعمل على إصلاح مشكلة مؤقتة. سيتم تشغيل المنصة قريباً.</p>
+            <a href="/test" class="btn">صفحة الاختبار</a>
+            <a href="/health" class="btn">فحص الحالة</a>
+            <div class="error">
+              <strong>Technical Error:</strong> ${error.message}
+            </div>
+          </div>
         </body>
       </html>
     `);
@@ -91,34 +106,10 @@ app.get('/', (req, res) => {
 
 app.get('/dashboard', (req, res) => {
   try {
-    res.render('pages/dashboard', {
-      title: 'لوحة التحكم - FinClick.AI',
-      language: 'ar',
-      user: {
-        name: 'مستخدم تجريبي',
-        email: 'demo@finclick.ai',
-        subscription: 'premium'
-      },
-      t: function(key) {
-        const translations = {
-          'navigation.dashboard': 'لوحة التحكم',
-          'navigation.new_analysis': 'تحليل جديد',
-          'navigation.reports': 'التقارير',
-          'navigation.history': 'السجلات',
-          'navigation.settings': 'الإعدادات',
-          'navigation.profile': 'الملف الشخصي',
-          'dashboard.welcome': 'مرحباً',
-          'dashboard.premium_user': 'مستخدم مميز',
-          'dashboard.quick_stats': 'إحصائيات سريعة',
-          'dashboard.analyses_completed': 'تحليل مكتمل',
-          'dashboard.reports_generated': 'تقرير مُولد',
-          'dashboard.accuracy_rate': 'معدل الدقة'
-        };
-        return translations[key] || key;
-      }
-    });
+    // Redirect to static dashboard HTML page
+    res.redirect('/dashboard.html');
   } catch (error) {
-    logger.error('Error rendering dashboard:', error);
+    logger.error('Error serving dashboard:', error);
     res.status(500).json({
       success: false,
       message: 'خطأ في الخادم',
